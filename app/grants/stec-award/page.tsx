@@ -63,35 +63,44 @@ export default function StecAwardPage() {
 
       <section className="about-section">
         <div className="wrap">
-          <div className="prose">
-            <h2>Inspired by Christine.</h2>
-            <p>
-              Christine Stec was a longtime Oakdale 4th-grade teacher and Dedham
-              resident who lifted up our community. She lost a courageous battle
-              with cancer in March 2023, but she left behind a powerful legacy.
-            </p>
-            <p>
-              Over the years, Christine submitted several grant applications to
-              DEF to benefit her students — one of the many ways she set the
-              standard as an educator in Dedham. The inspiration for the
-              award&apos;s name is both Christine&apos;s extraordinary skill and
-              enthusiasm as a &ldquo;rock star&rdquo; educator and her practice
-              of celebrating her own students as rock stars.
-            </p>
-            <p>
-              Each year in her classroom, every student got to be the &ldquo;rock
-              star&rdquo; for a week — with activities that highlighted what
-              made each child thrive. Kids shared favorite activities and
-              hobbies with their classmates, caregivers were invited in to eat
-              lunch with their rock star, and classmates created a poster
-              celebrating what they appreciated about them.
-            </p>
-            <p>
-              Inspired by Christine&apos;s overflowing positive energy and
-              exemplary commitment to the students of Dedham, DEF recognizes
-              one educator each year who helps students feel like rock stars
-              every day, just as Christine did.
-            </p>
+          <div className="christine-split">
+            <div
+              className="christine-photo"
+              aria-label="Photo of Christine Stec placeholder"
+            >
+              <span>Photo coming · Christine Stec</span>
+            </div>
+            <div className="christine-prose">
+              <h2>Inspired by Christine.</h2>
+              <p>
+                Christine Stec was a longtime Oakdale 4th-grade teacher and
+                Dedham resident who lifted up our community. She lost a
+                courageous battle with cancer in March 2023, but she left
+                behind a powerful legacy.
+              </p>
+              <p>
+                Over the years, Christine submitted several grant applications
+                to DEF to benefit her students — one of the many ways she set
+                the standard as an educator in Dedham. The inspiration for the
+                award&apos;s name is both Christine&apos;s extraordinary skill
+                and enthusiasm as a &ldquo;rock star&rdquo; educator and her
+                practice of celebrating her own students as rock stars.
+              </p>
+              <p>
+                Each year in her classroom, every student got to be the
+                &ldquo;rock star&rdquo; for a week — with activities that
+                highlighted what made each child thrive. Kids shared favorite
+                activities and hobbies with their classmates, caregivers were
+                invited in to eat lunch with their rock star, and classmates
+                created a poster celebrating what they appreciated about them.
+              </p>
+              <p>
+                Inspired by Christine&apos;s overflowing positive energy and
+                exemplary commitment to the students of Dedham, DEF recognizes
+                one educator each year who helps students feel like rock stars
+                every day, just as Christine did.
+              </p>
+            </div>
           </div>
         </div>
       </section>

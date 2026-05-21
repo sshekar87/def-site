@@ -36,7 +36,7 @@ export const navLinks: NavLink[] = [
       { href: "/grants", label: "How to apply" },
       { href: "/grants/awarded", label: "Awarded grants" },
       { href: "/grants#reimbursements", label: "Get reimbursed" },
-      { href: "/grants/stec-award", label: "Stec Award" },
+      { href: "/grants/stec-award", label: "Stec Educator Award" },
     ],
   },
   { href: "/mission", label: "Mission" },

@@ -53,7 +53,7 @@ const columns: { heading: string; links: { href: string; label: string }[] }[] =
       { href: "/grants", label: "How to apply" },
       { href: "/grants/awarded", label: "Awarded grants" },
       { href: "/grants#reimbursements", label: "Get reimbursed" },
-      { href: "/grants/stec-award", label: "Stec Award" },
+      { href: "/grants/stec-award", label: "Stec Educator Award" },
     ],
   },
 ];

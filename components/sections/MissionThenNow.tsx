@@ -27,7 +27,7 @@ const eras: Record<
     headline: "A small group of Dedham parents and teachers.",
     stats: [
       { num: "1", label: "founding board, all volunteer" },
-      { num: "~$10K", label: "first-year grants awarded" },
+      { num: "$10K", label: "first-year grants awarded" },
       { num: "3", label: "grant categories from day one" },
     ],
     explainer: [
@@ -55,7 +55,9 @@ const eras: Record<
 };
 
 export function MissionThenNow() {
-  const [era, setEra] = useState<Era>("then");
+  // Default to "now" — the board sees the current scale on load and can
+  // toggle back to 1995 for the origin story.
+  const [era, setEra] = useState<Era>("now");
   const active = eras[era];
 
   return (

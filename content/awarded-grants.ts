@@ -44,7 +44,7 @@ export const categoryDisplay: Record<AwardedCategory, string> = {
   enrichment: "Enrichment",
   innovation: "Innovation",
   "nancy-bradley": "Nancy Bradley",
-  "stec-award": "Stec Award",
+  "stec-award": "Stec Educator Award",
 };
 
 // TODO: from Sukesh transcription — full list from current site + Fall 2024 screenshots
