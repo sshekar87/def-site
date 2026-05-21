@@ -70,7 +70,7 @@ export default async function OG() {
         >
           Funding the moments that{" "}
           <span style={{ color: "#9d273f", fontStyle: "italic" }}>enrich</span>{" "}
-          our students&apos; lives.
+          learning.
         </div>
         <div
           style={{
