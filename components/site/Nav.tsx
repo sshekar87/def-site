@@ -115,9 +115,6 @@ export function Nav() {
             </Link>
           ),
         )}
-        <Link href="/donate" className="mobile-menu-item mobile-menu-donate">
-          Donate
-        </Link>
       </div>
     </>
   );

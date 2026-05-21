@@ -31,7 +31,7 @@ export const events: EventInfo[] = [
     location: "Endicott Estate · 8:30 AM",
     locationLine2: "Family-friendly · Strollers welcome",
     shortPitch:
-      "Our biggest day of the year — bring the kids, bring the strollers, bring the dog. Stay for the cider donuts.",
+      "Bring the kids, bring the dog, bring the strollers. Stay for the cider donuts after.",
     longDescription: [
       "The DEF Dash is what makes the grant cycles possible. Every registration, every sponsor, every cider donut sold goes back to Dedham teachers and Dedham classrooms.",
       "It's also one of the best days on the Dedham calendar — a chance to see neighbors, teachers, board members, and current and former DPS students all in one place, all in support of the same thing.",

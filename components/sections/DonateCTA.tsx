@@ -73,8 +73,7 @@ export function DonateCTA() {
           </Link>
         </div>
         <p className="cta-note">
-          DEF is a 501(c)(3) nonprofit. Your gift is tax-deductible to the
-          fullest extent of the law.
+          DEF is a 501(c)(3) nonprofit. Your gift is tax-deductible.
         </p>
       </div>
     </section>
