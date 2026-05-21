@@ -2,6 +2,7 @@ import Link from "next/link";
 import type { Metadata } from "next";
 import { boardMembers, yearlyGranted } from "@/content/board";
 import { formatCurrency } from "@/content/grants";
+import { MissionThenNow } from "@/components/sections/MissionThenNow";
 
 export const metadata: Metadata = {
   title: "Mission",
@@ -55,7 +56,7 @@ export default function AboutPage() {
           <div className="mission-triplet">
             <article className="mission-triplet-card accent-blue">
               <div className="mission-triplet-num">01</div>
-              <h3>Raising the money.</h3>
+              <h3>Raise money.</h3>
               <p>
                 DEF is funded by Dedham, for Dedham. Events like the DEF Dash
                 5K and the Spelling Bee, plus year-round donations and Dedham
@@ -68,13 +69,21 @@ export default function AboutPage() {
             </article>
             <article className="mission-triplet-card accent-green">
               <div className="mission-triplet-num">02</div>
-              <h3>Teacher grants and recognition.</h3>
+              <h3>Grant awards.</h3>
               <p>
                 Three grant cycles a year fund the classroom ideas DPS budgets
                 can&apos;t reach — author visits, robotics kits, hydroponic
                 gardens, Shakespeare for middle schoolers, sensory tools for
-                inclusion classrooms. Teachers apply directly to us. No
-                committee in Boston, no bureaucracy.
+                inclusion classrooms. Plus our annual{" "}
+                <a
+                  href="/grants/stec-award"
+                  style={{ color: "inherit", textDecoration: "underline", textUnderlineOffset: 3 }}
+                >
+                  Christine Stec Rock Star Educator Award
+                </a>
+                , recognizing a Dedham educator who makes students feel like
+                rock stars. Teachers apply directly — no committee in Boston,
+                no bureaucracy.
               </p>
               <a href="/grants" className="mission-triplet-link">
                 See how grants work →
@@ -82,13 +91,14 @@ export default function AboutPage() {
             </article>
             <article className="mission-triplet-card accent-gold">
               <div className="mission-triplet-num">03</div>
-              <h3>Funding student enrichments and opportunities.</h3>
+              <h3>Create opportunity.</h3>
               <p>
-                Around 3,200 Dedham students reach DEF-funded programs each
-                year, K–12. Every grant we award is judged on one question:
-                what changes for a kid in a Dedham classroom because of this?
-                The moments that turn into lifelong memories — those are the
-                ones we fund.
+                Programs and experiences that don&apos;t already exist within
+                the classroom. Around 3,200 Dedham students reach DEF-funded
+                programs each year, K–12. Every grant we award is judged on
+                one question: what changes for a kid in a Dedham classroom
+                because of this? The moments that turn into lifelong memories
+                — those are the ones we fund.
               </p>
               <a href="/grants/awarded" className="mission-triplet-link">
                 See what we&apos;ve funded →
@@ -100,79 +110,23 @@ export default function AboutPage() {
 
       <section className="about-section">
         <div className="wrap">
-          <div className="prose">
-            <h2>How it started, how it&apos;s going.</h2>
-            <p>
-              In 1995, a small group of Dedham parents and teachers noticed
-              something familiar: the most memorable moments in school — a
-              touring theater company performing Shakespeare for 7th graders, a
-              working scientist visiting a 4th grade classroom, a robotics kit
-              that turned a quiet kid into the team captain — were exactly the
-              kinds of things district budgets weren&apos;t built to fund.
-            </p>
-            <p>
-              They started DEF as a way to fill that gap, fund it locally, and
-              keep it honest. Three decades and more than a million dollars in
-              grants later, we&apos;re still doing it the same way: an
-              all-volunteer board, three grant cycles a year, and every dollar
-              we raise going back into Dedham Public Schools.
-            </p>
-            <p>
-              We are not a school. We are not the PTO. We are a 501(c)(3)
-              public charity whose only job is to fund the moments that move
-              the needle for Dedham students, year after year.
-            </p>
-          </div>
-
-          <div className="then-now">
-            <article className="then-now-card then">
-              <div className="then-now-photo" aria-label="Photo of the founding board placeholder">
-                <span>Photo coming · 1995</span>
-              </div>
-              <div className="then-now-label">1995 · How it started</div>
-              <div className="then-now-headline">
-                A small group of Dedham parents and teachers.
-              </div>
-              <ul className="then-now-stats">
-                <li>
-                  <span className="then-now-stat-num">1</span>
-                  <span className="then-now-stat-label">founding board, all volunteer</span>
-                </li>
-                <li>
-                  <span className="then-now-stat-num">~$10K</span>
-                  <span className="then-now-stat-label">first-year grants awarded</span>
-                </li>
-                <li>
-                  <span className="then-now-stat-num">3</span>
-                  <span className="then-now-stat-label">grant categories from day one</span>
-                </li>
-              </ul>
-            </article>
-
-            <article className="then-now-card now">
-              <div className="then-now-photo accent" aria-label="Photo of current board placeholder">
-                <span>Photo coming · today</span>
-              </div>
-              <div className="then-now-label">Today · How it&apos;s going</div>
-              <div className="then-now-headline">
-                A 30-year community track record.
-              </div>
-              <ul className="then-now-stats">
-                <li>
-                  <span className="then-now-stat-num">~25</span>
-                  <span className="then-now-stat-label">all-volunteer board members + student board</span>
-                </li>
-                <li>
-                  <span className="then-now-stat-num">$1M+</span>
-                  <span className="then-now-stat-label">granted to Dedham Public Schools since 1995</span>
-                </li>
-                <li>
-                  <span className="then-now-stat-num">3,200</span>
-                  <span className="then-now-stat-label">students reached each year, K–12</span>
-                </li>
-              </ul>
-            </article>
-          </div>
+          <div className="section-eyebrow">Then & now</div>
+          <h2 className="section-heading">
+            How it started, <em>how it&apos;s going</em>.
+          </h2>
+          <p
+            style={{
+              marginTop: 16,
+              color: "var(--ink-soft)",
+              fontSize: 17,
+              maxWidth: 640,
+            }}
+          >
+            Thirty years of grants. Same all-volunteer model. Different scale.
+            Tap either card below to see how DEF started — and how it&apos;s
+            still going.
+          </p>
+          <MissionThenNow />
         </div>
       </section>
 

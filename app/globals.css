@@ -2320,21 +2320,36 @@ button {
   color: var(--gold);
 }
 
-/* ========== MISSION THEN-NOW ==========
-   Before/after pair on /mission — placeholder photo card + headline + stats.
+/* ========== MISSION THEN-NOW (interactive) ==========
+   Two photo-card tabs at top toggle between 1995 / today. Stats + explainer
+   below swap accordingly. Lives in components/sections/MissionThenNow.tsx.
 */
-.then-now {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 32px;
-  margin-top: 48px;
-}
-.then-now-card {
+.mission-thennow {
   display: flex;
   flex-direction: column;
-  gap: 14px;
+  gap: 40px;
+  margin-top: 40px;
 }
-.then-now-photo {
+.mission-thennow-tabs {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+}
+.mission-thennow-tab {
+  cursor: pointer;
+  border: none;
+  background: none;
+  padding: 0;
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  transition: transform 0.2s ease;
+}
+.mission-thennow-tab:hover {
+  transform: translateY(-3px);
+}
+.mission-thennow-photo {
   aspect-ratio: 4 / 3;
   border-radius: 8px;
   background: linear-gradient(135deg, var(--cream-warm) 0%, rgba(157, 39, 63, 0.18) 100%);
@@ -2345,11 +2360,16 @@ button {
   font-family: var(--serif);
   font-style: italic;
   font-size: 16px;
-  border: 1px solid var(--line);
+  border: 2px solid transparent;
   position: relative;
   overflow: hidden;
+  opacity: 0.55;
+  transition:
+    opacity 0.25s ease,
+    border-color 0.25s ease,
+    box-shadow 0.25s ease;
 }
-.then-now-photo::before {
+.mission-thennow-photo::before {
   content: "";
   position: absolute;
   inset: 0;
@@ -2358,74 +2378,152 @@ button {
     radial-gradient(circle at 80% 20%, rgba(241, 150, 30, 0.1) 0%, transparent 50%);
   pointer-events: none;
 }
-.then-now-photo.accent {
+.mission-thennow-tab.accent-gold .mission-thennow-photo {
   background: linear-gradient(135deg, var(--cream-warm) 0%, rgba(241, 150, 30, 0.28) 100%);
 }
-.then-now-photo.accent::before {
+.mission-thennow-tab.accent-gold .mission-thennow-photo::before {
   background-image:
     radial-gradient(circle at 80% 20%, rgba(241, 150, 30, 0.32) 0%, transparent 55%),
     radial-gradient(circle at 20% 80%, rgba(17, 141, 112, 0.18) 0%, transparent 55%);
 }
-.then-now-photo span {
+.mission-thennow-photo span {
   position: relative;
   z-index: 1;
 }
-.then-now-label {
+.mission-thennow-tab.active .mission-thennow-photo {
+  opacity: 1;
+  border-color: var(--crimson);
+  box-shadow: 0 24px 40px -24px rgba(26, 20, 16, 0.32);
+}
+.mission-thennow-tab.active.accent-gold .mission-thennow-photo {
+  border-color: var(--gold);
+}
+.mission-thennow-tab-foot {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 12px;
+}
+.mission-thennow-tab-label {
+  font-size: 12px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  font-weight: 700;
+  color: var(--muted);
+  transition: color 0.25s ease;
+}
+.mission-thennow-tab.active .mission-thennow-tab-label {
+  color: var(--crimson);
+}
+.mission-thennow-tab.active.accent-gold .mission-thennow-tab-label {
+  color: #b86e0d;
+}
+.mission-thennow-tab-years {
+  font-family: var(--serif);
+  font-weight: 500;
+  font-size: 22px;
+  letter-spacing: -0.02em;
+  color: var(--muted);
+  transition: color 0.25s ease;
+}
+.mission-thennow-tab.active .mission-thennow-tab-years {
+  color: var(--ink);
+}
+
+.mission-thennow-content {
+  display: grid;
+  grid-template-columns: 0.85fr 1.15fr;
+  gap: 56px;
+  align-items: start;
+  padding-top: 16px;
+  border-top: 1px solid var(--line);
+  animation: thennow-fade 0.35s ease;
+}
+@keyframes thennow-fade {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .mission-thennow-content {
+    animation: none;
+  }
+}
+.mission-thennow-stats {
+  display: flex;
+  flex-direction: column;
+}
+.mission-thennow-stat {
+  display: grid;
+  grid-template-columns: minmax(96px, auto) 1fr;
+  gap: 16px;
+  align-items: baseline;
+  padding: 14px 0;
+  border-bottom: 1px solid var(--line);
+}
+.mission-thennow-stat:first-child {
+  padding-top: 0;
+}
+.mission-thennow-stat-num {
+  font-family: var(--serif);
+  font-weight: 500;
+  font-size: 28px;
+  letter-spacing: -0.02em;
+  line-height: 1;
+  color: var(--crimson);
+}
+.mission-thennow-stat-num.accent-gold {
+  color: #b86e0d;
+}
+.mission-thennow-stat-label {
+  font-size: 14px;
+  color: var(--ink-soft);
+  line-height: 1.5;
+}
+
+.mission-thennow-eyebrow {
   font-size: 12px;
   letter-spacing: 0.14em;
   text-transform: uppercase;
   font-weight: 700;
   color: var(--crimson);
-  margin-top: 8px;
+  margin-bottom: 12px;
 }
-.then-now-card.now .then-now-label {
-  color: var(--green);
+.mission-thennow-eyebrow.accent-gold {
+  color: #b86e0d;
 }
-.then-now-headline {
+.mission-thennow-explainer h3 {
   font-family: var(--serif);
   font-weight: 500;
-  font-size: clamp(22px, 2.6vw, 28px);
+  font-size: clamp(22px, 2.6vw, 30px);
   letter-spacing: -0.015em;
-  line-height: 1.12;
+  line-height: 1.1;
   color: var(--ink);
+  margin-bottom: 16px;
 }
-.then-now-stats {
-  list-style: none;
-  margin: 8px 0 0;
-  padding: 0;
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-}
-.then-now-stats li {
-  display: grid;
-  grid-template-columns: minmax(96px, auto) 1fr;
-  gap: 16px;
-  align-items: baseline;
-  padding: 10px 0;
-  border-top: 1px solid var(--line);
-}
-.then-now-stats li:last-child {
-  border-bottom: 1px solid var(--line);
-}
-.then-now-stat-num {
-  font-family: var(--serif);
-  font-weight: 500;
-  font-size: 26px;
-  letter-spacing: -0.02em;
-  color: var(--crimson);
-  line-height: 1;
-}
-.then-now-card.now .then-now-stat-num {
-  color: var(--green);
-}
-.then-now-stat-label {
-  font-size: 14px;
+.mission-thennow-explainer p {
+  font-size: 16px;
+  line-height: 1.65;
   color: var(--ink-soft);
-  line-height: 1.5;
+  margin-bottom: 14px;
+}
+.mission-thennow-explainer p:last-child {
+  margin-bottom: 0;
+}
+
+@media (max-width: 968px) {
+  .mission-thennow-content {
+    grid-template-columns: 1fr;
+    gap: 28px;
+  }
 }
 @media (max-width: 768px) {
-  .then-now {
+  .mission-thennow-tabs {
     grid-template-columns: 1fr;
   }
 }
