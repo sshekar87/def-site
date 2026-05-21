@@ -16,10 +16,13 @@ const nextConfig: NextConfig = {
       },
 
       // About / org pages
-      { source: "/our-mission", destination: "/about", permanent: true },
+      // /about was the original route; renamed to /mission to match the nav label.
+      { source: "/about", destination: "/mission", permanent: true },
+      { source: "/about/:path*", destination: "/mission/:path*", permanent: true },
+      { source: "/our-mission", destination: "/mission", permanent: true },
       {
         source: "/board-of-directors",
-        destination: "/about#board",
+        destination: "/mission#board",
         permanent: true,
       },
       { source: "/contact-us", destination: "/contact", permanent: true },

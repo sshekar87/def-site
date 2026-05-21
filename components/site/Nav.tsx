@@ -39,11 +39,6 @@ export function Nav() {
             </div>
           </Link>
           <ul className="nav-links">
-            <li>
-              <Link href="/" className={cn(pathname === "/" && "active")}>
-                Home
-              </Link>
-            </li>
             {navLinks.map((link) => (
               <li key={link.href}>
                 <Link
@@ -74,7 +69,6 @@ export function Nav() {
         className={cn("mobile-menu", open && "open")}
         aria-hidden={!open}
       >
-        <Link href="/">Home</Link>
         {navLinks.map((link) => (
           <Link key={link.href} href={link.href}>
             {link.label}

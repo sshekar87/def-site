@@ -44,9 +44,9 @@ export function Footer() {
           <div className="footer-col">
             <h4>About</h4>
             <ul>
-              <li><Link href="/about">Our story</Link></li>
-              <li><Link href="/about#board">Board &amp; volunteers</Link></li>
-              <li><Link href="/about#reports">Annual reports</Link></li>
+              <li><Link href="/mission">Our story</Link></li>
+              <li><Link href="/mission#board">Board &amp; volunteers</Link></li>
+              <li><Link href="/mission#reports">Annual reports</Link></li>
               <li><Link href="/contact">Contact</Link></li>
             </ul>
           </div>

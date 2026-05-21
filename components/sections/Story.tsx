@@ -29,7 +29,7 @@ export function Story() {
             way: locally, transparently, with an all-volunteer board.
           </p>
           <Link
-            href="/about"
+            href="/mission"
             className="btn btn-gold"
             style={{ marginTop: 16 }}
           >

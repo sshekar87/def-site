@@ -3,7 +3,7 @@ import { siteConfig } from "@/lib/site";
 
 const ROUTES = [
   "/",
-  "/about",
+  "/mission",
   "/grants",
   "/grants/awarded",
   "/grants/reimbursements",

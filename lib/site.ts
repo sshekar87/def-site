@@ -19,9 +19,10 @@ export const siteConfig = {
   },
 };
 
+// Order matters — left-to-right in the nav.
 export const navLinks = [
-  { href: "/about", label: "About" },
+  { href: "/events/spelling-bee", label: "Spelling Bee" },
+  { href: "/events/dash", label: "DEF Dash" },
   { href: "/grants", label: "Grants" },
-  { href: "/events/dash", label: "Events" },
-  { href: "/donate", label: "Get Involved" },
+  { href: "/mission", label: "Mission" },
 ];

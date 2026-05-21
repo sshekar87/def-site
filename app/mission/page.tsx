@@ -4,9 +4,9 @@ import { boardMembers, yearlyGranted } from "@/content/board";
 import { formatCurrency } from "@/content/grants";
 
 export const metadata: Metadata = {
-  title: "About",
+  title: "Mission",
   description:
-    "Funded by Dedham, for Dedham. Meet the volunteer board and 30-year history of the Dedham Education Foundation.",
+    "Funded by Dedham, for Dedham. Mission, board, financials, and 30-year history of the Dedham Education Foundation.",
 };
 
 const AVATAR_CYCLE = ["avatar-crimson", "avatar-gold", "avatar-blue", "avatar-green"] as const;
@@ -30,7 +30,7 @@ export default function AboutPage() {
     <>
       <section className="page-hero">
         <div className="wrap">
-          <div className="section-eyebrow">About DEF</div>
+          <div className="section-eyebrow">Our mission</div>
           <h1>
             Funded by Dedham. <em>For Dedham.</em>
           </h1>
