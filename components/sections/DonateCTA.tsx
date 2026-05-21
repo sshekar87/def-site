@@ -15,10 +15,11 @@ export function DonateCTA() {
       ? "Give a custom amount today"
       : `Give $${selected} today`;
 
+  // PayPal.me uses path-style amounts: paypal.me/<handle>/<amount>
   const ctaHref =
     selected === "other"
       ? "/donate"
-      : `${siteConfig.paypalUrl}&amount=${selected}`;
+      : `${siteConfig.paypalUrl}/${selected}`;
 
   return (
     <section className="cta" id="donate">

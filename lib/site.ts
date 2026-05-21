@@ -7,7 +7,7 @@ export const siteConfig = {
   url: "https://dedhameducationfoundation.org",
   ein: "XX-XXXXXXX",
   founded: 1995,
-  paypalUrl: "https://www.paypal.com/donate/?hosted_button_id=DedhamEdFoundation",
+  paypalUrl: "https://www.paypal.com/paypalme/DedhamEdFoundation",
   emails: {
     info: "info@dedhameducationfoundation.org",
     grants: "grants@dedhameducationfoundation.org",
