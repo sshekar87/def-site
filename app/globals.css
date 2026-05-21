@@ -417,11 +417,6 @@ button {
 .mobile-menu-children a:hover {
   color: var(--crimson);
 }
-.mobile-menu-donate {
-  color: var(--crimson);
-  font-weight: 600;
-  border-bottom: none;
-}
 
 /* ========== BUTTONS ========== */
 .btn {
