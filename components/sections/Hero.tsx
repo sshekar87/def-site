@@ -1,7 +1,37 @@
+"use client";
+
 import Link from "next/link";
+import { useState } from "react";
 import { ArrowRight } from "lucide-react";
 
+// Two grant moments that toggle between the front (large crimson) and
+// middle (medium gold) tiles. Click either tile to swap which sits in front.
+const grantTiles = [
+  {
+    label: "Spring 2026 · Innovation Grant",
+    headline: "My students built a working hydroponic garden.",
+    detail: "Avery Elementary · Mr. Patel · 3rd grade",
+  },
+  {
+    label: "Fall 2024 · Awarded",
+    headline: "$44K",
+    detail: "Enrichment grants funded across all DPS schools",
+  },
+];
+
+// Fixed: small green tile showcases the current Stec Rock Star Educator.
+const stecAward = {
+  label: "2025 Stec Educator Award",
+  headline: "Elaine Sheehy",
+  detail: "Riverdale school counselor",
+};
+
 export function Hero() {
+  const [frontIdx, setFrontIdx] = useState(0);
+  const front = grantTiles[frontIdx];
+  const back = grantTiles[1 - frontIdx];
+  const swap = () => setFrontIdx((i) => (i === 0 ? 1 : 0));
+
   return (
     <section className="hero">
       <div className="wrap hero-inner">
@@ -29,43 +59,77 @@ export function Hero() {
             </Link>
           </div>
         </div>
-        <div className="hero-visual" aria-hidden="true">
-          <div className="hero-card hero-card-1">
+
+        <div className="hero-visual">
+          {/* Slot 0: large crimson tile — front-of-mind grant moment */}
+          <button
+            type="button"
+            className="hero-card hero-card-1 hero-card-button"
+            onClick={swap}
+            aria-label={`Grant moment: ${front.headline}. Click to swap with the next moment.`}
+          >
             <div className="hero-card-content">
-              <div className="hero-card-label">Spring 2026 · Innovation Grant</div>
-              <div className="hero-card-title">
-                &ldquo;My students built a working hydroponic garden.&rdquo;
-              </div>
+              <div className="hero-card-label">{front.label}</div>
+              <div className="hero-card-title">{front.headline}</div>
+              {front.detail && (
+                <div className="hero-card-detail">{front.detail}</div>
+              )}
             </div>
-          </div>
-          <div className="hero-card hero-card-2">
+          </button>
+
+          {/* Slot 1: medium gold tile — second grant moment */}
+          <button
+            type="button"
+            className="hero-card hero-card-2 hero-card-button"
+            onClick={swap}
+            aria-label={`Grant moment: ${back.headline}. Click to bring forward.`}
+          >
             <div>
-              <div className="hero-card-label" style={{ color: "var(--ink)", opacity: 0.7 }}>
-                Awarded
+              <div
+                className="hero-card-label"
+                style={{ color: "var(--ink)", opacity: 0.7 }}
+              >
+                {back.label}
               </div>
-              <div className="hero-card-big-num">$44K</div>
+              <div className="hero-card-big-num">{back.headline}</div>
             </div>
-            <div className="hero-card-small-text">
-              Fall 2024 enrichment grants funded across all DPS schools
-            </div>
-          </div>
-          <div className="hero-card hero-card-3">
+            <div className="hero-card-small-text">{back.detail}</div>
+          </button>
+
+          {/* Slot 2: small green tile — Stec Educator Award */}
+          <div
+            className="hero-card hero-card-3"
+            aria-label={`${stecAward.label}: ${stecAward.headline}`}
+          >
             <div>
-              <div className="hero-card-label">2024 Rock Star Educator</div>
-              <div className="hero-card-big-num" style={{ fontSize: 36 }}>
-                Maureen B.
+              <div className="hero-card-label">{stecAward.label}</div>
+              <div
+                className="hero-card-big-num"
+                style={{ fontSize: 28 }}
+              >
+                {stecAward.headline}
               </div>
             </div>
+            <div className="hero-card-small-text">{stecAward.detail}</div>
           </div>
-          <div className="sticker">
-            Spring
-            <br />
-            cycle
-            <br />
-            <em>NOW</em>
-            <br />
-            open
-          </div>
+
+          {/* Event shape stickers — the trademark shapes for the two events */}
+          <Link
+            href="/events/dash"
+            className="hero-sticker circle"
+            aria-label="DEF Dash 5K — October 5"
+          >
+            <span className="sticker-mark">5K</span>
+            <span className="sticker-foot">Oct 5</span>
+          </Link>
+          <Link
+            href="/events/spelling-bee"
+            className="hero-sticker hex"
+            aria-label="DEF Spelling Bee — March 12"
+          >
+            <span className="sticker-mark">Bee</span>
+            <span className="sticker-foot">Mar 12</span>
+          </Link>
         </div>
       </div>
     </section>

@@ -650,43 +650,117 @@ button {
 .hero-card-2 .hero-card-small-text {
   color: var(--ink);
 }
+.hero-card-detail {
+  margin-top: 16px;
+  font-size: 13px;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  font-weight: 600;
+  opacity: 0.85;
+}
+.hero-card-button {
+  border: none;
+  text-align: left;
+  font-family: inherit;
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.hero-card-1.hero-card-button:hover {
+  transform: rotate(-2deg) translateY(-4px) scale(1.015);
+  box-shadow: 0 28px 60px -22px rgba(26, 20, 16, 0.35);
+}
+.hero-card-2.hero-card-button:hover {
+  transform: rotate(3deg) translateY(-4px) scale(1.02);
+  box-shadow: 0 24px 50px -22px rgba(26, 20, 16, 0.32);
+}
+.hero-card-button:focus-visible {
+  outline: 3px solid var(--gold);
+  outline-offset: 4px;
+}
 
-.sticker {
+/* Event shape stickers — small floating "shape-coded" event marks.
+   Circle = DEF Dash 5K (blue). Hex = DEF Spelling Bee (gold).
+   Each clickable, links to its event page. Subtle wobble keeps them alive. */
+.hero-sticker {
   position: absolute;
-  top: -10px;
-  right: -10px;
-  background: var(--blue);
-  color: var(--cream);
-  width: 96px;
-  height: 96px;
-  border-radius: 50%;
+  width: 92px;
+  height: 92px;
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
   text-align: center;
   font-family: var(--serif);
-  font-weight: 500;
-  font-size: 13px;
-  line-height: 1.1;
-  transform: rotate(12deg);
-  z-index: 4;
-  padding: 14px;
-  animation: wobble 6s ease-in-out infinite;
+  z-index: 5;
+  padding: 12px;
+  text-decoration: none;
+  box-shadow: 0 12px 24px -10px rgba(26, 20, 16, 0.32);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
 }
-@keyframes wobble {
-  0%,
-  100% {
-    transform: rotate(12deg);
-  }
-  50% {
-    transform: rotate(8deg);
-  }
+.hero-sticker:hover {
+  transform: scale(1.08) !important;
+  box-shadow: 0 18px 30px -10px rgba(26, 20, 16, 0.4);
 }
-.sticker em {
-  font-style: normal;
-  font-size: 18px;
-  display: block;
+.hero-sticker .sticker-mark {
+  font-weight: 600;
+  font-size: 22px;
+  line-height: 1;
+  letter-spacing: -0.02em;
+}
+.hero-sticker .sticker-foot {
+  font-family: var(--sans);
+  font-weight: 600;
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  margin-top: 4px;
+  opacity: 0.85;
+}
+
+.hero-sticker.circle {
+  top: -14px;
+  right: -10px;
+  background: var(--blue);
+  color: var(--cream);
+  border-radius: 50%;
+  transform: rotate(10deg);
+  animation: wobble-circle 6s ease-in-out infinite;
+}
+.hero-sticker.circle .sticker-foot {
   color: var(--gold);
+  opacity: 1;
+}
+
+.hero-sticker.hex {
+  bottom: 6%;
+  right: -18px;
+  background: var(--gold);
+  color: var(--ink);
+  width: 96px;
+  height: 110px;
+  clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+  transform: rotate(-8deg);
+  animation: wobble-hex 7.2s ease-in-out infinite;
+  box-shadow: none;
+}
+.hero-sticker.hex .sticker-foot {
+  color: var(--crimson-deep);
+  opacity: 1;
+}
+
+@keyframes wobble-circle {
+  0%, 100% { transform: rotate(10deg); }
+  50% { transform: rotate(6deg); }
+}
+@keyframes wobble-hex {
+  0%, 100% { transform: rotate(-8deg); }
+  50% { transform: rotate(-4deg); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .hero-sticker.circle,
+  .hero-sticker.hex {
+    animation: none;
+  }
 }
 
 /* ========== IMPACT STRIP ========== */
@@ -1229,30 +1303,39 @@ button {
   z-index: 1;
 }
 .deadline-card {
-  background: rgba(250, 246, 238, 0.12);
-  backdrop-filter: blur(8px);
-  border: 1px solid rgba(250, 246, 238, 0.2);
+  background: rgba(26, 20, 16, 0.32);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(250, 246, 238, 0.28);
   padding: 24px;
-  border-radius: 4px;
+  border-radius: 6px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
 }
 .deadline-label {
-  font-size: 12px;
+  font-size: 11px;
   text-transform: uppercase;
-  letter-spacing: 0.12em;
-  opacity: 0.8;
-  margin-bottom: 8px;
+  letter-spacing: 0.14em;
+  font-weight: 700;
+  color: var(--gold);
+  margin-bottom: 4px;
 }
 .deadline-name {
   font-family: var(--serif);
   font-size: 24px;
   font-weight: 500;
-  margin-bottom: 6px;
   letter-spacing: -0.01em;
+  color: var(--cream);
 }
 .deadline-date {
   font-size: 15px;
   font-weight: 500;
   color: var(--gold);
+}
+.deadline-detail {
+  font-size: 13px;
+  line-height: 1.45;
+  color: rgba(250, 246, 238, 0.85);
 }
 
 /* ========== EVENT FEATURE ========== */
