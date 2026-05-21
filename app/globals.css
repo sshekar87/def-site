@@ -3896,4 +3896,9 @@ button {
   .filter-row { grid-template-columns: 1fr; }
   .photo-grid { grid-template-columns: 1fr; }
   .form-card { padding: 28px; }
+  .hero-visual { max-width: 460px; }
+  .hero-card-title { font-size: 24px; }
+  .hero-card-small-text { font-size: 11px; }
+  .hero-card-detail { font-size: 11px; margin-top: 12px; }
+  .hero-card-label { font-size: 10px; margin-bottom: 8px; }
 }
