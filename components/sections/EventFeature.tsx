@@ -22,7 +22,7 @@ export function EventFeature() {
           </div>
         </div>
         <div>
-          <div className="section-eyebrow">Coming up</div>
+          <div className="section-eyebrow mark-circle">Coming up</div>
           <h2 className="section-heading">
             Our biggest day of the year, <em>powered by you</em>.
           </h2>

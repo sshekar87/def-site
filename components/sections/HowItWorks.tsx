@@ -18,7 +18,7 @@ export function HowItWorks() {
     <section className="howit">
       <div className="wrap">
         <div className="section-title center">
-          <div className="section-eyebrow center">Where your donation goes</div>
+          <div className="section-eyebrow center mark-triangle">Where your donation goes</div>
           <h2 className="section-heading">
             A simple loop. <em>No bureaucracy.</em>
           </h2>

@@ -19,7 +19,7 @@ export default function AwardedGrantsPage() {
     <>
       <section className="page-hero">
         <div className="wrap">
-          <div className="section-eyebrow">Awarded grants</div>
+          <div className="section-eyebrow mark-square">Awarded grants</div>
           <h1>
             Every grant. <em>Every classroom.</em>
           </h1>

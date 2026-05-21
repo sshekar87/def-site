@@ -8,18 +8,23 @@ export const metadata: Metadata = {
     "Every dollar funds a program a Dedham student will remember. Donate to the Dedham Education Foundation.",
 };
 
+// Ordered base → apex so the pyramid renders from a broad foundation of small
+// gifts ($25) to the apex of larger ones ($500).
 const impactBands = [
   {
-    amount: "$25",
-    body: "funds classroom supplies for one Tide Pools field trip.",
+    amount: "$500",
+    body: "funds a Shakespeare performance for the entire middle school.",
+    tier: "tier-top" as const,
   },
   {
     amount: "$100",
     body: "funds one author visit for a Dedham 4th grade class.",
+    tier: "tier-mid" as const,
   },
   {
-    amount: "$500",
-    body: "funds a Shakespeare performance for the entire middle school.",
+    amount: "$25",
+    body: "funds classroom supplies for one Tide Pools field trip.",
+    tier: "tier-base" as const,
   },
 ];
 
@@ -55,7 +60,7 @@ export default function DonatePage() {
     <>
       <section className="page-hero">
         <div className="wrap">
-          <div className="section-eyebrow">Donate</div>
+          <div className="section-eyebrow mark-triangle">Donate</div>
           <h1>
             Every dollar funds <em>a program</em> a Dedham student will
             remember.
@@ -70,7 +75,7 @@ export default function DonatePage() {
 
       <section className="about-section">
         <div className="wrap">
-          <div className="section-eyebrow">Three ways to give</div>
+          <div className="section-eyebrow mark-triangle">Three ways to give</div>
           <h2 className="section-heading">Pick what works for you.</h2>
           <div className="giving-methods">
             {givingMethods.map((m) => (
@@ -108,24 +113,28 @@ export default function DonatePage() {
 
       <section className="about-section alt">
         <div className="wrap">
-          <div className="section-eyebrow">What your gift does</div>
+          <div className="section-eyebrow mark-triangle">What your gift does</div>
           <h2 className="section-heading">
             What every dollar <em>actually buys</em>.
           </h2>
-          <div className="impact-bands">
+          <div className="impact-pyramid">
             {impactBands.map((b) => (
-              <div key={b.amount} className="impact-band">
+              <div key={b.amount} className={`impact-pyramid-tier ${b.tier}`}>
                 <div className="impact-amount">{b.amount}</div>
                 <div className="impact-band-text">{b.body}</div>
               </div>
             ))}
           </div>
+          <p className="impact-pyramid-note">
+            Every gift sits in the triangle. Smaller gifts at the base, larger
+            ones at the apex — together they build the next grant cycle.
+          </p>
         </div>
       </section>
 
       <section className="about-section">
         <div className="wrap">
-          <div className="section-eyebrow">Tax info</div>
+          <div className="section-eyebrow mark-triangle">Tax info</div>
           <h2 className="section-heading">501(c)(3), Dedham-grown.</h2>
           <div className="prose" style={{ marginTop: 32, marginLeft: 0 }}>
             <p>
@@ -154,7 +163,7 @@ export default function DonatePage() {
 
       <section className="about-section alt">
         <div className="wrap">
-          <div className="section-eyebrow">Employer match</div>
+          <div className="section-eyebrow mark-triangle">Employer match</div>
           <h2 className="section-heading">Double your gift, for free.</h2>
           <p style={{ marginTop: 16, color: "var(--ink-soft)", fontSize: 17, maxWidth: 640 }}>
             Many Dedham-area employers (state agencies, big employers in 128,

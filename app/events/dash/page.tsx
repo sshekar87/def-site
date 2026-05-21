@@ -16,14 +16,14 @@ export default function DashPage() {
       <section className="event-hero">
         <div className="wrap">
           <div className="event-hero-inner">
-            <div className="event-hero-date">
+            <div className="event-hero-date circle">
               {evt.displayDate.month}
               <br />
               {evt.displayDate.day}
               <small>{evt.saveTheDateLabel}</small>
             </div>
             <div>
-              <div className="section-eyebrow" style={{ color: "var(--gold)" }}>
+              <div className="section-eyebrow mark-circle" style={{ color: "var(--gold)" }}>
                 The DEF Dash 5K · 2026
               </div>
               <h1>One morning. One Town. One million little reasons to run.</h1>
@@ -60,7 +60,7 @@ export default function DashPage() {
 
       <section className="about-section alt" id="course">
         <div className="wrap">
-          <div className="section-eyebrow">The course</div>
+          <div className="section-eyebrow mark-circle">The course</div>
           <h2 className="section-heading">A loop through Dedham&apos;s prettiest mile.</h2>
           <p style={{ color: "var(--ink-soft)", marginTop: 16, maxWidth: 640 }}>
             The course starts at the Endicott Estate, winds through residential
@@ -75,7 +75,7 @@ export default function DashPage() {
 
       <section className="about-section">
         <div className="wrap">
-          <div className="section-eyebrow">Schedule</div>
+          <div className="section-eyebrow mark-circle">Schedule</div>
           <h2 className="section-heading">Morning of the Dash.</h2>
           <div className="schedule">
             {evt.schedule?.map((row) => (
@@ -90,7 +90,7 @@ export default function DashPage() {
 
       <section className="about-section alt">
         <div className="wrap">
-          <div className="section-eyebrow">Where your registration goes</div>
+          <div className="section-eyebrow mark-circle">Where your registration goes</div>
           <h2 className="section-heading">
             Every Dash bib funds <em>a real grant</em>.
           </h2>
@@ -113,7 +113,7 @@ export default function DashPage() {
 
       <section className="about-section" id="photos">
         <div className="wrap">
-          <div className="section-eyebrow">Past Dashes</div>
+          <div className="section-eyebrow mark-circle">Past Dashes</div>
           <h2 className="section-heading">
             Photos from the last <em>three</em> Dashes.
           </h2>

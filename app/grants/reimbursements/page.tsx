@@ -39,7 +39,7 @@ export default function ReimbursementsPage() {
     <>
       <section className="page-hero">
         <div className="wrap">
-          <div className="section-eyebrow">For funded teachers</div>
+          <div className="section-eyebrow mark-square">For funded teachers</div>
           <h1>
             How to get <em>reimbursed</em>.
           </h1>
@@ -103,7 +103,7 @@ export default function ReimbursementsPage() {
 
       <section className="about-section alt">
         <div className="wrap">
-          <div className="section-eyebrow">Reimbursement FAQ</div>
+          <div className="section-eyebrow mark-square">Reimbursement FAQ</div>
           <h2 className="section-heading">Common questions.</h2>
           <div className="faq-list">
             {faqs.map((f) => (

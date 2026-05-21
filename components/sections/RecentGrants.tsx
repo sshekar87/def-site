@@ -8,7 +8,7 @@ export function RecentGrants() {
       <div className="wrap">
         <div className="grants-header">
           <div>
-            <div className="section-eyebrow">Recent grants in action</div>
+            <div className="section-eyebrow mark-square">Recent grants in action</div>
             <h2 className="section-heading">
               What your dollars <em>actually fund</em>.
             </h2>

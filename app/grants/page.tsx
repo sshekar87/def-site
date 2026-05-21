@@ -22,7 +22,7 @@ export default function GrantsPage() {
     <>
       <section className="page-hero">
         <div className="wrap">
-          <div className="section-eyebrow">{grantsHeroCopy.eyebrow}</div>
+          <div className="section-eyebrow mark-square">{grantsHeroCopy.eyebrow}</div>
           <h1>
             Have an idea? <em>We probably want to fund it.</em>
           </h1>
@@ -64,7 +64,7 @@ export default function GrantsPage() {
             </div>
           )}
 
-          <div className="section-eyebrow">Three grant types</div>
+          <div className="section-eyebrow mark-square">Three grant types</div>
           <h2 className="section-heading">
             Find the cycle that <em>fits your idea</em>.
           </h2>
@@ -101,7 +101,7 @@ export default function GrantsPage() {
 
       <section className="about-section alt">
         <div className="wrap">
-          <div className="section-eyebrow">The review process</div>
+          <div className="section-eyebrow mark-square">The review process</div>
           <h2 className="section-heading">From idea to reimbursement.</h2>
           <div className="review-timeline">
             {reviewTimeline.map((step, i) => (
@@ -117,7 +117,7 @@ export default function GrantsPage() {
 
       <section className="about-section">
         <div className="wrap">
-          <div className="section-eyebrow">Eligibility & FAQ</div>
+          <div className="section-eyebrow mark-square">Eligibility & FAQ</div>
           <h2 className="section-heading">Quick answers.</h2>
           <div className="faq-list">
             {eligibilityFaq.map((item) => (

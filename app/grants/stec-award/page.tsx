@@ -19,7 +19,7 @@ export default function StecAwardPage() {
     <>
       <section className="page-hero">
         <div className="wrap">
-          <div className="section-eyebrow">A DEF award</div>
+          <div className="section-eyebrow mark-square">A DEF award</div>
           <h1>
             The Christine Stec <em>Rock Star Educator</em> Award.
           </h1>

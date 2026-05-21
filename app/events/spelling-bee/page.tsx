@@ -34,14 +34,14 @@ export default function SpellingBeePage() {
       <section className="event-hero">
         <div className="wrap">
           <div className="event-hero-inner">
-            <div className="event-hero-date">
+            <div className="event-hero-date hex">
               {evt.displayDate.month}
               <br />
               {evt.displayDate.day}
               <small>{evt.saveTheDateLabel}</small>
             </div>
             <div>
-              <div className="section-eyebrow" style={{ color: "var(--gold)" }}>
+              <div className="section-eyebrow mark-hex" style={{ color: "var(--gold)" }}>
                 DEF Spelling Bee · 2026
               </div>
               <h1>The most fun you can have spelling &ldquo;mnemonic&rdquo;.</h1>
@@ -77,7 +77,7 @@ export default function SpellingBeePage() {
 
       <section className="about-section alt">
         <div className="wrap">
-          <div className="section-eyebrow">How it works</div>
+          <div className="section-eyebrow mark-hex">How it works</div>
           <h2 className="section-heading">
             Four things to know <em>before you team up</em>.
           </h2>
@@ -95,16 +95,14 @@ export default function SpellingBeePage() {
 
       <section className="about-section">
         <div className="wrap">
-          <div className="section-eyebrow">Star spellers</div>
+          <div className="section-eyebrow mark-hex">Star spellers</div>
           <h2 className="section-heading">Past winning teams.</h2>
-          <div className="star-spellers">
+          <div className="honeycomb">
             {evt.starSpellers?.map((s) => (
-              <div key={`${s.year}-${s.name}`} className="star-row">
-                <div className="star-year">{s.year}</div>
-                <div>
-                  <div className="star-name">{s.name}</div>
-                  {s.grade && <div className="star-grade">{s.grade}</div>}
-                </div>
+              <div key={`${s.year}-${s.name}`} className="hex-tile">
+                <div className="hex-year">{s.year}</div>
+                <div className="hex-name">{s.name}</div>
+                {s.grade && <div className="hex-grade">{s.grade}</div>}
               </div>
             ))}
           </div>

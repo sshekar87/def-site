@@ -23,7 +23,7 @@ export function DonateCTA() {
   return (
     <section className="cta" id="donate">
       <div className="wrap">
-        <div className="section-eyebrow center">Make a donation</div>
+        <div className="section-eyebrow center mark-triangle">Make a donation</div>
         <h2>
           Every dollar funds <em>a program</em> a Dedham student will remember.
         </h2>
