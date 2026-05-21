@@ -8,7 +8,7 @@ export function Hero() {
         <div>
           <div className="hero-tag">Empowering Dedham Public Schools since 1995</div>
           <h1>
-            Funding the moments that <em>change</em> Dedham students&apos; lives.
+            Funding the moments that <em>enrich</em> our students&apos; lives.
           </h1>
           <p className="hero-sub">
             For 30 years, we&apos;ve funded teacher-led programs that public

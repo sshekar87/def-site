@@ -1,7 +1,7 @@
 export const siteConfig = {
   name: "Dedham Education Foundation",
   shortName: "DEF",
-  tagline: "Funding the moments that change Dedham students' lives.",
+  tagline: "Funding the moments that enrich our students' lives.",
   description:
     "For 30 years, DEF has funded teacher-led programs that public school budgets can't reach — from author visits to robotics to live theater.",
   url: "https://dedhameducationfoundation.org",

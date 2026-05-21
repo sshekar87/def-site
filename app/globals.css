@@ -816,6 +816,167 @@ button {
   background: currentColor;
 }
 
+/* ========== RECENT GRANTS CAROUSEL ==========
+   Horizontal-scroll showcase below the hero. Each card carries richer info
+   than the prototype's grid version — full description, grade, teacher.
+*/
+.grants-carousel-wrap {
+  position: relative;
+  margin: 0 calc(-1 * (100vw - 100%) / 2);
+}
+.grants-carousel {
+  display: flex;
+  gap: 24px;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+  padding: 12px max(32px, calc((100vw - 1280px) / 2 + 32px)) 28px;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(157, 39, 63, 0.35) transparent;
+}
+.grants-carousel::-webkit-scrollbar {
+  height: 8px;
+}
+.grants-carousel::-webkit-scrollbar-track {
+  background: transparent;
+}
+.grants-carousel::-webkit-scrollbar-thumb {
+  background: rgba(157, 39, 63, 0.35);
+  border-radius: 100px;
+}
+.grants-carousel::-webkit-scrollbar-thumb:hover {
+  background: var(--crimson);
+}
+.grant-card-scroll {
+  flex: 0 0 340px;
+  scroll-snap-align: start;
+  position: relative;
+  border-radius: 8px;
+  overflow: hidden;
+  min-height: 460px;
+  display: flex;
+  flex-direction: column;
+  padding: 32px;
+  color: var(--cream);
+  background: var(--cream-warm);
+  box-shadow: 0 20px 40px -24px rgba(26, 20, 16, 0.2);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  text-decoration: none;
+}
+.grant-card-scroll:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 30px 50px -24px rgba(26, 20, 16, 0.32);
+}
+.grant-card-scroll::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image:
+    radial-gradient(circle at 30% 20%, rgba(255, 255, 255, 0.14) 0%, transparent 50%);
+  pointer-events: none;
+}
+.grant-card-scroll.cat-innovation {
+  background: linear-gradient(160deg, var(--green) 0%, #0a5544 100%);
+}
+.grant-card-scroll.cat-enrichment {
+  background: linear-gradient(160deg, var(--blue) 0%, #062a6b 100%);
+}
+.grant-card-scroll.cat-nancy-bradley {
+  background: linear-gradient(160deg, var(--gold) 0%, #b86e0d 100%);
+  color: var(--ink);
+}
+.grant-card-scroll.cat-stec-award {
+  background: linear-gradient(160deg, var(--crimson) 0%, var(--crimson-deep) 100%);
+}
+.grant-card-scroll > * {
+  position: relative;
+  z-index: 1;
+}
+.grant-card-scroll .scroll-meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  font-weight: 700;
+  margin-bottom: 24px;
+}
+.grant-card-scroll .scroll-pill {
+  padding: 4px 12px;
+  border-radius: 100px;
+  background: rgba(255, 255, 255, 0.18);
+  backdrop-filter: blur(4px);
+}
+.grant-card-scroll.cat-nancy-bradley .scroll-pill {
+  background: rgba(26, 20, 16, 0.14);
+}
+.grant-card-scroll .scroll-amount {
+  font-family: var(--serif);
+  font-size: 22px;
+  font-weight: 500;
+  letter-spacing: -0.02em;
+}
+.grant-card-scroll .scroll-title {
+  font-family: var(--serif);
+  font-weight: 500;
+  font-size: 26px;
+  line-height: 1.1;
+  letter-spacing: -0.015em;
+  margin-bottom: 16px;
+}
+.grant-card-scroll .scroll-desc {
+  font-size: 14px;
+  line-height: 1.55;
+  opacity: 0.9;
+  margin-bottom: 24px;
+}
+.grant-card-scroll .scroll-foot {
+  margin-top: auto;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  font-size: 13px;
+  opacity: 0.85;
+  border-top: 1px solid rgba(250, 246, 238, 0.2);
+  padding-top: 16px;
+}
+.grant-card-scroll.cat-nancy-bradley .scroll-foot {
+  border-top-color: rgba(26, 20, 16, 0.15);
+}
+.grant-card-scroll .scroll-foot span:not(:last-child)::after {
+  content: " ·";
+  opacity: 0.6;
+}
+.grants-scroll-hint {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  font-weight: 600;
+  color: var(--muted);
+  margin-top: 8px;
+}
+.grants-scroll-hint::before,
+.grants-scroll-hint::after {
+  content: "";
+  height: 1px;
+  flex: 0 0 32px;
+  background: var(--line);
+}
+.grants-scroll-hint::after {
+  flex: 1;
+}
+
+@media (max-width: 640px) {
+  .grant-card-scroll {
+    flex: 0 0 86vw;
+    min-height: 440px;
+  }
+}
+
 /* ========== HOW IT WORKS ========== */
 .howit {
   background: var(--cream-warm);

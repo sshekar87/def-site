@@ -1,6 +1,12 @@
 import Link from "next/link";
-import { recentGrants, grantCategoryLabel, formatCurrency } from "@/content/grants";
-import { cn } from "@/lib/cn";
+import { awardedGrants, schoolDisplay, categoryDisplay } from "@/content/awarded-grants";
+import { formatCurrency } from "@/content/grants";
+
+// Show the most recent grants in a horizontal scroll carousel. Sorted by year
+// descending, then alphabetical so the layout is stable across builds.
+const showcase = [...awardedGrants]
+  .sort((a, b) => b.year - a.year || a.title.localeCompare(b.title))
+  .slice(0, 8);
 
 export function RecentGrants() {
   return (
@@ -17,32 +23,37 @@ export function RecentGrants() {
             See all awarded grants →
           </Link>
         </div>
-        <div className="grants-grid">
-          {recentGrants.map((grant, i) => (
-            <Link
-              key={grant.id}
-              href="/grants/awarded"
-              className={cn(
-                "grant-card reveal",
-                `grant-${grant.bg}`,
-                i === 0 && "featured",
-              )}
-              aria-label={`Grant: ${grant.title}`}
-            >
-              <div className="grant-content">
-                <div className="grant-meta">
-                  <span>{grantCategoryLabel[grant.category]}</span>
-                  <span className="grant-amount">{formatCurrency(grant.amount)}</span>
-                </div>
-                <div className="grant-body">
-                  <h3 className="grant-title">{grant.title}</h3>
-                  <div className="grant-school">
-                    {grant.school} · {grant.teacher}
-                  </div>
-                </div>
+      </div>
+      <div className="grants-carousel-wrap">
+        <div
+          className="grants-carousel"
+          role="region"
+          aria-label="Recent grants — scroll to see more"
+          tabIndex={0}
+        >
+          {showcase.map((g) => (
+            <article key={g.id} className={`grant-card-scroll cat-${g.category}`}>
+              <div className="scroll-meta">
+                <span className="scroll-pill">{categoryDisplay[g.category]}</span>
+                <span className="scroll-amount">{formatCurrency(g.amount)}</span>
               </div>
-            </Link>
+              <h3 className="scroll-title">{g.title}</h3>
+              {g.description && <p className="scroll-desc">{g.description}</p>}
+              <div className="scroll-foot">
+                <span>{schoolDisplay[g.school].name}</span>
+                {g.teacher && <span>{g.teacher}</span>}
+                {g.grade && <span>{g.grade}</span>}
+                <span>
+                  {g.cycle === "spring" ? "Spring" : "Fall"} {g.year}
+                </span>
+              </div>
+            </article>
           ))}
+        </div>
+      </div>
+      <div className="wrap">
+        <div className="grants-scroll-hint" aria-hidden="true">
+          Scroll for more →
         </div>
       </div>
     </section>

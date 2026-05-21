@@ -69,8 +69,8 @@ export default async function OG() {
           }}
         >
           Funding the moments that{" "}
-          <span style={{ color: "#9d273f", fontStyle: "italic" }}>change</span>{" "}
-          Dedham students&apos; lives.
+          <span style={{ color: "#9d273f", fontStyle: "italic" }}>enrich</span>{" "}
+          our students&apos; lives.
         </div>
         <div
           style={{
