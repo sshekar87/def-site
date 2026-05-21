@@ -6,6 +6,7 @@ import { useEffect, useState } from "react";
 import { Menu, X } from "lucide-react";
 import { siteConfig, navLinks } from "@/lib/site";
 import { cn } from "@/lib/cn";
+import { DashLogo } from "@/components/brand/DashLogo";
 
 export function Nav() {
   const pathname = usePathname();
@@ -43,8 +44,14 @@ export function Nav() {
               <li key={link.href}>
                 <Link
                   href={link.href}
-                  className={cn(isActive(link.href) && "active")}
+                  className={cn(
+                    isActive(link.href) && "active",
+                    link.href === "/events/dash" && "nav-link-with-mark",
+                  )}
                 >
+                  {link.href === "/events/dash" && (
+                    <DashLogo size={20} className="nav-mark" />
+                  )}
                   {link.label}
                 </Link>
               </li>
@@ -70,7 +77,10 @@ export function Nav() {
         aria-hidden={!open}
       >
         {navLinks.map((link) => (
-          <Link key={link.href} href={link.href}>
+          <Link key={link.href} href={link.href} className="nav-link-with-mark">
+            {link.href === "/events/dash" && (
+              <DashLogo size={20} className="nav-mark" />
+            )}
             {link.label}
           </Link>
         ))}

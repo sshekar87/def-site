@@ -14,7 +14,7 @@ export function TeachersBanner() {
             <div className="teachers-eyebrow">For DPS Teachers</div>
             <h2>
               Have an idea? <br />
-              We probably want to fund it.
+              We want to fund it.
             </h2>
             <p>
               Three grant cycles a year, three categories: Enrichment, Innovation,

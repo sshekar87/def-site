@@ -24,7 +24,7 @@ export default function GrantsPage() {
         <div className="wrap">
           <div className="section-eyebrow mark-square">{grantsHeroCopy.eyebrow}</div>
           <h1>
-            Have an idea? <em>We probably want to fund it.</em>
+            Have an idea? <em>We want to fund it.</em>
           </h1>
           <p className="lede">{grantsHeroCopy.sub}</p>
         </div>

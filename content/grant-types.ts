@@ -63,7 +63,7 @@ export const grantTypes: GrantType[] = [
 
 export const grantsHeroCopy = {
   eyebrow: "Apply for a grant",
-  headline: "Have an idea? We probably want to fund it.",
+  headline: "Have an idea? We want to fund it.",
   sub: "K–12 across Dedham Public Schools — elementary, middle, and high school. Three grant categories, three cycles a year, one short application. We're a Dedham board funding Dedham teachers — no bureaucracy, no committee in Boston to wait on.",
 };
 

@@ -1,12 +1,28 @@
 import Link from "next/link";
 import { featuredHomepageEvent } from "@/content/events";
+import { DashLogo } from "@/components/brand/DashLogo";
 
 export function EventFeature() {
   const evt = featuredHomepageEvent;
+  const isDash = evt.slug === "dash";
   return (
     <section className="event" id="events">
       <div className="wrap event-inner">
         <div className="event-visual">
+          {isDash && (
+            <div
+              aria-hidden="true"
+              style={{
+                position: "absolute",
+                top: 24,
+                right: 24,
+                zIndex: 2,
+                opacity: 0.95,
+              }}
+            >
+              <DashLogo size={56} />
+            </div>
+          )}
           <div className="event-date">
             {evt.displayDate.month}
             <br />

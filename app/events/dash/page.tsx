@@ -2,6 +2,7 @@ import Link from "next/link";
 import type { Metadata } from "next";
 import { findEvent } from "@/content/events";
 import { ArrowRight } from "lucide-react";
+import { DashLogo } from "@/components/brand/DashLogo";
 
 export const metadata: Metadata = {
   title: "DEF Dash 5K",
@@ -23,7 +24,11 @@ export default function DashPage() {
               <small>{evt.saveTheDateLabel}</small>
             </div>
             <div>
-              <div className="section-eyebrow mark-circle" style={{ color: "var(--gold)" }}>
+              <DashLogo size={88} className="dash-hero-mark" />
+              <div
+                className="section-eyebrow mark-circle"
+                style={{ color: "var(--gold)", marginTop: 24 }}
+              >
                 The DEF Dash 5K · 2026
               </div>
               <h1>One morning. One Town. One million little reasons to run.</h1>

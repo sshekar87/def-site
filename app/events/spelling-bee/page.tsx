@@ -2,6 +2,7 @@ import Link from "next/link";
 import type { Metadata } from "next";
 import { findEvent } from "@/content/events";
 import { elementarySchools, dpsSchools } from "@/content/schools";
+import { HoneyBee } from "@/components/brand/HoneyBee";
 
 export const metadata: Metadata = {
   title: "DEF Spelling Bee",
@@ -33,6 +34,7 @@ export default function SpellingBeePage() {
   return (
     <>
       <section className="event-hero theme-gold">
+        <HoneyBee />
         <div className="wrap">
           <div className="event-hero-inner">
             <div className="event-hero-date hex">

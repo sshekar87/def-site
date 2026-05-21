@@ -28,7 +28,7 @@ export default function AboutPage() {
 
   return (
     <>
-      <section className="page-hero">
+      <section className="page-hero theme-crimson-deep">
         <div className="wrap">
           <div className="section-eyebrow">Our mission</div>
           <h1>
