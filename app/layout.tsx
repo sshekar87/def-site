@@ -21,24 +21,72 @@ const dmSans = DM_Sans({
   display: "swap",
 });
 
+// Resolve the canonical site URL for metadata + OG image links:
+//   1. Explicit NEXT_PUBLIC_SITE_URL wins (set this once DNS is flipped to
+//      dedhameducationfoundation.org).
+//   2. Otherwise, on Vercel use the deployment's own URL — so links shared
+//      from preview builds resolve to <branch>-def-site.vercel.app/...
+//      and the OG image previews actually load in iMessage/Slack/LinkedIn.
+//   3. Local fallback: siteConfig.url.
+const resolvedSiteUrl =
+  process.env.NEXT_PUBLIC_SITE_URL ||
+  (process.env.VERCEL_URL ? `https://${process.env.VERCEL_URL}` : siteConfig.url);
+
+const ogTitle = `${siteConfig.name} — ${siteConfig.tagline}`;
+const ogDescription =
+  "Dedham's volunteer-run education foundation. $500K+ granted to DPS teachers since 1995, K–12, across all six Dedham schools.";
+
 export const metadata: Metadata = {
-  metadataBase: new URL(siteConfig.url),
+  metadataBase: new URL(resolvedSiteUrl),
   title: {
-    default: `${siteConfig.name} — ${siteConfig.tagline}`,
+    default: ogTitle,
     template: `%s | ${siteConfig.name}`,
   },
-  description: siteConfig.description,
+  description: ogDescription,
+  applicationName: siteConfig.name,
+  keywords: [
+    "Dedham Education Foundation",
+    "Dedham Public Schools",
+    "DPS grants",
+    "DEF Dash",
+    "DEF Spelling Bee",
+    "Christine Stec Award",
+    "Massachusetts nonprofit",
+    "education grants",
+    "teacher grants",
+  ],
+  authors: [{ name: siteConfig.name, url: resolvedSiteUrl }],
   openGraph: {
     type: "website",
     siteName: siteConfig.name,
-    title: `${siteConfig.name} — ${siteConfig.tagline}`,
-    description: siteConfig.description,
-    url: siteConfig.url,
+    title: ogTitle,
+    description: ogDescription,
+    url: resolvedSiteUrl,
+    locale: "en_US",
+    images: [
+      {
+        url: "/opengraph-image",
+        width: 1200,
+        height: 630,
+        alt: ogTitle,
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
-    title: `${siteConfig.name} — ${siteConfig.tagline}`,
-    description: siteConfig.description,
+    title: ogTitle,
+    description: ogDescription,
+    images: ["/opengraph-image"],
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+    },
   },
 };
 
