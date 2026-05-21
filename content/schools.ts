@@ -1,5 +1,5 @@
 // Dedham Public Schools — the four elementary schools, plus middle and high.
-// School site URLs are placeholders; replace with real district URLs.
+// URLs point at the real DPS district domain (dedham.k12.ma.us/Domain/N).
 export type DPSSchool = {
   slug: "avery" | "greenlodge" | "oakdale" | "riverdale" | "dms" | "dhs";
   name: string;
