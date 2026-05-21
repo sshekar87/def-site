@@ -7,7 +7,6 @@ const ROUTES = [
   "/get-involved",
   "/grants",
   "/grants/awarded",
-  "/grants/reimbursements",
   "/grants/stec-award",
   "/events/dash",
   "/events/spelling-bee",

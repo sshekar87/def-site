@@ -94,6 +94,51 @@ export const eligibilityFaq = [
   },
 ];
 
+export const REIMBURSEMENT_FORM_URL =
+  "https://docs.google.com/document/d/def-reimbursement-form";
+
+export const reimbursementSteps = [
+  {
+    title: "Save every original receipt",
+    body: "Itemized only — credit card statements alone do not count. Take a photo if the paper one is fading.",
+  },
+  {
+    title: "Complete the reimbursement form",
+    body: "Fillable Google Doc — list each receipt and the grant it's tied to.",
+  },
+  {
+    title: "Submit within 30 days of program completion",
+    body: "Email the form + scanned receipts to our treasurer, or drop the original packet at the DEF mailbox at Dedham Town Hall.",
+  },
+  {
+    title: "Watch for your reimbursement check",
+    body: "Two to three weeks from a complete packet. Direct deposit available on request.",
+  },
+];
+
+export const reimbursementFaq = [
+  {
+    q: "What if I lost a receipt?",
+    a: "Email our treasurer with what you remember (vendor, date, approximate amount). Most vendors can email a duplicate; we can usually work it out as long as the gap is small.",
+  },
+  {
+    q: "Can DEF pay vendors directly?",
+    a: "Yes — for deposits or invoices that require advance payment, contact the treasurer before the program. We can issue a check directly to the vendor as long as it matches the funded budget.",
+  },
+  {
+    q: "How long does reimbursement take?",
+    a: "Two to three weeks from the date we receive a complete reimbursement packet (receipts + signed form). Direct vendor payments are faster.",
+  },
+  {
+    q: "What counts as a complete receipt?",
+    a: "Itemized receipt or invoice showing vendor name, date, and the items purchased. Credit card statements alone don't count.",
+  },
+  {
+    q: "I went over budget — what now?",
+    a: "We reimburse up to the funded amount. Anything beyond that is the teacher's or PTO's to cover. Reach out before going over budget if you think you'll need more — we can sometimes amend.",
+  },
+];
+
 export const reviewTimeline = [
   {
     title: "Apply",

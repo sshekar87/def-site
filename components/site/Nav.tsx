@@ -94,23 +94,30 @@ export function Nav() {
         className={cn("mobile-menu", open && "open")}
         aria-hidden={!open}
       >
-        {navLinks.map((link) => (
-          <div key={link.href} className="mobile-menu-group">
-            <Link href={link.href}>{link.label}</Link>
-            {link.children && (
+        {navLinks.map((link) =>
+          link.children ? (
+            <details key={link.href} className="mobile-menu-accordion">
+              <summary>
+                {link.label}
+                <ChevronDown size={16} className="mobile-menu-caret" aria-hidden="true" />
+              </summary>
               <div className="mobile-menu-children">
-                {link.children
-                  .filter((c) => c.href !== link.href)
-                  .map((child) => (
-                    <Link key={child.href} href={child.href}>
-                      {child.label}
-                    </Link>
-                  ))}
+                {link.children.map((child) => (
+                  <Link key={child.href + child.label} href={child.href}>
+                    {child.label}
+                  </Link>
+                ))}
               </div>
-            )}
-          </div>
-        ))}
-        <Link href="/donate">Donate</Link>
+            </details>
+          ) : (
+            <Link key={link.href} href={link.href} className="mobile-menu-item">
+              {link.label}
+            </Link>
+          ),
+        )}
+        <Link href="/donate" className="mobile-menu-item mobile-menu-donate">
+          Donate
+        </Link>
       </div>
     </>
   );

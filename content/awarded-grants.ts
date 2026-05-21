@@ -166,15 +166,27 @@ export const awardedGrants: AwardedGrant[] = [
     grade: "Grades 6–7",
   },
   {
+    id: "stec-2025-sheehy",
+    year: 2025,
+    cycle: "spring",
+    category: "stec-award",
+    title: "Christine Stec Rock Star Educator Award — Elaine Sheehy",
+    description:
+      "Selected from 31 nominated educators. Recognized for multicultural counseling supporting refugee students, a free soccer club run with DHS volunteers, the Girls' LEAP self-defense program, and the “Caught Following the Riverdale Core Values” initiative.",
+    amount: 500,
+    school: "riverdale",
+    teacher: "Elaine Sheehy",
+  },
+  {
     id: "stec-2024-blazejewski",
     year: 2024,
     cycle: "spring",
     category: "stec-award",
     title: "Christine Stec Rock Star Educator Award — Maureen Blazejewski",
     description:
-      "Recognized for two decades of excellence in elementary literacy instruction and unwavering advocacy for Dedham readers.",
-    amount: 1000,
-    school: "district",
+      "Selected from 27 nominated educators. Recognized for thoughtful pre-planning to support every learner — magnetic skeleton system, 3D lungs model, recorded read-alouds, and a Student of the Week tradition celebrating each child's family, culture, and interests.",
+    amount: 500,
+    school: "avery",
     teacher: "Maureen Blazejewski",
   },
 ];

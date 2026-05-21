@@ -35,7 +35,7 @@ export const navLinks: NavLink[] = [
     children: [
       { href: "/grants", label: "How to apply" },
       { href: "/grants/awarded", label: "Awarded grants" },
-      { href: "/grants/reimbursements", label: "Get reimbursed" },
+      { href: "/grants#reimbursements", label: "Get reimbursed" },
       { href: "/grants/stec-award", label: "Stec Award" },
     ],
   },

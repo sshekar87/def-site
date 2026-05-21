@@ -7,7 +7,11 @@ import {
   grantsHeroCopy,
   eligibilityFaq,
   reviewTimeline,
+  reimbursementSteps,
+  reimbursementFaq,
+  REIMBURSEMENT_FORM_URL,
 } from "@/content/grant-types";
+import { siteConfig } from "@/lib/site";
 
 export const metadata: Metadata = {
   title: "Grants for DPS Teachers",
@@ -130,7 +134,105 @@ export default function GrantsPage() {
         </div>
       </section>
 
-      <section className="about-section alt">
+      <section className="about-section alt" id="reimbursements">
+        <div className="wrap">
+          <div className="section-eyebrow mark-square">For funded teachers</div>
+          <h2 className="section-heading">
+            How to <em>get reimbursed</em>.
+          </h2>
+          <p
+            style={{
+              marginTop: 16,
+              color: "var(--ink-soft)",
+              fontSize: 17,
+              maxWidth: 640,
+            }}
+          >
+            Congratulations on your grant. Here&apos;s exactly what to do with
+            your receipts — submit within 30 days of program completion.
+          </p>
+
+          <div className="review-timeline" style={{ marginTop: 40 }}>
+            {reimbursementSteps.map((step, i) => (
+              <div key={step.title} className="review-step">
+                <div className="review-step-num">Step {i + 1}</div>
+                <div className="review-step-title">{step.title}</div>
+                <div className="review-step-body">{step.body}</div>
+              </div>
+            ))}
+          </div>
+
+          <div
+            style={{
+              marginTop: 40,
+              display: "flex",
+              gap: 12,
+              flexWrap: "wrap",
+              alignItems: "center",
+            }}
+          >
+            <Link
+              href={REIMBURSEMENT_FORM_URL}
+              className="btn btn-primary"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Open the reimbursement form →
+            </Link>
+            <a
+              href={`mailto:${siteConfig.emails.treasurer}`}
+              className="btn btn-secondary"
+            >
+              Email the treasurer
+            </a>
+          </div>
+
+          <div style={{ marginTop: 48 }}>
+            <h3
+              style={{
+                fontFamily: "var(--serif)",
+                fontWeight: 500,
+                fontSize: 24,
+                marginBottom: 16,
+                color: "var(--ink)",
+                letterSpacing: "-0.015em",
+              }}
+            >
+              If a vendor needs to be paid directly
+            </h3>
+            <p style={{ color: "var(--ink-soft)", fontSize: 16, lineHeight: 1.65, maxWidth: 640 }}>
+              Some vendors require deposits or invoiced payment before the
+              program runs. That&apos;s fine — email{" "}
+              <a
+                href={`mailto:${siteConfig.emails.treasurer}`}
+                style={{
+                  color: "var(--crimson)",
+                  textDecoration: "underline",
+                  textUnderlineOffset: 3,
+                }}
+              >
+                {siteConfig.emails.treasurer}
+              </a>{" "}
+              with the invoice and we&apos;ll cut a check directly to the
+              vendor, as long as the amount fits your funded budget.
+            </p>
+          </div>
+
+          <div style={{ marginTop: 48 }}>
+            <div className="section-eyebrow mark-square">Reimbursement FAQ</div>
+            <div className="faq-list" style={{ marginTop: 24 }}>
+              {reimbursementFaq.map((item) => (
+                <details key={item.q} className="faq-item">
+                  <summary>{item.q}</summary>
+                  <div className="faq-answer">{item.a}</div>
+                </details>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="about-section">
         <div className="wrap" style={{ textAlign: "center", maxWidth: 720, margin: "0 auto" }}>
           <h2 className="section-heading">Ready to apply?</h2>
           <p style={{ color: "var(--ink-soft)", fontSize: 17, marginTop: 16 }}>
@@ -140,11 +242,11 @@ export default function GrantsPage() {
                 <strong>{formatCycleDate(open.closesOn)}</strong>.
               </>
             ) : (
-              "No cycles are currently open. The next cycle opens in fall — sign up for updates below."
+              "No cycles are currently open. The next cycle opens in fall."
             )}
           </p>
-          <div style={{ marginTop: 32, display: "flex", gap: 12, justifyContent: "center", flexWrap: "wrap" }}>
-            {open && (
+          {open && (
+            <div style={{ marginTop: 32 }}>
               <Link
                 href={open.applicationUrl}
                 className="btn btn-primary"
@@ -153,11 +255,8 @@ export default function GrantsPage() {
               >
                 Start your application →
               </Link>
-            )}
-            <Link href="/grants/reimbursements" className="btn btn-secondary">
-              I&apos;m already funded — how do I get reimbursed?
-            </Link>
-          </div>
+            </div>
+          )}
         </div>
       </section>
     </>

@@ -29,9 +29,15 @@ const nextConfig: NextConfig = {
 
       // Grants
       { source: "/grantsoverview", destination: "/grants", permanent: true },
+      // Reimbursements were merged into /grants as an anchored section.
+      {
+        source: "/grants/reimbursements",
+        destination: "/grants#reimbursements",
+        permanent: true,
+      },
       {
         source: "/grantreimbursements",
-        destination: "/grants/reimbursements",
+        destination: "/grants#reimbursements",
         permanent: true,
       },
       {
