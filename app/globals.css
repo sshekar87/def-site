@@ -151,6 +151,10 @@ button {
   font-size: 11px;
   letter-spacing: 0.04em;
   text-transform: uppercase;
+  transition: opacity 0.15s;
+}
+.topbar-pill:hover {
+  opacity: 0.85;
 }
 .topbar-right {
   display: flex;

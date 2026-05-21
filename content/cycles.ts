@@ -60,8 +60,8 @@ export const cycles: Cycle[] = [
 export const currentCycle = cycles.find((c) => c.status === "open") ?? cycles[0];
 
 export const currentCycleStatus = {
-  pillLabel: `${currentCycle.season === "spring" ? "Spring" : "Fall"} Cycle`,
-  message: `${currentCycle.name} applications open through ${formatCycleDate(
+  pillLabel: "Apply",
+  message: `Grant applications open through ${formatCycleDateShort(
     currentCycle.closesOn,
   )}`,
 };
@@ -73,4 +73,13 @@ export function formatCycleDate(iso: string): string {
     day: "numeric",
     year: "numeric",
   });
+}
+
+export function formatCycleDateShort(iso: string): string {
+  const d = new Date(iso + "T12:00:00");
+  const month = d.toLocaleDateString("en-US", { month: "long" });
+  const day = d.getDate();
+  const suffix = ["th", "st", "nd", "rd"];
+  const v = day % 100;
+  return `${month} ${day}${suffix[(v - 20) % 10] ?? suffix[v] ?? suffix[0]}`;
 }
