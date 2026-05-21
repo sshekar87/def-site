@@ -160,8 +160,7 @@ export default function DonatePage() {
           <div className="prose" style={{ marginTop: 32, marginLeft: 0 }}>
             <p>
               The Dedham Education Foundation is a 501(c)(3) public charity
-              registered in Massachusetts. Your donation is tax-deductible to
-              the fullest extent of the law.
+              registered in Massachusetts. Your donation is tax-deductible.
             </p>
             <p>
               <strong>Legal name:</strong> Dedham Education Foundation, Inc.
