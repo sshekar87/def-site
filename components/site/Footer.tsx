@@ -28,49 +28,88 @@ function MailIcon() {
   );
 }
 
+const columns: { heading: string; links: { href: string; label: string }[] }[] = [
+  {
+    heading: "About",
+    links: [
+      { href: "/mission", label: "Our mission" },
+      { href: "/mission#board", label: "Board & volunteers" },
+      { href: "/mission#reports", label: "Annual reports" },
+      { href: "/get-involved", label: "Get involved" },
+      { href: "/contact", label: "Contact" },
+    ],
+  },
+  {
+    heading: "Events",
+    links: [
+      { href: "/events/dash", label: "DEF Dash 5K" },
+      { href: "/events/spelling-bee", label: "DEF Spelling Bee" },
+      { href: "/contact?inquiry=sponsor-2026", label: "Sponsor an event" },
+    ],
+  },
+  {
+    heading: "Grants",
+    links: [
+      { href: "/grants", label: "How to apply" },
+      { href: "/grants/awarded", label: "Awarded grants" },
+      { href: "/grants/reimbursements", label: "Get reimbursed" },
+      { href: "/grants/stec-award", label: "Stec Award" },
+    ],
+  },
+];
+
 export function Footer() {
   return (
     <footer className="site-footer">
       <div className="wrap">
         <div className="footer-grid">
-          <div className="footer-brand">
-            <h3>{siteConfig.name}</h3>
-            <p>
-              Dedicated to supporting, enhancing, and enriching the Dedham Public
-              Schools since {siteConfig.founded}.
-            </p>
-            <div className="ein">EIN: {siteConfig.ein} · 501(c)(3)</div>
-          </div>
-          <div className="footer-col">
-            <h4>About</h4>
-            <ul>
-              <li><Link href="/mission">Our story</Link></li>
-              <li><Link href="/mission#board">Board &amp; volunteers</Link></li>
-              <li><Link href="/mission#reports">Annual reports</Link></li>
-              <li><Link href="/contact">Contact</Link></li>
-            </ul>
-          </div>
-          <div className="footer-col">
-            <h4>Grants</h4>
-            <ul>
-              <li><Link href="/grants">Apply for a grant</Link></li>
-              <li><Link href="/grants/awarded">Awarded grants</Link></li>
-              <li><Link href="/grants/reimbursements">Reimbursements</Link></li>
-              <li><Link href="/grants/stec-award">Stec Award</Link></li>
-            </ul>
-          </div>
-          <div className="footer-col">
-            <h4>Get involved</h4>
-            <ul>
-              <li><Link href="/donate">Donate</Link></li>
-              <li><Link href="/events/dash">DEF Dash</Link></li>
-              <li><Link href="/events/spelling-bee">Spelling Bee</Link></li>
-              <li><Link href="/contact">Volunteer</Link></li>
-            </ul>
-          </div>
+          {columns.map((col) => (
+            <div key={col.heading} className="footer-col">
+              <h4>{col.heading}</h4>
+              <ul>
+                {col.links.map((link) => (
+                  <li key={link.href}>
+                    <Link href={link.href}>{link.label}</Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ))}
+          <Link
+            href="/donate"
+            className="footer-donate-card"
+            aria-label="Donate to the Dedham Education Foundation"
+          >
+            <span className="footer-donate-eyebrow">Make a gift</span>
+            <span className="footer-donate-title">Donate</span>
+            <span className="footer-donate-sub">
+              Every dollar funds the next grant cycle. No overhead — we&apos;re
+              all-volunteer.
+            </span>
+            <span className="footer-donate-arrow">
+              Give now <span aria-hidden="true">→</span>
+            </span>
+          </Link>
         </div>
+
+        <div className="footer-brand-row">
+          <div className="footer-brand-info">
+            <div className="logo-mark" aria-hidden="true">D</div>
+            <div>
+              <h3>{siteConfig.name}</h3>
+              <p>
+                Dedicated to supporting, enhancing, and enriching the Dedham
+                Public Schools since {siteConfig.founded}.
+              </p>
+            </div>
+          </div>
+          <div className="ein">EIN: {siteConfig.ein} · 501(c)(3)</div>
+        </div>
+
         <div className="footer-bottom">
-          <div>© {new Date().getFullYear()} {siteConfig.name}. All rights reserved.</div>
+          <div>
+            © {new Date().getFullYear()} {siteConfig.name}. All rights reserved.
+          </div>
           <div className="footer-social">
             <a
               href={siteConfig.social.instagram}
