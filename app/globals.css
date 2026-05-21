@@ -1484,7 +1484,7 @@ button {
 }
 .hex-tile {
   aspect-ratio: 1 / 1.12;
-  background: var(--gold);
+  background: var(--cream-warm);
   color: var(--ink);
   clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
   display: flex;
@@ -1499,8 +1499,10 @@ button {
 .hex-tile:hover {
   transform: translateY(-4px);
 }
-.hex-tile:nth-child(3n + 2) { background: var(--cream-warm); color: var(--ink); }
-.hex-tile:nth-child(3n + 3) { background: var(--blue-soft); color: var(--ink); }
+.hex-tile.accent-green { background: var(--green); color: var(--cream); }
+.hex-tile.accent-blue { background: var(--blue); color: var(--cream); }
+.hex-tile.accent-gold { background: var(--gold); color: var(--ink); }
+.hex-tile.accent-crimson { background: var(--crimson); color: var(--cream); }
 .hex-year {
   font-family: var(--serif);
   font-size: 28px;
@@ -1521,6 +1523,24 @@ button {
   text-transform: uppercase;
   letter-spacing: 0.1em;
   color: var(--muted);
+}
+/* On colored tiles, the year accent reads gold instead of crimson for pop. */
+.hex-tile.accent-green .hex-year,
+.hex-tile.accent-blue .hex-year,
+.hex-tile.accent-crimson .hex-year {
+  color: var(--gold);
+}
+.hex-tile.accent-gold .hex-year {
+  color: var(--crimson-deep);
+}
+.hex-tile.accent-green .hex-grade,
+.hex-tile.accent-blue .hex-grade,
+.hex-tile.accent-crimson .hex-grade {
+  color: rgba(250, 246, 238, 0.7);
+}
+.hex-tile.accent-gold .hex-grade {
+  color: var(--ink-soft);
+  opacity: 0.7;
 }
 
 /* Triangle pyramid — impact tiers on /donate */
@@ -1639,13 +1659,14 @@ button {
   color: var(--ink);
 }
 .event-hero.theme-gold h1 em {
-  color: var(--crimson);
+  color: var(--crimson-deep);
 }
 .event-hero.theme-gold .lede {
-  color: var(--ink-soft);
+  color: var(--ink);
+  opacity: 0.78;
 }
 .event-hero.theme-gold .section-eyebrow {
-  color: var(--crimson);
+  color: var(--crimson-deep);
 }
 .event-hero.theme-gold .event-hero-date.hex {
   background: var(--cream);

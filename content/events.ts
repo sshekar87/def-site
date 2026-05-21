@@ -12,7 +12,12 @@ export type EventInfo = {
   registerUrl: string;
   sponsorUrl: string;
   schedule?: { time: string; label: string }[];
-  starSpellers?: { year: number; name: string; grade?: string }[];
+  starSpellers?: {
+    year: number;
+    name: string;
+    grade?: string;
+    schoolSlug?: "avery" | "greenlodge" | "oakdale" | "riverdale";
+  }[];
 };
 
 export const events: EventInfo[] = [
@@ -59,9 +64,9 @@ export const events: EventInfo[] = [
     registerUrl: "https://forms.gle/spelling-bee-2026-school-coordinator",
     sponsorUrl: "/contact?inquiry=sponsor-bee",
     starSpellers: [
-      { year: 2025, name: "Maya R.", grade: "5th grade · Greenlodge" },
-      { year: 2024, name: "Lucas P.", grade: "4th grade · Oakdale" },
-      { year: 2023, name: "Aanya S.", grade: "5th grade · Avery" },
+      { year: 2025, name: "Maya R.", grade: "5th grade · Greenlodge", schoolSlug: "greenlodge" },
+      { year: 2024, name: "Lucas P.", grade: "4th grade · Oakdale", schoolSlug: "oakdale" },
+      { year: 2023, name: "Aanya S.", grade: "5th grade · Avery", schoolSlug: "avery" },
     ],
   },
 ];

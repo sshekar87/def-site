@@ -8,13 +8,16 @@ export type DPSSchool = {
   accent: "crimson" | "green" | "gold" | "blue" | "mint" | "ink";
 };
 
+// One brand color per school so each tile is identifiably "theirs":
+//   Avery → blue · Greenlodge → green · Oakdale → gold · Riverdale → crimson
+// Middle and high schools sit outside the four-color elementary scheme.
 export const dpsSchools: DPSSchool[] = [
   {
     slug: "avery",
     name: "Avery Elementary",
     level: "elementary",
     url: "https://www.dedham.k12.ma.us/Domain/8",
-    accent: "crimson",
+    accent: "blue",
   },
   {
     slug: "greenlodge",
@@ -35,7 +38,7 @@ export const dpsSchools: DPSSchool[] = [
     name: "Riverdale Elementary",
     level: "elementary",
     url: "https://www.dedham.k12.ma.us/Domain/11",
-    accent: "blue",
+    accent: "crimson",
   },
   {
     slug: "dms",

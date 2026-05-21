@@ -1,7 +1,7 @@
 import Link from "next/link";
 import type { Metadata } from "next";
 import { findEvent } from "@/content/events";
-import { elementarySchools } from "@/content/schools";
+import { elementarySchools, dpsSchools } from "@/content/schools";
 
 export const metadata: Metadata = {
   title: "DEF Spelling Bee",
@@ -96,7 +96,7 @@ export default function SpellingBeePage() {
                 href={s.url}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="hex-tile"
+                className={`hex-tile accent-${s.accent}`}
               >
                 <div className="hex-year">{s.name.split(" ")[0]}</div>
                 <div className="hex-name">Elementary</div>
@@ -133,13 +133,21 @@ export default function SpellingBeePage() {
           <div className="section-eyebrow mark-hex">Past champions</div>
           <h2 className="section-heading">Bee history.</h2>
           <div className="honeycomb">
-            {evt.starSpellers?.map((s) => (
-              <div key={`${s.year}-${s.name}`} className="hex-tile">
-                <div className="hex-year">{s.year}</div>
-                <div className="hex-name">{s.name}</div>
-                {s.grade && <div className="hex-grade">{s.grade}</div>}
-              </div>
-            ))}
+            {evt.starSpellers?.map((s) => {
+              const accent = s.schoolSlug
+                ? dpsSchools.find((sc) => sc.slug === s.schoolSlug)?.accent
+                : undefined;
+              return (
+                <div
+                  key={`${s.year}-${s.name}`}
+                  className={`hex-tile${accent ? ` accent-${accent}` : ""}`}
+                >
+                  <div className="hex-year">{s.year}</div>
+                  <div className="hex-name">{s.name}</div>
+                  {s.grade && <div className="hex-grade">{s.grade}</div>}
+                </div>
+              );
+            })}
           </div>
         </div>
       </section>
