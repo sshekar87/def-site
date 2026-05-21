@@ -21,16 +21,23 @@ const dmSans = DM_Sans({
   display: "swap",
 });
 
-// Resolve the canonical site URL for metadata + OG image links:
+// Resolve the canonical site URL for metadata + OG image links.
 //   1. Explicit NEXT_PUBLIC_SITE_URL wins (set this once DNS is flipped to
 //      dedhameducationfoundation.org).
-//   2. Otherwise, on Vercel use the deployment's own URL — so links shared
-//      from preview builds resolve to <branch>-def-site.vercel.app/...
-//      and the OG image previews actually load in iMessage/Slack/LinkedIn.
-//   3. Local fallback: siteConfig.url.
+//   2. VERCEL_PROJECT_PRODUCTION_URL — the *stable public* production alias
+//      (def-site.vercel.app). This MUST be used instead of VERCEL_URL: the
+//      latter is the per-deployment host (def-site-<hash>.vercel.app) which
+//      sits behind Vercel Deployment Protection (401). An og:image pointing
+//      at a 401'd host means iMessage/Slack/LinkedIn show no preview image.
+//   3. VERCEL_URL — last-resort for non-production preview builds.
+//   4. Local fallback: siteConfig.url.
 const resolvedSiteUrl =
   process.env.NEXT_PUBLIC_SITE_URL ||
-  (process.env.VERCEL_URL ? `https://${process.env.VERCEL_URL}` : siteConfig.url);
+  (process.env.VERCEL_PROJECT_PRODUCTION_URL
+    ? `https://${process.env.VERCEL_PROJECT_PRODUCTION_URL}`
+    : process.env.VERCEL_URL
+      ? `https://${process.env.VERCEL_URL}`
+      : siteConfig.url);
 
 const ogTitle = `${siteConfig.name} — ${siteConfig.tagline}`;
 const ogDescription =
