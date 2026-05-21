@@ -258,20 +258,123 @@ button {
   height: 2px;
   background: var(--crimson);
 }
-.nav-link-with-mark {
+/* ========== NAV DROPDOWN (Grants) ========== */
+.nav-dropdown {
+  position: relative;
+}
+.nav-dropdown-trigger {
   display: inline-flex;
   align-items: center;
-  gap: 8px;
+  gap: 4px;
 }
-.dash-hero-mark {
-  display: inline-flex;
-  margin-bottom: 8px;
-  filter: drop-shadow(0 8px 20px rgba(0, 0, 0, 0.18));
+.nav-caret {
+  transition: transform 0.2s;
+  opacity: 0.7;
 }
-.nav-link-with-mark .nav-mark {
-  display: inline-flex;
-  align-items: center;
+.nav-dropdown:hover .nav-caret,
+.nav-dropdown:focus-within .nav-caret {
+  transform: rotate(180deg);
+  opacity: 1;
 }
+.nav-dropdown-panel {
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%) translateY(4px);
+  margin-top: 6px;
+  background: var(--cream);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 8px;
+  min-width: 220px;
+  box-shadow: 0 24px 48px -24px rgba(26, 20, 16, 0.28);
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition:
+    opacity 0.18s ease,
+    visibility 0.18s ease,
+    transform 0.18s ease;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  z-index: 60;
+}
+.nav-dropdown-panel::before {
+  content: "";
+  position: absolute;
+  top: -6px;
+  left: 50%;
+  transform: translateX(-50%) rotate(45deg);
+  width: 12px;
+  height: 12px;
+  background: var(--cream);
+  border-top: 1px solid var(--line);
+  border-left: 1px solid var(--line);
+}
+.nav-dropdown:hover .nav-dropdown-panel,
+.nav-dropdown:focus-within .nav-dropdown-panel {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+  transform: translateX(-50%) translateY(0);
+}
+.nav-dropdown-panel a {
+  display: block;
+  padding: 10px 14px;
+  font-size: 14px;
+  color: var(--ink-soft);
+  border-radius: 6px;
+  white-space: nowrap;
+  font-weight: 500;
+  transition:
+    background 0.15s,
+    color 0.15s;
+}
+.nav-dropdown-panel a:hover,
+.nav-dropdown-panel a:focus {
+  background: var(--cream-warm);
+  color: var(--crimson);
+  outline: none;
+}
+.nav-dropdown-panel a.active {
+  color: var(--crimson);
+  background: var(--cream-warm);
+}
+
+/* Mobile-menu nested children */
+.mobile-menu-group {
+  border-bottom: 1px solid var(--line);
+}
+.mobile-menu-group:last-of-type {
+  border-bottom: none;
+}
+.mobile-menu-group > a {
+  padding: 12px 4px;
+  font-size: 16px;
+  font-weight: 500;
+  color: var(--ink-soft);
+  display: block;
+}
+.mobile-menu-children {
+  display: flex;
+  flex-direction: column;
+  padding-bottom: 8px;
+  padding-left: 16px;
+  border-left: 2px solid var(--line);
+  margin-left: 4px;
+}
+.mobile-menu-children a {
+  padding: 8px 4px;
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--muted);
+  border: none;
+}
+.mobile-menu .mobile-menu-group a {
+  border-bottom: none;
+}
+
 .nav-cta {
   background: var(--crimson);
   color: var(--cream);
@@ -2035,6 +2138,26 @@ button {
   box-shadow:
     0 0 0 10px var(--blue),
     0 0 0 12px rgba(250, 246, 238, 0.4);
+}
+/* Dashed running-track ring outside the cream finish-line ring */
+.event-hero.theme-blue .event-hero-date.circle::after {
+  content: "";
+  position: absolute;
+  inset: -32px;
+  border-radius: 50%;
+  border: 2px dashed rgba(250, 246, 238, 0.6);
+  pointer-events: none;
+  animation: track-spin 30s linear infinite;
+}
+@keyframes track-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .event-hero.theme-blue .event-hero-date.circle::after {
+    animation: none;
+  }
 }
 .event-hero.theme-blue .section-eyebrow {
   color: var(--gold);

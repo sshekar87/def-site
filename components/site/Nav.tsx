@@ -3,10 +3,9 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
-import { Menu, X } from "lucide-react";
+import { Menu, X, ChevronDown } from "lucide-react";
 import { siteConfig, navLinks } from "@/lib/site";
 import { cn } from "@/lib/cn";
-import { DashLogo } from "@/components/brand/DashLogo";
 
 export function Nav() {
   const pathname = usePathname();
@@ -40,22 +39,41 @@ export function Nav() {
             </div>
           </Link>
           <ul className="nav-links">
-            {navLinks.map((link) => (
-              <li key={link.href}>
-                <Link
-                  href={link.href}
-                  className={cn(
-                    isActive(link.href) && "active",
-                    link.href === "/events/dash" && "nav-link-with-mark",
-                  )}
-                >
-                  {link.href === "/events/dash" && (
-                    <DashLogo size={20} className="nav-mark" />
-                  )}
-                  {link.label}
-                </Link>
-              </li>
-            ))}
+            {navLinks.map((link) =>
+              link.children ? (
+                <li key={link.href} className="nav-dropdown">
+                  <Link
+                    href={link.href}
+                    className={cn(isActive(link.href) && "active", "nav-dropdown-trigger")}
+                    aria-haspopup="menu"
+                  >
+                    {link.label}
+                    <ChevronDown size={14} className="nav-caret" aria-hidden="true" />
+                  </Link>
+                  <div className="nav-dropdown-panel" role="menu">
+                    {link.children.map((child) => (
+                      <Link
+                        key={child.href}
+                        href={child.href}
+                        role="menuitem"
+                        className={cn(pathname === child.href && "active")}
+                      >
+                        {child.label}
+                      </Link>
+                    ))}
+                  </div>
+                </li>
+              ) : (
+                <li key={link.href}>
+                  <Link
+                    href={link.href}
+                    className={cn(isActive(link.href) && "active")}
+                  >
+                    {link.label}
+                  </Link>
+                </li>
+              ),
+            )}
           </ul>
           <Link href="/donate" className="nav-cta">
             Donate
@@ -77,12 +95,20 @@ export function Nav() {
         aria-hidden={!open}
       >
         {navLinks.map((link) => (
-          <Link key={link.href} href={link.href} className="nav-link-with-mark">
-            {link.href === "/events/dash" && (
-              <DashLogo size={20} className="nav-mark" />
+          <div key={link.href} className="mobile-menu-group">
+            <Link href={link.href}>{link.label}</Link>
+            {link.children && (
+              <div className="mobile-menu-children">
+                {link.children
+                  .filter((c) => c.href !== link.href)
+                  .map((child) => (
+                    <Link key={child.href} href={child.href}>
+                      {child.label}
+                    </Link>
+                  ))}
+              </div>
             )}
-            {link.label}
-          </Link>
+          </div>
         ))}
         <Link href="/donate">Donate</Link>
       </div>
