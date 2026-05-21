@@ -678,6 +678,11 @@ button {
   transform: rotate(3deg) translateY(-4px) scale(1.02);
   box-shadow: 0 24px 50px -22px rgba(26, 20, 16, 0.32);
 }
+.hero-card-3.hero-card-button:hover,
+.hero-card-3.hero-card-button.active-front {
+  transform: rotate(-4deg) translateY(-4px) scale(1.03);
+  box-shadow: 0 24px 50px -22px rgba(26, 20, 16, 0.32);
+}
 .hero-card-button:focus-visible {
   outline: 3px solid var(--gold);
   outline-offset: 4px;
@@ -706,20 +711,28 @@ button {
   transform: scale(1.08) !important;
   box-shadow: 0 18px 30px -10px rgba(26, 20, 16, 0.4);
 }
-.hero-sticker .sticker-mark {
+.hero-sticker .sticker-pre {
+  font-family: var(--sans);
+  font-weight: 700;
+  font-size: 11px;
+  line-height: 1;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+.hero-sticker .sticker-rule {
+  width: 44%;
+  height: 2px;
+  background: currentColor;
+  opacity: 0.55;
+  margin: 5px 0;
+  border-radius: 2px;
+}
+.hero-sticker .sticker-name {
+  font-family: var(--serif);
   font-weight: 600;
-  font-size: 22px;
+  font-size: 25px;
   line-height: 1;
   letter-spacing: -0.02em;
-}
-.hero-sticker .sticker-foot {
-  font-family: var(--sans);
-  font-weight: 600;
-  font-size: 11px;
-  text-transform: uppercase;
-  letter-spacing: 0.12em;
-  margin-top: 4px;
-  opacity: 0.85;
 }
 
 .hero-sticker.circle {
@@ -731,14 +744,10 @@ button {
   transform: rotate(10deg);
   animation: wobble-circle 6s ease-in-out infinite;
 }
-.hero-sticker.circle .sticker-foot {
-  color: var(--gold);
-  opacity: 1;
-}
 
 .hero-sticker.hex {
-  top: -16px;
-  left: -14px;
+  top: 70px;
+  right: 38px;
   background: var(--gold);
   color: var(--ink);
   width: 92px;
@@ -747,10 +756,6 @@ button {
   transform: rotate(-8deg);
   animation: wobble-hex 7.2s ease-in-out infinite;
   box-shadow: none;
-}
-.hero-sticker.hex .sticker-foot {
-  color: var(--crimson-deep);
-  opacity: 1;
 }
 
 @keyframes wobble-circle {
@@ -3900,9 +3905,55 @@ button {
   .filter-row { grid-template-columns: 1fr; }
   .photo-grid { grid-template-columns: 1fr; }
   .form-card { padding: 28px; }
-  .hero-visual { max-width: 460px; }
   .hero-card-title { font-size: 24px; }
   .hero-card-small-text { font-size: 11px; }
   .hero-card-detail { font-size: 11px; margin-top: 12px; }
   .hero-card-label { font-size: 10px; margin-bottom: 8px; }
+}
+
+/* Mobile hero deck — replace the overlapping offset stack (which collapsed
+   into tiny, clipped cards on phones) with a clean tappable deck. All three
+   cards fill the same box; rotation lets the back two peek at the corners.
+   Tapping any card flattens it to rotate(0) and lifts it to the front. */
+@media (max-width: 640px) {
+  .hero-inner {
+    gap: 28px;
+  }
+  .hero-visual {
+    aspect-ratio: auto;
+    height: 340px;
+    max-width: 330px;
+  }
+  .hero-card-1,
+  .hero-card-2,
+  .hero-card-3 {
+    inset: 0;
+    width: auto;
+    height: auto;
+    z-index: 2;
+  }
+  .hero-card-1 {
+    transform: rotate(-3deg);
+  }
+  .hero-card-2 {
+    transform: rotate(3.5deg);
+  }
+  .hero-card-3 {
+    transform: rotate(-1.5deg);
+  }
+  .hero-card-1.hero-card-button.active-front,
+  .hero-card-2.hero-card-button.active-front,
+  .hero-card-3.hero-card-button.active-front {
+    transform: rotate(0deg) !important;
+    z-index: 20;
+  }
+  .hero-card-1.hero-card-button:hover {
+    transform: rotate(-3deg);
+  }
+  .hero-card-2.hero-card-button:hover {
+    transform: rotate(3.5deg);
+  }
+  .hero-card-3.hero-card-button:hover {
+    transform: rotate(-1.5deg);
+  }
 }

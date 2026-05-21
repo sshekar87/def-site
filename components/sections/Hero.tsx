@@ -25,9 +25,8 @@ export function Hero() {
             learning.
           </h1>
           <p className="hero-sub">
-            For 30 years, we&apos;ve funded teacher-led programs that public
-            school budgets can&apos;t reach — from author visits and live theater to
-            robotics and field trips that spark something lasting.
+            For 30 years, we&apos;ve funded teacher-led programs that spark
+            something lasting.
           </p>
           <div className="hero-ctas">
             <Link href="/donate" className="btn btn-primary">
@@ -90,10 +89,16 @@ export function Hero() {
             </div>
           </button>
 
-          {/* Green — Stec Educator Award (static). */}
-          <div
-            className="hero-card hero-card-3"
-            aria-label="2025 Stec Educator Award — Elaine Sheehy"
+          {/* Green — Stec Educator Award. */}
+          <button
+            type="button"
+            className={cn(
+              "hero-card hero-card-3 hero-card-button",
+              frontIdx === 2 && "active-front",
+            )}
+            onClick={() => setFrontIdx(2)}
+            aria-label="2025 Stec Educator Award — bring to front"
+            aria-pressed={frontIdx === 2}
           >
             <div>
               <div className="hero-card-label">2025 Stec Educator Award</div>
@@ -104,24 +109,27 @@ export function Hero() {
             <div className="hero-card-small-text">
               Riverdale school counselor
             </div>
-          </div>
+          </button>
 
-          {/* Event shape stickers — non-overlapping with the gold tile. */}
+          {/* Event shape stickers — clustered together, top-right.
+              Each reads as a "DEF — [event]" emblem split by a rule. */}
           <Link
             href="/events/dash"
             className="hero-sticker circle"
-            aria-label="DEF Dash 5K — October 5"
+            aria-label="DEF Dash 5K"
           >
-            <span className="sticker-mark">5K</span>
-            <span className="sticker-foot">Oct 5</span>
+            <span className="sticker-pre">DEF</span>
+            <span className="sticker-rule" />
+            <span className="sticker-name">5K</span>
           </Link>
           <Link
             href="/events/spelling-bee"
             className="hero-sticker hex"
-            aria-label="DEF Spelling Bee — March 12"
+            aria-label="DEF Spelling Bee"
           >
-            <span className="sticker-mark">Bee</span>
-            <span className="sticker-foot">Mar 12</span>
+            <span className="sticker-pre">DEF</span>
+            <span className="sticker-rule" />
+            <span className="sticker-name">Bee</span>
           </Link>
         </div>
       </div>
