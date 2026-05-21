@@ -3,34 +3,14 @@
 import Link from "next/link";
 import { useState } from "react";
 import { ArrowRight } from "lucide-react";
+import { cn } from "@/lib/cn";
 
-// Two grant moments that toggle between the front (large crimson) and
-// middle (medium gold) tiles. Click either tile to swap which sits in front.
-const grantTiles = [
-  {
-    label: "Spring 2026 · Innovation Grant",
-    headline: "My students built a working hydroponic garden.",
-    detail: "Avery Elementary · Mr. Patel · 3rd grade",
-  },
-  {
-    label: "Fall 2024 · Awarded",
-    headline: "$44K",
-    detail: "Enrichment grants funded across all DPS schools",
-  },
-];
-
-// Fixed: small green tile showcases the current Stec Rock Star Educator.
-const stecAward = {
-  label: "2025 Stec Educator Award",
-  headline: "Elaine Sheehy",
-  detail: "Riverdale school counselor",
-};
+// Each tile keeps its own content. Clicking just shuffles which one sits
+// on top — no text swapping. Crimson = program moment. Gold = funding stat.
+// Green = Stec Educator Award.
 
 export function Hero() {
   const [frontIdx, setFrontIdx] = useState(0);
-  const front = grantTiles[frontIdx];
-  const back = grantTiles[1 - frontIdx];
-  const swap = () => setFrontIdx((i) => (i === 0 ? 1 : 0));
 
   return (
     <section className="hero">
@@ -61,59 +41,72 @@ export function Hero() {
         </div>
 
         <div className="hero-visual">
-          {/* Slot 0: large crimson tile — front-of-mind grant moment */}
+          {/* Crimson — grant program moment (always). */}
           <button
             type="button"
-            className="hero-card hero-card-1 hero-card-button"
-            onClick={swap}
-            aria-label={`Grant moment: ${front.headline}. Click to swap with the next moment.`}
+            className={cn(
+              "hero-card hero-card-1 hero-card-button",
+              frontIdx === 0 && "active-front",
+            )}
+            onClick={() => setFrontIdx(0)}
+            aria-label="Innovation Grant moment — bring to front"
+            aria-pressed={frontIdx === 0}
           >
             <div className="hero-card-content">
-              <div className="hero-card-label">{front.label}</div>
-              <div className="hero-card-title">{front.headline}</div>
-              {front.detail && (
-                <div className="hero-card-detail">{front.detail}</div>
-              )}
+              <div className="hero-card-label">
+                Spring 2026 · Innovation Grant
+              </div>
+              <div className="hero-card-title">
+                My students built a working hydroponic garden.
+              </div>
+              <div className="hero-card-detail">
+                Avery Elementary · Mr. Patel · 3rd grade
+              </div>
             </div>
           </button>
 
-          {/* Slot 1: medium gold tile — second grant moment */}
+          {/* Gold — funding stat (always). */}
           <button
             type="button"
-            className="hero-card hero-card-2 hero-card-button"
-            onClick={swap}
-            aria-label={`Grant moment: ${back.headline}. Click to bring forward.`}
+            className={cn(
+              "hero-card hero-card-2 hero-card-button",
+              frontIdx === 1 && "active-front",
+            )}
+            onClick={() => setFrontIdx(1)}
+            aria-label="Fall 2024 awarded funding — bring to front"
+            aria-pressed={frontIdx === 1}
           >
             <div>
               <div
                 className="hero-card-label"
                 style={{ color: "var(--ink)", opacity: 0.7 }}
               >
-                {back.label}
+                Fall 2024 · Awarded
               </div>
-              <div className="hero-card-big-num">{back.headline}</div>
+              <div className="hero-card-big-num">$44K</div>
             </div>
-            <div className="hero-card-small-text">{back.detail}</div>
+            <div className="hero-card-small-text">
+              Enrichment grants funded across all DPS schools
+            </div>
           </button>
 
-          {/* Slot 2: small green tile — Stec Educator Award */}
+          {/* Green — Stec Educator Award (static). */}
           <div
             className="hero-card hero-card-3"
-            aria-label={`${stecAward.label}: ${stecAward.headline}`}
+            aria-label="2025 Stec Educator Award — Elaine Sheehy"
           >
             <div>
-              <div className="hero-card-label">{stecAward.label}</div>
-              <div
-                className="hero-card-big-num"
-                style={{ fontSize: 28 }}
-              >
-                {stecAward.headline}
+              <div className="hero-card-label">2025 Stec Educator Award</div>
+              <div className="hero-card-big-num" style={{ fontSize: 28 }}>
+                Elaine Sheehy
               </div>
             </div>
-            <div className="hero-card-small-text">{stecAward.detail}</div>
+            <div className="hero-card-small-text">
+              Riverdale school counselor
+            </div>
           </div>
 
-          {/* Event shape stickers — the trademark shapes for the two events */}
+          {/* Event shape stickers — non-overlapping with the gold tile. */}
           <Link
             href="/events/dash"
             className="hero-sticker circle"

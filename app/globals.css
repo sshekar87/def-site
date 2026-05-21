@@ -663,13 +663,19 @@ button {
   text-align: left;
   font-family: inherit;
   cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, z-index 0s 0.3s;
+}
+.hero-card.active-front {
+  z-index: 20;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
-.hero-card-1.hero-card-button:hover {
+.hero-card-1.hero-card-button:hover,
+.hero-card-1.hero-card-button.active-front {
   transform: rotate(-2deg) translateY(-4px) scale(1.015);
   box-shadow: 0 28px 60px -22px rgba(26, 20, 16, 0.35);
 }
-.hero-card-2.hero-card-button:hover {
+.hero-card-2.hero-card-button:hover,
+.hero-card-2.hero-card-button.active-front {
   transform: rotate(3deg) translateY(-4px) scale(1.02);
   box-shadow: 0 24px 50px -22px rgba(26, 20, 16, 0.32);
 }
@@ -732,12 +738,12 @@ button {
 }
 
 .hero-sticker.hex {
-  bottom: 6%;
-  right: -18px;
+  top: -16px;
+  left: -14px;
   background: var(--gold);
   color: var(--ink);
-  width: 96px;
-  height: 110px;
+  width: 92px;
+  height: 106px;
   clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
   transform: rotate(-8deg);
   animation: wobble-hex 7.2s ease-in-out infinite;
