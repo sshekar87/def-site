@@ -1,0 +1,1560 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dedham Education Foundation — Funding the moments that change Dedham students' lives</title>
+<meta name="description" content="For 30 years, DEF has funded teacher-led programs that public school budgets can't reach — from author visits to robotics to live theater.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500;9..144,600;9..144,700;9..144,800;9..144,900&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+  :root {
+    --crimson: #9d273f;
+    --crimson-dark: #7a1d30;
+    --crimson-deep: #4a1220;
+    --gold: #f1961e;
+    --gold-soft: #fde6c8;
+    --blue: #0b4bba;
+    --blue-soft: #d8e2f4;
+    --green: #118d70;
+    --green-soft: #c8e8df;
+    --mint: #41e596;
+    --cream: #faf6ee;
+    --cream-warm: #f2ead9;
+    --ink: #1a1410;
+    --ink-soft: #4a423a;
+    --muted: #8a7f72;
+    --line: #e6dec8;
+    --serif: 'Fraunces', 'Times New Roman', serif;
+    --sans: 'DM Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: var(--sans);
+    background: var(--cream);
+    color: var(--ink);
+    font-size: 17px;
+    line-height: 1.55;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+    overflow-x: hidden;
+  }
+
+  /* Subtle paper grain */
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 1;
+    opacity: 0.35;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3' /%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.5'/%3E%3C/svg%3E");
+    mix-blend-mode: multiply;
+  }
+
+  a { color: inherit; text-decoration: none; }
+  img { max-width: 100%; display: block; }
+  button { font-family: inherit; cursor: pointer; border: none; background: none; }
+
+  .wrap {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 0 32px;
+    position: relative;
+    z-index: 2;
+  }
+
+  /* ========== TOP BAR ========== */
+  .topbar {
+    background: var(--ink);
+    color: var(--cream);
+    font-size: 13px;
+    padding: 8px 0;
+    position: relative;
+    z-index: 50;
+  }
+  .topbar-inner {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 0 32px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 24px;
+  }
+  .topbar-left { display: flex; align-items: center; gap: 8px; }
+  .topbar-pill {
+    display: inline-block;
+    background: var(--gold);
+    color: var(--ink);
+    padding: 2px 10px;
+    border-radius: 100px;
+    font-weight: 600;
+    font-size: 11px;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+  }
+  .topbar-right { display: flex; gap: 20px; }
+  .topbar-right a {
+    opacity: 0.8;
+    transition: opacity 0.15s;
+  }
+  .topbar-right a:hover { opacity: 1; }
+
+  /* ========== NAV ========== */
+  nav {
+    background: var(--cream);
+    border-bottom: 1px solid var(--line);
+    padding: 18px 0;
+    position: sticky;
+    top: 0;
+    z-index: 40;
+    backdrop-filter: blur(8px);
+    background: rgba(250, 246, 238, 0.92);
+  }
+  .nav-inner {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 0 32px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .logo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    text-decoration: none;
+  }
+  .logo-mark {
+    width: 44px;
+    height: 44px;
+    background: var(--crimson);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--cream);
+    font-family: var(--serif);
+    font-weight: 700;
+    font-size: 20px;
+    letter-spacing: -0.02em;
+    position: relative;
+  }
+  .logo-mark::after {
+    content: '';
+    position: absolute;
+    inset: -3px;
+    border: 1.5px solid var(--gold);
+    border-radius: 50%;
+  }
+  .logo-text {
+    display: flex;
+    flex-direction: column;
+    line-height: 1.1;
+  }
+  .logo-name {
+    font-family: var(--serif);
+    font-weight: 700;
+    font-size: 18px;
+    color: var(--ink);
+    letter-spacing: -0.01em;
+  }
+  .logo-sub {
+    font-size: 11px;
+    color: var(--muted);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    font-weight: 500;
+  }
+  .nav-links {
+    display: flex;
+    gap: 36px;
+    list-style: none;
+  }
+  .nav-links a {
+    font-size: 15px;
+    font-weight: 500;
+    color: var(--ink-soft);
+    transition: color 0.15s;
+    position: relative;
+  }
+  .nav-links a:hover { color: var(--crimson); }
+  .nav-links a.active { color: var(--ink); }
+  .nav-links a.active::after {
+    content: '';
+    position: absolute;
+    bottom: -22px;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: var(--crimson);
+  }
+  .nav-cta {
+    background: var(--crimson);
+    color: var(--cream);
+    padding: 10px 22px;
+    border-radius: 100px;
+    font-size: 14px;
+    font-weight: 600;
+    transition: all 0.15s;
+    border: 1.5px solid var(--crimson);
+  }
+  .nav-cta:hover {
+    background: var(--crimson-dark);
+    border-color: var(--crimson-dark);
+    transform: translateY(-1px);
+  }
+
+  .mobile-toggle { display: none; }
+
+  /* ========== HERO ========== */
+  .hero {
+    padding: 80px 0 60px;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero-inner {
+    display: grid;
+    grid-template-columns: 1.15fr 0.85fr;
+    gap: 80px;
+    align-items: center;
+  }
+  .hero-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 13px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--crimson);
+    margin-bottom: 28px;
+  }
+  .hero-tag::before {
+    content: '';
+    width: 32px;
+    height: 1.5px;
+    background: var(--crimson);
+  }
+  .hero h1 {
+    font-family: var(--serif);
+    font-weight: 500;
+    font-size: clamp(40px, 6vw, 72px);
+    line-height: 1.02;
+    letter-spacing: -0.025em;
+    color: var(--ink);
+    margin-bottom: 28px;
+  }
+  .hero h1 em {
+    font-style: italic;
+    font-weight: 400;
+    color: var(--crimson);
+    position: relative;
+  }
+  .hero h1 em::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0.08em;
+    height: 0.18em;
+    background: var(--gold);
+    opacity: 0.45;
+    z-index: -1;
+  }
+  .hero-sub {
+    font-size: 19px;
+    line-height: 1.55;
+    color: var(--ink-soft);
+    max-width: 540px;
+    margin-bottom: 40px;
+  }
+  .hero-ctas {
+    display: flex;
+    gap: 16px;
+    flex-wrap: wrap;
+    align-items: center;
+  }
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 16px 28px;
+    font-size: 15px;
+    font-weight: 600;
+    border-radius: 100px;
+    transition: all 0.2s;
+    border: 1.5px solid transparent;
+  }
+  .btn-primary {
+    background: var(--crimson);
+    color: var(--cream);
+    border-color: var(--crimson);
+  }
+  .btn-primary:hover {
+    background: var(--crimson-dark);
+    border-color: var(--crimson-dark);
+    transform: translateY(-2px);
+    box-shadow: 0 12px 28px -10px rgba(157, 39, 63, 0.4);
+  }
+  .btn-secondary {
+    background: transparent;
+    color: var(--ink);
+    border-color: var(--ink);
+  }
+  .btn-secondary:hover {
+    background: var(--ink);
+    color: var(--cream);
+  }
+  .btn-arrow {
+    transition: transform 0.2s;
+  }
+  .btn:hover .btn-arrow { transform: translateX(3px); }
+
+  /* Hero visual */
+  .hero-visual {
+    position: relative;
+    aspect-ratio: 4/5;
+  }
+  .hero-card {
+    position: absolute;
+    background: var(--cream-warm);
+    border-radius: 4px;
+    overflow: hidden;
+    box-shadow: 0 20px 50px -20px rgba(26, 20, 16, 0.25);
+  }
+  .hero-card-1 {
+    top: 0;
+    left: 0;
+    width: 70%;
+    height: 65%;
+    background: linear-gradient(135deg, var(--crimson) 0%, var(--crimson-dark) 100%);
+    transform: rotate(-2deg);
+    z-index: 2;
+    display: flex;
+    align-items: flex-end;
+    padding: 32px;
+    color: var(--cream);
+  }
+  .hero-card-1::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image:
+      radial-gradient(circle at 20% 30%, rgba(241, 150, 30, 0.15) 0%, transparent 40%),
+      radial-gradient(circle at 80% 70%, rgba(65, 229, 150, 0.1) 0%, transparent 40%);
+  }
+  .hero-card-content {
+    position: relative;
+    z-index: 1;
+  }
+  .hero-card-label {
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    opacity: 0.8;
+    margin-bottom: 12px;
+  }
+  .hero-card-title {
+    font-family: var(--serif);
+    font-size: 28px;
+    font-weight: 500;
+    line-height: 1.15;
+    letter-spacing: -0.015em;
+  }
+  .hero-card-2 {
+    top: 25%;
+    right: 0;
+    width: 65%;
+    height: 55%;
+    background: var(--gold);
+    transform: rotate(3deg);
+    z-index: 1;
+    padding: 28px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  .hero-card-3 {
+    bottom: 0;
+    left: 12%;
+    width: 50%;
+    height: 35%;
+    background: var(--green);
+    transform: rotate(-4deg);
+    z-index: 3;
+    padding: 24px;
+    color: var(--cream);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  .hero-card-big-num {
+    font-family: var(--serif);
+    font-size: 56px;
+    font-weight: 600;
+    line-height: 1;
+    letter-spacing: -0.03em;
+  }
+  .hero-card-2 .hero-card-big-num { color: var(--ink); }
+  .hero-card-small-text {
+    font-size: 13px;
+    font-weight: 500;
+    line-height: 1.3;
+  }
+  .hero-card-2 .hero-card-small-text { color: var(--ink); }
+
+  /* Floating sticker */
+  .sticker {
+    position: absolute;
+    top: -10px;
+    right: -10px;
+    background: var(--blue);
+    color: var(--cream);
+    width: 96px;
+    height: 96px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    font-family: var(--serif);
+    font-weight: 500;
+    font-size: 13px;
+    line-height: 1.1;
+    transform: rotate(12deg);
+    z-index: 4;
+    padding: 14px;
+    animation: wobble 6s ease-in-out infinite;
+  }
+  @keyframes wobble {
+    0%, 100% { transform: rotate(12deg); }
+    50% { transform: rotate(8deg); }
+  }
+  .sticker em {
+    font-style: normal;
+    font-size: 18px;
+    display: block;
+    color: var(--gold);
+  }
+
+  /* ========== IMPACT STRIP ========== */
+  .impact {
+    background: var(--ink);
+    color: var(--cream);
+    padding: 80px 0;
+    position: relative;
+    overflow: hidden;
+  }
+  .impact::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image:
+      radial-gradient(circle at 15% 20%, rgba(157, 39, 63, 0.25) 0%, transparent 35%),
+      radial-gradient(circle at 85% 80%, rgba(11, 75, 186, 0.2) 0%, transparent 40%);
+  }
+  .impact-inner {
+    position: relative;
+    z-index: 2;
+  }
+  .impact-eyebrow {
+    text-align: center;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 60px;
+  }
+  .impact-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 60px;
+    align-items: start;
+  }
+  .impact-stat {
+    text-align: center;
+    position: relative;
+  }
+  .impact-stat:not(:last-child)::after {
+    content: '';
+    position: absolute;
+    right: -30px;
+    top: 20%;
+    bottom: 20%;
+    width: 1px;
+    background: rgba(250, 246, 238, 0.15);
+  }
+  .impact-num {
+    font-family: var(--serif);
+    font-weight: 500;
+    font-size: clamp(64px, 8vw, 104px);
+    line-height: 1;
+    letter-spacing: -0.04em;
+    color: var(--cream);
+    margin-bottom: 16px;
+    display: block;
+  }
+  .impact-num span {
+    color: var(--gold);
+  }
+  .impact-label {
+    font-size: 15px;
+    color: rgba(250, 246, 238, 0.7);
+    line-height: 1.4;
+    max-width: 260px;
+    margin: 0 auto;
+  }
+
+  /* ========== SECTION TITLES ========== */
+  .section-title {
+    margin-bottom: 64px;
+    max-width: 800px;
+  }
+  .section-eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 13px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--crimson);
+    margin-bottom: 20px;
+  }
+  .section-eyebrow::before {
+    content: '';
+    width: 24px;
+    height: 1.5px;
+    background: var(--crimson);
+  }
+  .section-heading {
+    font-family: var(--serif);
+    font-weight: 500;
+    font-size: clamp(36px, 4.5vw, 56px);
+    line-height: 1.05;
+    letter-spacing: -0.02em;
+    color: var(--ink);
+  }
+  .section-heading em {
+    font-style: italic;
+    font-weight: 400;
+    color: var(--crimson);
+  }
+
+  /* ========== RECENT GRANTS ========== */
+  .grants {
+    padding: 120px 0;
+  }
+  .grants-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    margin-bottom: 64px;
+    gap: 40px;
+  }
+  .grants-link {
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--crimson);
+    border-bottom: 1.5px solid var(--crimson);
+    padding-bottom: 4px;
+    transition: all 0.2s;
+    white-space: nowrap;
+  }
+  .grants-link:hover {
+    color: var(--crimson-dark);
+    gap: 12px;
+  }
+  .grants-grid {
+    display: grid;
+    grid-template-columns: 1.4fr 1fr 1fr;
+    gap: 32px;
+  }
+  .grant-card {
+    position: relative;
+    border-radius: 4px;
+    overflow: hidden;
+    background: var(--cream-warm);
+    aspect-ratio: 4/5;
+    transition: transform 0.3s;
+    cursor: pointer;
+  }
+  .grant-card:hover { transform: translateY(-4px); }
+  .grant-card.featured { aspect-ratio: 4/5.5; }
+  .grant-bg-1 { background: linear-gradient(160deg, var(--green) 0%, #0a5544 100%); }
+  .grant-bg-2 { background: linear-gradient(160deg, var(--blue) 0%, #062a6b 100%); }
+  .grant-bg-3 { background: linear-gradient(160deg, var(--gold) 0%, #b86e0d 100%); }
+
+  .grant-card::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image:
+      radial-gradient(circle at 30% 20%, rgba(255,255,255,0.12) 0%, transparent 50%);
+  }
+  .grant-content {
+    position: absolute;
+    inset: 0;
+    padding: 32px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    color: var(--cream);
+  }
+  .grant-bg-3 .grant-content { color: var(--ink); }
+  .grant-meta {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-weight: 600;
+  }
+  .grant-amount {
+    background: rgba(255,255,255,0.15);
+    padding: 4px 12px;
+    border-radius: 100px;
+    backdrop-filter: blur(4px);
+  }
+  .grant-bg-3 .grant-amount {
+    background: rgba(26, 20, 16, 0.12);
+  }
+  .grant-body {
+    margin-top: auto;
+  }
+  .grant-title {
+    font-family: var(--serif);
+    font-weight: 500;
+    font-size: 28px;
+    line-height: 1.1;
+    letter-spacing: -0.015em;
+    margin-bottom: 12px;
+  }
+  .grant-card.featured .grant-title { font-size: 36px; }
+  .grant-school {
+    font-size: 14px;
+    opacity: 0.85;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .grant-school::before {
+    content: '';
+    width: 4px;
+    height: 4px;
+    border-radius: 50%;
+    background: currentColor;
+  }
+
+  /* ========== HOW IT WORKS ========== */
+  .howit {
+    background: var(--cream-warm);
+    padding: 120px 0;
+    border-top: 1px solid var(--line);
+    border-bottom: 1px solid var(--line);
+  }
+  .howit-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 48px;
+    margin-top: 80px;
+    position: relative;
+  }
+  .howit-grid::before {
+    content: '';
+    position: absolute;
+    top: 36px;
+    left: 16%;
+    right: 16%;
+    height: 1.5px;
+    background-image: linear-gradient(to right, var(--crimson) 50%, transparent 50%);
+    background-size: 12px 1px;
+    z-index: 0;
+  }
+  .step {
+    position: relative;
+    z-index: 1;
+    text-align: center;
+  }
+  .step-num {
+    width: 72px;
+    height: 72px;
+    margin: 0 auto 24px;
+    background: var(--cream);
+    border: 1.5px solid var(--crimson);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: var(--serif);
+    font-weight: 500;
+    font-size: 32px;
+    color: var(--crimson);
+    position: relative;
+  }
+  .step:nth-child(2) .step-num { border-color: var(--green); color: var(--green); }
+  .step:nth-child(3) .step-num { border-color: var(--gold); color: #b86e0d; }
+  .step h3 {
+    font-family: var(--serif);
+    font-weight: 500;
+    font-size: 24px;
+    margin-bottom: 12px;
+    letter-spacing: -0.01em;
+  }
+  .step p {
+    color: var(--ink-soft);
+    font-size: 16px;
+    line-height: 1.55;
+    max-width: 280px;
+    margin: 0 auto;
+  }
+
+  /* ========== TEACHERS BANNER ========== */
+  .teachers {
+    padding: 120px 0;
+    position: relative;
+  }
+  .teachers-inner {
+    background: var(--green);
+    border-radius: 8px;
+    padding: 72px 80px;
+    display: grid;
+    grid-template-columns: 1.3fr 1fr;
+    gap: 60px;
+    align-items: center;
+    color: var(--cream);
+    position: relative;
+    overflow: hidden;
+  }
+  .teachers-inner::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    right: -10%;
+    width: 60%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(65, 229, 150, 0.3) 0%, transparent 60%);
+  }
+  .teachers-eyebrow {
+    display: inline-block;
+    background: rgba(250, 246, 238, 0.15);
+    padding: 6px 14px;
+    border-radius: 100px;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    margin-bottom: 24px;
+    backdrop-filter: blur(4px);
+  }
+  .teachers h2 {
+    font-family: var(--serif);
+    font-weight: 500;
+    font-size: clamp(32px, 4vw, 48px);
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+    margin-bottom: 20px;
+  }
+  .teachers p {
+    font-size: 17px;
+    line-height: 1.55;
+    opacity: 0.9;
+    margin-bottom: 32px;
+    max-width: 500px;
+  }
+  .teachers-deadline {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    position: relative;
+    z-index: 1;
+  }
+  .deadline-card {
+    background: rgba(250, 246, 238, 0.12);
+    backdrop-filter: blur(8px);
+    border: 1px solid rgba(250, 246, 238, 0.2);
+    padding: 24px;
+    border-radius: 4px;
+  }
+  .deadline-label {
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    opacity: 0.8;
+    margin-bottom: 8px;
+  }
+  .deadline-name {
+    font-family: var(--serif);
+    font-size: 24px;
+    font-weight: 500;
+    margin-bottom: 6px;
+    letter-spacing: -0.01em;
+  }
+  .deadline-date {
+    font-size: 15px;
+    font-weight: 500;
+    color: var(--gold);
+  }
+  .btn-on-green {
+    background: var(--cream);
+    color: var(--ink);
+    border-color: var(--cream);
+  }
+  .btn-on-green:hover {
+    background: var(--ink);
+    color: var(--cream);
+    border-color: var(--ink);
+  }
+
+  /* ========== EVENT FEATURE ========== */
+  .event {
+    padding: 120px 0;
+    background: var(--cream-warm);
+    border-top: 1px solid var(--line);
+  }
+  .event-inner {
+    display: grid;
+    grid-template-columns: 1fr 1.1fr;
+    gap: 80px;
+    align-items: center;
+  }
+  .event-visual {
+    position: relative;
+    aspect-ratio: 1/1;
+    background: var(--crimson);
+    border-radius: 4px;
+    overflow: hidden;
+    color: var(--cream);
+    padding: 56px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  .event-visual::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image:
+      radial-gradient(circle at 80% 20%, rgba(241, 150, 30, 0.3) 0%, transparent 50%),
+      radial-gradient(circle at 20% 80%, rgba(11, 75, 186, 0.2) 0%, transparent 50%);
+  }
+  .event-visual > * { position: relative; z-index: 1; }
+  .event-date {
+    font-family: var(--serif);
+    font-weight: 500;
+    font-size: 80px;
+    line-height: 0.95;
+    letter-spacing: -0.04em;
+  }
+  .event-date small {
+    display: block;
+    font-size: 18px;
+    font-weight: 400;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    margin-top: 12px;
+    opacity: 0.85;
+  }
+  .event-name {
+    font-family: var(--serif);
+    font-size: 40px;
+    font-weight: 500;
+    line-height: 1.05;
+    letter-spacing: -0.02em;
+  }
+  .event-details {
+    font-size: 14px;
+    opacity: 0.85;
+    margin-top: 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+
+  /* ========== SPONSORS ========== */
+  .sponsors {
+    padding: 100px 0;
+    text-align: center;
+  }
+  .sponsors-label {
+    font-size: 13px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    color: var(--muted);
+    margin-bottom: 48px;
+  }
+  .sponsors-grid {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 48px;
+    align-items: center;
+    margin-bottom: 48px;
+  }
+  .sponsor-logo {
+    aspect-ratio: 2/1;
+    background: var(--cream-warm);
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: var(--serif);
+    font-weight: 500;
+    font-size: 14px;
+    color: var(--muted);
+    letter-spacing: 0.02em;
+  }
+  .sponsors-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--blue);
+    border-bottom: 1.5px solid var(--blue);
+    padding-bottom: 4px;
+  }
+
+  /* ========== STORY / ABOUT ========== */
+  .story {
+    padding: 120px 0;
+    background: var(--ink);
+    color: var(--cream);
+  }
+  .story-inner {
+    display: grid;
+    grid-template-columns: 1fr 1.2fr;
+    gap: 80px;
+    align-items: center;
+  }
+  .story-stat {
+    font-family: var(--serif);
+    font-weight: 500;
+    font-size: clamp(80px, 12vw, 180px);
+    line-height: 0.85;
+    letter-spacing: -0.04em;
+    color: var(--gold);
+  }
+  .story-stat-label {
+    font-size: 18px;
+    color: rgba(250, 246, 238, 0.65);
+    margin-top: 24px;
+    max-width: 280px;
+    line-height: 1.4;
+  }
+  .story-content h2 {
+    font-family: var(--serif);
+    font-weight: 500;
+    font-size: clamp(28px, 3.5vw, 42px);
+    line-height: 1.15;
+    letter-spacing: -0.015em;
+    margin-bottom: 28px;
+  }
+  .story-content h2 em {
+    color: var(--mint);
+    font-style: italic;
+    font-weight: 400;
+  }
+  .story-content p {
+    font-size: 17px;
+    line-height: 1.7;
+    color: rgba(250, 246, 238, 0.85);
+    margin-bottom: 20px;
+  }
+  .story-content .btn {
+    margin-top: 16px;
+    background: var(--gold);
+    color: var(--ink);
+    border-color: var(--gold);
+  }
+  .story-content .btn:hover {
+    background: var(--cream);
+    border-color: var(--cream);
+  }
+
+  /* ========== CTA ========== */
+  .cta {
+    padding: 140px 0;
+    text-align: center;
+    background: var(--cream);
+  }
+  .cta h2 {
+    font-family: var(--serif);
+    font-weight: 500;
+    font-size: clamp(44px, 6vw, 84px);
+    line-height: 1.02;
+    letter-spacing: -0.025em;
+    max-width: 900px;
+    margin: 0 auto 32px;
+  }
+  .cta h2 em {
+    font-style: italic;
+    font-weight: 400;
+    color: var(--crimson);
+  }
+  .cta-amounts {
+    display: flex;
+    gap: 12px;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin: 48px 0 32px;
+  }
+  .amount-btn {
+    padding: 18px 32px;
+    border: 1.5px solid var(--line);
+    background: var(--cream);
+    border-radius: 100px;
+    font-family: var(--serif);
+    font-size: 22px;
+    font-weight: 500;
+    color: var(--ink);
+    transition: all 0.15s;
+    letter-spacing: -0.01em;
+  }
+  .amount-btn:hover {
+    border-color: var(--crimson);
+    color: var(--crimson);
+    transform: translateY(-2px);
+  }
+  .amount-btn.active {
+    background: var(--crimson);
+    border-color: var(--crimson);
+    color: var(--cream);
+  }
+  .cta-note {
+    font-size: 14px;
+    color: var(--muted);
+    margin-top: 32px;
+    font-style: italic;
+  }
+
+  /* ========== FOOTER ========== */
+  footer {
+    background: var(--crimson-deep);
+    color: var(--cream);
+    padding: 80px 0 32px;
+  }
+  .footer-grid {
+    display: grid;
+    grid-template-columns: 1.4fr 1fr 1fr 1fr;
+    gap: 48px;
+    margin-bottom: 64px;
+  }
+  .footer-brand h3 {
+    font-family: var(--serif);
+    font-size: 22px;
+    font-weight: 500;
+    margin-bottom: 16px;
+  }
+  .footer-brand p {
+    font-size: 14px;
+    line-height: 1.55;
+    color: rgba(250, 246, 238, 0.7);
+    margin-bottom: 24px;
+    max-width: 320px;
+  }
+  .ein {
+    font-size: 12px;
+    color: rgba(250, 246, 238, 0.5);
+    font-family: 'SF Mono', Menlo, monospace;
+    letter-spacing: 0.05em;
+  }
+  .footer-col h4 {
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    font-weight: 600;
+    color: var(--gold);
+    margin-bottom: 20px;
+  }
+  .footer-col ul {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+  .footer-col a {
+    font-size: 14px;
+    color: rgba(250, 246, 238, 0.75);
+    transition: color 0.15s;
+  }
+  .footer-col a:hover { color: var(--mint); }
+  .footer-bottom {
+    border-top: 1px solid rgba(250, 246, 238, 0.1);
+    padding-top: 32px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 13px;
+    color: rgba(250, 246, 238, 0.5);
+    gap: 24px;
+    flex-wrap: wrap;
+  }
+  .footer-social {
+    display: flex;
+    gap: 16px;
+  }
+  .footer-social a {
+    width: 36px;
+    height: 36px;
+    border: 1px solid rgba(250, 246, 238, 0.2);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.15s;
+  }
+  .footer-social a:hover {
+    background: var(--gold);
+    color: var(--ink);
+    border-color: var(--gold);
+  }
+
+  /* ========== ANIMATIONS ========== */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  .hero-tag { animation: fadeUp 0.7s ease-out 0.1s both; }
+  .hero h1 { animation: fadeUp 0.8s ease-out 0.2s both; }
+  .hero-sub { animation: fadeUp 0.8s ease-out 0.35s both; }
+  .hero-ctas { animation: fadeUp 0.8s ease-out 0.5s both; }
+  .hero-visual { animation: fadeUp 0.9s ease-out 0.4s both; }
+
+  /* ========== RESPONSIVE ========== */
+  @media (max-width: 968px) {
+    .wrap, .nav-inner, .topbar-inner { padding: 0 20px; }
+    .nav-links { display: none; }
+    .mobile-toggle {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 40px;
+      height: 40px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+    }
+    .hero { padding: 48px 0 32px; }
+    .hero-inner { grid-template-columns: 1fr; gap: 48px; }
+    .hero-visual { max-width: 400px; margin: 0 auto; }
+    .impact-grid { grid-template-columns: 1fr; gap: 48px; }
+    .impact-stat:not(:last-child)::after { display: none; }
+    .impact-stat { padding-bottom: 48px; border-bottom: 1px solid rgba(250,246,238,0.15); }
+    .impact-stat:last-child { border-bottom: none; padding-bottom: 0; }
+    .grants-grid { grid-template-columns: 1fr; }
+    .grants-header { flex-direction: column; align-items: flex-start; }
+    .howit-grid { grid-template-columns: 1fr; gap: 56px; }
+    .howit-grid::before { display: none; }
+    .teachers-inner { grid-template-columns: 1fr; padding: 48px 32px; }
+    .event-inner { grid-template-columns: 1fr; }
+    .story-inner { grid-template-columns: 1fr; gap: 48px; }
+    .footer-grid { grid-template-columns: 1fr 1fr; gap: 32px; }
+    .sponsors-grid { grid-template-columns: repeat(3, 1fr); gap: 24px; }
+    .topbar-right { display: none; }
+    section, .grants, .howit, .teachers, .event, .story, .cta, .sponsors { padding: 64px 0; }
+  }
+  @media (max-width: 540px) {
+    .footer-grid { grid-template-columns: 1fr; }
+    .sponsors-grid { grid-template-columns: repeat(2, 1fr); }
+    .cta-amounts { gap: 8px; }
+    .amount-btn { padding: 14px 22px; font-size: 18px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- TOP BAR -->
+<div class="topbar">
+  <div class="topbar-inner">
+    <div class="topbar-left">
+      <span class="topbar-pill">Spring Cycle</span>
+      <span>Innovation Grant applications open through March 15</span>
+    </div>
+    <div class="topbar-right">
+      <a href="#">Teacher Login</a>
+      <a href="#">Board Login</a>
+      <a href="#">Contact</a>
+    </div>
+  </div>
+</div>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-inner">
+    <a href="/" class="logo">
+      <div class="logo-mark">D</div>
+      <div class="logo-text">
+        <span class="logo-name">Dedham Education Foundation</span>
+        <span class="logo-sub">Established 1995 · 501(c)(3)</span>
+      </div>
+    </a>
+    <ul class="nav-links">
+      <li><a href="#" class="active">Home</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#grants">Grants</a></li>
+      <li><a href="#events">Events</a></li>
+      <li><a href="#involved">Get Involved</a></li>
+    </ul>
+    <a href="#donate" class="nav-cta">Donate</a>
+    <button class="mobile-toggle" aria-label="Menu">☰</button>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="wrap hero-inner">
+    <div>
+      <div class="hero-tag">Empowering Dedham Public Schools since 1995</div>
+      <h1>Funding the moments that <em>change</em> Dedham students' lives.</h1>
+      <p class="hero-sub">For 30 years, we've funded teacher-led programs that public school budgets can't reach — from author visits and live theater to robotics and field trips that spark something lasting.</p>
+      <div class="hero-ctas">
+        <a href="#donate" class="btn btn-primary">
+          Donate now
+          <span class="btn-arrow">→</span>
+        </a>
+        <a href="#grants" class="btn btn-secondary">See what we fund</a>
+      </div>
+    </div>
+    <div class="hero-visual">
+      <div class="hero-card hero-card-1">
+        <div class="hero-card-content">
+          <div class="hero-card-label">Spring 2025 · Innovation Grant</div>
+          <div class="hero-card-title">"My students built a working hydroponic garden."</div>
+        </div>
+      </div>
+      <div class="hero-card hero-card-2">
+        <div>
+          <div class="hero-card-label" style="color: var(--ink); opacity: 0.7;">Awarded</div>
+          <div class="hero-card-big-num">$44K</div>
+        </div>
+        <div class="hero-card-small-text">Fall 2024 enrichment grants funded across all DPS schools</div>
+      </div>
+      <div class="hero-card hero-card-3">
+        <div>
+          <div class="hero-card-label">2024 Rock Star Educator</div>
+          <div class="hero-card-big-num" style="font-size: 36px;">Maureen B.</div>
+        </div>
+      </div>
+      <div class="sticker">
+        Spring<br>cycle<br><em>NOW</em><br>open
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- IMPACT STRIP -->
+<section class="impact">
+  <div class="wrap impact-inner">
+    <div class="impact-eyebrow">Three decades of Dedham impact</div>
+    <div class="impact-grid">
+      <div class="impact-stat">
+        <span class="impact-num">$<span>1M+</span></span>
+        <p class="impact-label">Granted to Dedham Public Schools since 1995</p>
+      </div>
+      <div class="impact-stat">
+        <span class="impact-num"><span>120+</span></span>
+        <p class="impact-label">Teachers funded across all DPS schools last year</p>
+      </div>
+      <div class="impact-stat">
+        <span class="impact-num"><span>3,200</span></span>
+        <p class="impact-label">Students reached through grant-funded programs in 2024–25</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- RECENT GRANTS -->
+<section class="grants" id="grants">
+  <div class="wrap">
+    <div class="grants-header">
+      <div>
+        <div class="section-eyebrow">Recent grants in action</div>
+        <h2 class="section-heading">What your dollars <em>actually fund</em>.</h2>
+      </div>
+      <a href="#" class="grants-link">See all 47 grants from 2024–25 →</a>
+    </div>
+    <div class="grants-grid">
+      <div class="grant-card grant-bg-1 featured">
+        <div class="grant-content">
+          <div class="grant-meta">
+            <span>Innovation Grant</span>
+            <span class="grant-amount">$3,800</span>
+          </div>
+          <div class="grant-body">
+            <h3 class="grant-title">Hydroponic garden in a 3rd grade classroom</h3>
+            <div class="grant-school">Avery Elementary · Mr. Patel</div>
+          </div>
+        </div>
+      </div>
+      <div class="grant-card grant-bg-2">
+        <div class="grant-content">
+          <div class="grant-meta">
+            <span>Enrichment</span>
+            <span class="grant-amount">$2,400</span>
+          </div>
+          <div class="grant-body">
+            <h3 class="grant-title">Shakespeare in the schools</h3>
+            <div class="grant-school">Dedham Middle School · Ms. Coen</div>
+          </div>
+        </div>
+      </div>
+      <div class="grant-card grant-bg-3">
+        <div class="grant-content">
+          <div class="grant-meta">
+            <span>Nancy Bradley Fund</span>
+            <span class="grant-amount">$1,950</span>
+          </div>
+          <div class="grant-body">
+            <h3 class="grant-title">French film festival &amp; cultural exchange</h3>
+            <div class="grant-school">Dedham High · Mme. Laurent</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- HOW IT WORKS -->
+<section class="howit">
+  <div class="wrap">
+    <div class="section-title" style="text-align: center; margin: 0 auto 0;">
+      <div class="section-eyebrow" style="justify-content: center;">Where your donation goes</div>
+      <h2 class="section-heading">A simple loop. <em>No bureaucracy.</em></h2>
+    </div>
+    <div class="howit-grid">
+      <div class="step">
+        <div class="step-num">1</div>
+        <h3>You give.</h3>
+        <p>Whether $25 or $2,500, every donation goes into the next grant cycle. We're an all-volunteer board.</p>
+      </div>
+      <div class="step">
+        <div class="step-num">2</div>
+        <h3>Teachers apply.</h3>
+        <p>DPS educators submit proposals three times a year. Our board reviews every application on its merits.</p>
+      </div>
+      <div class="step">
+        <div class="step-num">3</div>
+        <h3>Students benefit.</h3>
+        <p>Programs run within the school year. We share photos and stories with the community when they do.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TEACHERS BANNER -->
+<section class="teachers" id="for-teachers">
+  <div class="wrap">
+    <div class="teachers-inner">
+      <div>
+        <div class="teachers-eyebrow">For DPS Teachers</div>
+        <h2>Have an idea? <br>We probably want to fund it.</h2>
+        <p>Three grant cycles a year, three categories: Enrichment, Innovation, and the Nancy Bradley Memorial Fund for world languages and cultures. Applications take about 20 minutes.</p>
+        <a href="#" class="btn btn-on-green">
+          Apply for a grant
+          <span class="btn-arrow">→</span>
+        </a>
+      </div>
+      <div class="teachers-deadline">
+        <div class="deadline-card">
+          <div class="deadline-label">Open now</div>
+          <div class="deadline-name">Innovation Grants</div>
+          <div class="deadline-date">Applications due March 15, 2026</div>
+        </div>
+        <div class="deadline-card">
+          <div class="deadline-label">Coming this fall</div>
+          <div class="deadline-name">Enrichment + Nancy Bradley</div>
+          <div class="deadline-date">Cycle opens September 2026</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EVENT -->
+<section class="event" id="events">
+  <div class="wrap event-inner">
+    <div class="event-visual">
+      <div class="event-date">
+        Oct<br>05
+        <small>Save the date</small>
+      </div>
+      <div>
+        <div class="event-name">The DEF Dash 5K</div>
+        <div class="event-details">
+          <span>Endicott Estate · 8:30 AM</span>
+          <span>Family-friendly · Strollers welcome</span>
+        </div>
+      </div>
+    </div>
+    <div>
+      <div class="section-eyebrow">Coming up</div>
+      <h2 class="section-heading">Our biggest day of the year, <em>powered by you</em>.</h2>
+      <p style="font-size: 18px; color: var(--ink-soft); line-height: 1.6; margin: 32px 0;">The DEF Dash is what makes the grant cycles possible. Bring the kids, bring the strollers, bring the dog. Stay for the cider donuts.</p>
+      <div style="display: flex; gap: 16px; flex-wrap: wrap;">
+        <a href="#" class="btn btn-primary">Register for the Dash</a>
+        <a href="#" class="btn btn-secondary">Become a sponsor</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SPONSORS -->
+<section class="sponsors">
+  <div class="wrap">
+    <div class="sponsors-label">Proudly supported by Dedham businesses</div>
+    <div class="sponsors-grid">
+      <div class="sponsor-logo">Sponsor 1</div>
+      <div class="sponsor-logo">Sponsor 2</div>
+      <div class="sponsor-logo">Sponsor 3</div>
+      <div class="sponsor-logo">Sponsor 4</div>
+      <div class="sponsor-logo">Sponsor 5</div>
+      <div class="sponsor-logo">Sponsor 6</div>
+    </div>
+    <a href="#" class="sponsors-link">Become a 2026 sponsor →</a>
+  </div>
+</section>
+
+<!-- STORY -->
+<section class="story" id="about">
+  <div class="wrap story-inner">
+    <div>
+      <div class="story-stat">30</div>
+      <div class="story-stat-label">Years of putting Dedham teachers' best ideas into Dedham classrooms.</div>
+    </div>
+    <div class="story-content">
+      <div class="section-eyebrow" style="color: var(--gold);">Our story</div>
+      <h2>A foundation built by Dedham, <em>for Dedham</em>.</h2>
+      <p>In 1995, a small group of Dedham parents and teachers noticed something. Some of the most memorable moments in school — a working scientist visiting a 4th grade classroom, a touring theater company performing Shakespeare for middle schoolers — were exactly the kinds of things public school budgets struggled to support.</p>
+      <p>They started DEF as a way to fill that gap. Thirty years and over a million dollars in grants later, we're still doing it the same way: locally, transparently, with an all-volunteer board.</p>
+      <a href="#" class="btn">Read our full story →</a>
+    </div>
+  </div>
+</section>
+
+<!-- CTA / DONATE -->
+<section class="cta" id="donate">
+  <div class="wrap">
+    <div class="section-eyebrow" style="justify-content: center;">Make a donation</div>
+    <h2>Every dollar funds <em>a program</em> a Dedham student will remember.</h2>
+    <div class="cta-amounts">
+      <button class="amount-btn">$25</button>
+      <button class="amount-btn">$50</button>
+      <button class="amount-btn active">$100</button>
+      <button class="amount-btn">$250</button>
+      <button class="amount-btn">$500</button>
+      <button class="amount-btn">Other</button>
+    </div>
+    <div style="display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; margin-top: 16px;">
+      <a href="#" class="btn btn-primary">Give $100 today</a>
+      <a href="#" class="btn btn-secondary">Make it monthly</a>
+    </div>
+    <p class="cta-note">DEF is a 501(c)(3) nonprofit. Your gift is tax-deductible to the fullest extent of the law.</p>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="wrap">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <h3>Dedham Education Foundation</h3>
+        <p>Dedicated to supporting, enhancing, and enriching the Dedham Public Schools since 1995.</p>
+        <div class="ein">EIN: XX-XXXXXXX · 501(c)(3)</div>
+      </div>
+      <div class="footer-col">
+        <h4>About</h4>
+        <ul>
+          <li><a href="#">Our story</a></li>
+          <li><a href="#">Board &amp; volunteers</a></li>
+          <li><a href="#">Annual reports</a></li>
+          <li><a href="#">Contact</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Grants</h4>
+        <ul>
+          <li><a href="#">Apply for a grant</a></li>
+          <li><a href="#">Awarded grants</a></li>
+          <li><a href="#">Reimbursements</a></li>
+          <li><a href="#">Stec Award</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Get involved</h4>
+        <ul>
+          <li><a href="#">Donate</a></li>
+          <li><a href="#">Sponsor</a></li>
+          <li><a href="#">Volunteer</a></li>
+          <li><a href="#">Donor recognition</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div>© 2026 Dedham Education Foundation. All rights reserved.</div>
+      <div class="footer-social">
+        <a href="#" aria-label="Instagram">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <rect x="3" y="3" width="18" height="18" rx="5"/>
+            <circle cx="12" cy="12" r="4"/>
+            <circle cx="17.5" cy="6.5" r="1" fill="currentColor"/>
+          </svg>
+        </a>
+        <a href="#" aria-label="Facebook">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M13 22v-9h3l1-4h-4V7c0-1 .5-2 2-2h2V1.5C16 1.5 14.5 1 13 1c-3 0-5 2-5 5v3H5v4h3v9h5z"/>
+          </svg>
+        </a>
+        <a href="#" aria-label="Email">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <rect x="3" y="5" width="18" height="14" rx="2"/>
+            <path d="M3 7l9 6 9-6"/>
+          </svg>
+        </a>
+      </div>
+      <div><a href="#" style="color: rgba(250,246,238,0.5);">Privacy</a> · <a href="#" style="color: rgba(250,246,238,0.5);">Accessibility</a></div>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // Donation amount selector
+  document.querySelectorAll('.amount-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      document.querySelectorAll('.amount-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      const amt = btn.textContent.trim();
+      const cta = document.querySelector('.cta .btn-primary');
+      if (cta && amt !== 'Other') cta.textContent = `Give ${amt} today`;
+    });
+  });
+
+  // Soft entrance on scroll
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.style.opacity = '1';
+        entry.target.style.transform = 'translateY(0)';
+      }
+    });
+  }, { threshold: 0.1 });
+
+  document.querySelectorAll('.grant-card, .step, .impact-stat, .deadline-card').forEach((el, i) => {
+    el.style.opacity = '0';
+    el.style.transform = 'translateY(24px)';
+    el.style.transition = `opacity 0.7s ease-out ${i * 0.08}s, transform 0.7s ease-out ${i * 0.08}s`;
+    observer.observe(el);
+  });
+</script>
+
+</body>
+</html>
