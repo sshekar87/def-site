@@ -13,6 +13,7 @@ const AVATAR_CYCLE = ["avatar-crimson", "avatar-gold", "avatar-blue", "avatar-gr
 
 function initials(name: string): string {
   return name
+    .replace(/\([^)]*\)/g, " ") // strip parenthetical bits like "(Wilmar)"
     .split(/\s+/)
     .filter(Boolean)
     .slice(0, 2)
@@ -32,11 +33,11 @@ export default function AboutPage() {
         <div className="wrap">
           <div className="section-eyebrow">Our mission</div>
           <h1>
-            Empowering our teachers.
+            <em>Empowering</em> our teachers.
             <br />
             <em>Enriching</em> our students.
             <br />
-            Enhancing our schools.
+            <em>Enhancing</em> our schools.
           </h1>
           <p className="lede">
             Dedicated to supporting, enhancing, and enriching the Dedham Public
@@ -52,9 +53,22 @@ export default function AboutPage() {
             What we <em>actually do</em>.
           </h2>
           <div className="mission-triplet">
-            <article className="mission-triplet-card accent-green">
+            <article className="mission-triplet-card accent-blue">
               <div className="mission-triplet-num">01</div>
-              <h3>Empowering our teachers.</h3>
+              <h3>Raising the money.</h3>
+              <p>
+                DEF is funded by Dedham, for Dedham. Events like the DEF Dash
+                5K and the Spelling Bee, plus year-round donations and Dedham
+                business sponsorships, fund every grant we award. The whole
+                town is part of how this works.
+              </p>
+              <a href="/get-involved" className="mission-triplet-link">
+                Get involved →
+              </a>
+            </article>
+            <article className="mission-triplet-card accent-green">
+              <div className="mission-triplet-num">02</div>
+              <h3>Teacher grants and recognition.</h3>
               <p>
                 Three grant cycles a year fund the classroom ideas DPS budgets
                 can&apos;t reach — author visits, robotics kits, hydroponic
@@ -67,8 +81,8 @@ export default function AboutPage() {
               </a>
             </article>
             <article className="mission-triplet-card accent-gold">
-              <div className="mission-triplet-num">02</div>
-              <h3>Enriching our students.</h3>
+              <div className="mission-triplet-num">03</div>
+              <h3>Funding student enrichments and opportunities.</h3>
               <p>
                 Around 3,200 Dedham students reach DEF-funded programs each
                 year, K–12. Every grant we award is judged on one question:
@@ -78,20 +92,6 @@ export default function AboutPage() {
               </p>
               <a href="/grants/awarded" className="mission-triplet-link">
                 See what we&apos;ve funded →
-              </a>
-            </article>
-            <article className="mission-triplet-card accent-blue">
-              <div className="mission-triplet-num">03</div>
-              <h3>Enhancing our schools.</h3>
-              <p>
-                DEF supports all four elementary schools — Avery, Greenlodge,
-                Oakdale, Riverdale — plus Dedham Middle and Dedham High.
-                Through events like the Dash and the Spelling Bee, we also
-                celebrate the people who make these schools what they are,
-                from the Stec Award to sponsor partnerships across town.
-              </p>
-              <a href="/get-involved" className="mission-triplet-link">
-                Get involved →
               </a>
             </article>
           </div>
@@ -122,6 +122,56 @@ export default function AboutPage() {
               public charity whose only job is to fund the moments that move
               the needle for Dedham students, year after year.
             </p>
+          </div>
+
+          <div className="then-now">
+            <article className="then-now-card then">
+              <div className="then-now-photo" aria-label="Photo of the founding board placeholder">
+                <span>Photo coming · 1995</span>
+              </div>
+              <div className="then-now-label">1995 · How it started</div>
+              <div className="then-now-headline">
+                A small group of Dedham parents and teachers.
+              </div>
+              <ul className="then-now-stats">
+                <li>
+                  <span className="then-now-stat-num">1</span>
+                  <span className="then-now-stat-label">founding board, all volunteer</span>
+                </li>
+                <li>
+                  <span className="then-now-stat-num">~$10K</span>
+                  <span className="then-now-stat-label">first-year grants awarded</span>
+                </li>
+                <li>
+                  <span className="then-now-stat-num">3</span>
+                  <span className="then-now-stat-label">grant categories from day one</span>
+                </li>
+              </ul>
+            </article>
+
+            <article className="then-now-card now">
+              <div className="then-now-photo accent" aria-label="Photo of current board placeholder">
+                <span>Photo coming · today</span>
+              </div>
+              <div className="then-now-label">Today · How it&apos;s going</div>
+              <div className="then-now-headline">
+                A 30-year community track record.
+              </div>
+              <ul className="then-now-stats">
+                <li>
+                  <span className="then-now-stat-num">~25</span>
+                  <span className="then-now-stat-label">all-volunteer board members + student board</span>
+                </li>
+                <li>
+                  <span className="then-now-stat-num">$1M+</span>
+                  <span className="then-now-stat-label">granted to Dedham Public Schools since 1995</span>
+                </li>
+                <li>
+                  <span className="then-now-stat-num">3,200</span>
+                  <span className="then-now-stat-label">students reached each year, K–12</span>
+                </li>
+              </ul>
+            </article>
           </div>
         </div>
       </section>
@@ -187,7 +237,7 @@ export default function AboutPage() {
           {students.length > 0 && (
             <>
               <h3 style={{ marginTop: 64, marginBottom: 8, fontFamily: "var(--serif)", fontWeight: 500, fontSize: 20 }}>
-                Student board
+                Student Board
               </h3>
               <div className="board-grid">
                 {students.map((m, i) => (

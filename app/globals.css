@@ -131,7 +131,7 @@ button {
   margin: 0 auto;
   padding: 0 32px;
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
   gap: 24px;
 }
@@ -2318,6 +2318,116 @@ button {
 }
 .page-hero.theme-mixed .section-eyebrow {
   color: var(--gold);
+}
+
+/* ========== MISSION THEN-NOW ==========
+   Before/after pair on /mission — placeholder photo card + headline + stats.
+*/
+.then-now {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 32px;
+  margin-top: 48px;
+}
+.then-now-card {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+.then-now-photo {
+  aspect-ratio: 4 / 3;
+  border-radius: 8px;
+  background: linear-gradient(135deg, var(--cream-warm) 0%, rgba(157, 39, 63, 0.18) 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--muted);
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: 16px;
+  border: 1px solid var(--line);
+  position: relative;
+  overflow: hidden;
+}
+.then-now-photo::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image:
+    radial-gradient(circle at 20% 80%, rgba(157, 39, 63, 0.18) 0%, transparent 50%),
+    radial-gradient(circle at 80% 20%, rgba(241, 150, 30, 0.1) 0%, transparent 50%);
+  pointer-events: none;
+}
+.then-now-photo.accent {
+  background: linear-gradient(135deg, var(--cream-warm) 0%, rgba(241, 150, 30, 0.28) 100%);
+}
+.then-now-photo.accent::before {
+  background-image:
+    radial-gradient(circle at 80% 20%, rgba(241, 150, 30, 0.32) 0%, transparent 55%),
+    radial-gradient(circle at 20% 80%, rgba(17, 141, 112, 0.18) 0%, transparent 55%);
+}
+.then-now-photo span {
+  position: relative;
+  z-index: 1;
+}
+.then-now-label {
+  font-size: 12px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  font-weight: 700;
+  color: var(--crimson);
+  margin-top: 8px;
+}
+.then-now-card.now .then-now-label {
+  color: var(--green);
+}
+.then-now-headline {
+  font-family: var(--serif);
+  font-weight: 500;
+  font-size: clamp(22px, 2.6vw, 28px);
+  letter-spacing: -0.015em;
+  line-height: 1.12;
+  color: var(--ink);
+}
+.then-now-stats {
+  list-style: none;
+  margin: 8px 0 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.then-now-stats li {
+  display: grid;
+  grid-template-columns: minmax(96px, auto) 1fr;
+  gap: 16px;
+  align-items: baseline;
+  padding: 10px 0;
+  border-top: 1px solid var(--line);
+}
+.then-now-stats li:last-child {
+  border-bottom: 1px solid var(--line);
+}
+.then-now-stat-num {
+  font-family: var(--serif);
+  font-weight: 500;
+  font-size: 26px;
+  letter-spacing: -0.02em;
+  color: var(--crimson);
+  line-height: 1;
+}
+.then-now-card.now .then-now-stat-num {
+  color: var(--green);
+}
+.then-now-stat-label {
+  font-size: 14px;
+  color: var(--ink-soft);
+  line-height: 1.5;
+}
+@media (max-width: 768px) {
+  .then-now {
+    grid-template-columns: 1fr;
+  }
 }
 
 /* ========== MISSION TRIPLET ==========

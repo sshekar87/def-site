@@ -23,9 +23,10 @@ export const boardMembers: BoardMember[] = [
   { name: "Sukesh Shekar", type: "member" },
   { name: "Sandy Sicard", type: "member" },
   { name: "Emily Walton", type: "member" },
-  { name: "Rihanna Rhau", role: "Student Board", type: "student" },
-  { name: "Thomas Vurmo", role: "Student Board", type: "student" },
-  { name: "Sofia Vergara", role: "Student Board", type: "student" },
+  // No per-card role label — the "Student board" subsection heading carries it.
+  { name: "Rihanna Rhau", type: "student" },
+  { name: "Thomas Vurmo", type: "student" },
+  { name: "Sofia Vergara", type: "student" },
 ];
 
 // Annual granted totals — TODO: verify with treasurer
