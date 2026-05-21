@@ -669,16 +669,13 @@ button {
   content: "";
   width: 24px;
   height: 1.5px;
-  background: var(--crimson);
+  background: currentColor;
 }
 .section-eyebrow.center {
   justify-content: center;
 }
 .section-eyebrow.on-dark {
   color: var(--gold);
-}
-.section-eyebrow.on-dark::before {
-  background: var(--gold);
 }
 .section-heading {
   font-family: var(--serif);
@@ -1615,6 +1612,282 @@ button {
   .impact-pyramid-tier.tier-base {
     width: 100%;
     grid-template-columns: 96px 1fr;
+  }
+}
+
+/* ========== PER-PAGE COLOR THEMES ==========
+   Applied to the hero of each landing page so each activity has its own
+   dominant color identity in addition to its shape:
+   • theme-gold    → Spelling Bee (honeybee)
+   • theme-blue    → DEF Dash 5K
+   • theme-green   → Donate
+   • theme-crimson → Grants
+*/
+
+/* SPELLING BEE — gold */
+.event-hero.theme-gold {
+  background: var(--gold);
+  color: var(--ink);
+}
+.event-hero.theme-gold::before {
+  background-image:
+    radial-gradient(circle at 80% 20%, rgba(11, 75, 186, 0.18) 0%, transparent 50%),
+    radial-gradient(circle at 20% 80%, rgba(157, 39, 63, 0.18) 0%, transparent 50%);
+}
+.event-hero.theme-gold h1,
+.event-hero.theme-gold h1 em {
+  color: var(--ink);
+}
+.event-hero.theme-gold h1 em {
+  color: var(--crimson);
+}
+.event-hero.theme-gold .lede {
+  color: var(--ink-soft);
+}
+.event-hero.theme-gold .section-eyebrow {
+  color: var(--crimson);
+}
+.event-hero.theme-gold .event-hero-date.hex {
+  background: var(--cream);
+  color: var(--ink);
+}
+.event-hero.theme-gold .btn-primary {
+  background: var(--crimson);
+  color: var(--cream);
+  border-color: var(--crimson);
+}
+.event-hero.theme-gold .btn-primary:hover {
+  background: var(--crimson-dark);
+  border-color: var(--crimson-dark);
+}
+.event-hero.theme-gold .btn-secondary {
+  background: transparent;
+  color: var(--ink);
+  border-color: var(--ink);
+}
+.event-hero.theme-gold .btn-secondary:hover {
+  background: var(--ink);
+  color: var(--cream);
+}
+
+/* DEF DASH — blue */
+.event-hero.theme-blue {
+  background: var(--blue);
+  color: var(--cream);
+}
+.event-hero.theme-blue::before {
+  background-image:
+    radial-gradient(circle at 80% 20%, rgba(241, 150, 30, 0.32) 0%, transparent 50%),
+    radial-gradient(circle at 20% 80%, rgba(65, 229, 150, 0.22) 0%, transparent 50%);
+}
+.event-hero.theme-blue .event-hero-date.circle {
+  background: var(--gold);
+  color: var(--ink);
+  box-shadow:
+    0 0 0 10px var(--blue),
+    0 0 0 12px rgba(250, 246, 238, 0.4);
+}
+.event-hero.theme-blue .section-eyebrow {
+  color: var(--gold);
+}
+.event-hero.theme-blue .btn-primary {
+  background: var(--gold);
+  color: var(--ink);
+  border-color: var(--gold);
+}
+.event-hero.theme-blue .btn-primary:hover {
+  background: var(--cream);
+  border-color: var(--cream);
+}
+.event-hero.theme-blue .btn-secondary {
+  background: transparent;
+  color: var(--cream);
+  border-color: var(--cream);
+}
+.event-hero.theme-blue .btn-secondary:hover {
+  background: var(--cream);
+  color: var(--ink);
+}
+
+/* DONATE — green */
+.page-hero.theme-green {
+  background: var(--green);
+  color: var(--cream);
+  position: relative;
+  overflow: hidden;
+}
+.page-hero.theme-green::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image:
+    radial-gradient(circle at 80% 20%, rgba(65, 229, 150, 0.32) 0%, transparent 50%),
+    radial-gradient(circle at 20% 80%, rgba(241, 150, 30, 0.22) 0%, transparent 50%);
+  pointer-events: none;
+}
+.page-hero.theme-green > .wrap {
+  position: relative;
+  z-index: 1;
+}
+.page-hero.theme-green h1 {
+  color: var(--cream);
+}
+.page-hero.theme-green h1 em {
+  color: var(--gold);
+}
+.page-hero.theme-green .lede {
+  color: rgba(250, 246, 238, 0.85);
+}
+.page-hero.theme-green .section-eyebrow {
+  color: var(--gold);
+}
+
+/* GRANTS — crimson */
+.page-hero.theme-crimson {
+  background: var(--crimson);
+  color: var(--cream);
+  position: relative;
+  overflow: hidden;
+}
+.page-hero.theme-crimson::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image:
+    radial-gradient(circle at 80% 20%, rgba(241, 150, 30, 0.28) 0%, transparent 50%),
+    radial-gradient(circle at 20% 80%, rgba(11, 75, 186, 0.18) 0%, transparent 50%);
+  pointer-events: none;
+}
+.page-hero.theme-crimson > .wrap {
+  position: relative;
+  z-index: 1;
+}
+.page-hero.theme-crimson h1 {
+  color: var(--cream);
+}
+.page-hero.theme-crimson h1 em {
+  color: var(--gold);
+}
+.page-hero.theme-crimson .lede {
+  color: rgba(250, 246, 238, 0.85);
+}
+.page-hero.theme-crimson .section-eyebrow {
+  color: var(--gold);
+}
+
+/* GET INVOLVED — mixed accent ribbon */
+.page-hero.theme-mixed {
+  background: var(--ink);
+  color: var(--cream);
+  position: relative;
+  overflow: hidden;
+}
+.page-hero.theme-mixed::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image:
+    radial-gradient(circle at 10% 80%, rgba(157, 39, 63, 0.4) 0%, transparent 35%),
+    radial-gradient(circle at 35% 20%, rgba(241, 150, 30, 0.3) 0%, transparent 35%),
+    radial-gradient(circle at 65% 80%, rgba(17, 141, 112, 0.3) 0%, transparent 35%),
+    radial-gradient(circle at 90% 20%, rgba(11, 75, 186, 0.3) 0%, transparent 35%);
+  pointer-events: none;
+}
+.page-hero.theme-mixed > .wrap {
+  position: relative;
+  z-index: 1;
+}
+.page-hero.theme-mixed h1 {
+  color: var(--cream);
+}
+.page-hero.theme-mixed h1 em {
+  color: var(--gold);
+}
+.page-hero.theme-mixed .lede {
+  color: rgba(250, 246, 238, 0.85);
+}
+.page-hero.theme-mixed .section-eyebrow {
+  color: var(--gold);
+}
+
+/* ========== GET INVOLVED CARDS ========== */
+.involve-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 24px;
+}
+.involve-card {
+  background: var(--cream-warm);
+  border-radius: 8px;
+  padding: 36px;
+  border: 1px solid var(--line);
+  border-left: 5px solid var(--crimson);
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  transition: transform 0.2s;
+  position: relative;
+}
+.involve-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 20px 40px -24px rgba(26, 20, 16, 0.18);
+}
+.involve-card.accent-green { border-left-color: var(--green); }
+.involve-card.accent-gold { border-left-color: var(--gold); }
+.involve-card.accent-crimson { border-left-color: var(--crimson); }
+.involve-card.accent-blue { border-left-color: var(--blue); }
+.involve-card.accent-mint { border-left-color: var(--mint); }
+.involve-num {
+  font-family: var(--serif);
+  font-weight: 500;
+  font-size: 14px;
+  letter-spacing: 0.18em;
+  color: var(--muted);
+}
+.involve-title {
+  font-family: var(--serif);
+  font-weight: 500;
+  font-size: clamp(24px, 3vw, 32px);
+  letter-spacing: -0.02em;
+  color: var(--ink);
+  line-height: 1.05;
+}
+.involve-card.accent-green .involve-title { color: var(--green); }
+.involve-card.accent-gold .involve-title { color: #b86e0d; }
+.involve-card.accent-crimson .involve-title { color: var(--crimson); }
+.involve-card.accent-blue .involve-title { color: var(--blue); }
+.involve-card.accent-mint .involve-title { color: var(--ink); }
+.involve-body {
+  font-size: 16px;
+  line-height: 1.6;
+  color: var(--ink-soft);
+}
+.involve-cta {
+  margin-top: auto;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--crimson);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  align-self: flex-start;
+  border-bottom: 1.5px solid currentColor;
+  padding-bottom: 4px;
+  transition: gap 0.2s;
+}
+.involve-card.accent-green .involve-cta { color: var(--green); }
+.involve-card.accent-gold .involve-cta { color: #b86e0d; }
+.involve-card.accent-blue .involve-cta { color: var(--blue); }
+.involve-card.accent-mint .involve-cta { color: var(--green); }
+.involve-cta:hover {
+  gap: 12px;
+}
+
+@media (max-width: 768px) {
+  .involve-grid {
+    grid-template-columns: 1fr;
   }
 }
 

@@ -64,13 +64,13 @@ export const grantTypes: GrantType[] = [
 export const grantsHeroCopy = {
   eyebrow: "Apply for a grant",
   headline: "Have an idea? We probably want to fund it.",
-  sub: "Three grant categories, three cycles a year, one short application. We're a Dedham board funding Dedham teachers — there is no bureaucracy and there is no committee in Boston to wait on.",
+  sub: "K–12 across Dedham Public Schools — elementary, middle, and high school. Three grant categories, three cycles a year, one short application. We're a Dedham board funding Dedham teachers — no bureaucracy, no committee in Boston to wait on.",
 };
 
 export const eligibilityFaq = [
   {
     q: "Who can apply?",
-    a: "Any educator employed by Dedham Public Schools — classroom teachers, specialists, librarians, counselors, and administrators. Parent-led PTO requests should go through your school's PTO, not DEF.",
+    a: "Any educator employed by Dedham Public Schools — at any of the four elementary schools (Avery, Greenlodge, Oakdale, Riverdale), Dedham Middle School, or Dedham High School. Classroom teachers, specialists, librarians, counselors, and administrators are all eligible. Parent-led PTO requests should go through your school's PTO, not DEF.",
   },
   {
     q: "Can I apply for more than one grant in a cycle?",

@@ -1,29 +1,30 @@
 import Link from "next/link";
 import type { Metadata } from "next";
 import { findEvent } from "@/content/events";
+import { elementarySchools } from "@/content/schools";
 
 export const metadata: Metadata = {
   title: "DEF Spelling Bee",
   description:
-    "DEF's indoor fundraiser. Team up with three friends, pick a costume, and try not to miss \"weird\" in round three.",
+    "Dedham's elementary-school spelling championship. 3rd, 4th, and 5th graders from Avery, Greenlodge, Oakdale, and Riverdale compete onstage every spring.",
 };
 
 const howItWorks = [
   {
-    title: "Teams of three",
-    body: "Three spellers, one captain. Form your own team or get assigned the night of.",
+    title: "Schools run their rounds",
+    body: "Avery, Greenlodge, Oakdale, and Riverdale each run their own classroom and school-wide rounds in February. Teachers coordinate.",
   },
   {
-    title: "Costumes encouraged",
-    body: "Best costume gets immortalized on the DEF Instagram. Last year had three Marie Antoinettes.",
+    title: "Finalists represent",
+    body: "Top spellers from each school — usually 3 per grade — advance to the DEF stage at Dedham Middle School in March.",
   },
   {
-    title: "Word lists scale up",
-    body: "Round one is words you know. Round five is words even etymologists argue about. Audience votes on contested calls.",
+    title: "Onstage at DMS",
+    body: "Word lists scale up by grade. Audience cheers, parents cry. Tie-breakers happen. One champion per grade is crowned.",
   },
   {
-    title: "Audience donates",
-    body: "Heckle, cheer, donate. Every dollar raised in the room goes to the next grant cycle.",
+    title: "Funds the next cycle",
+    body: "Sponsorships and audience donations go directly into the next round of Innovation, Enrichment, and Nancy Bradley grants.",
   },
 ];
 
@@ -31,7 +32,7 @@ export default function SpellingBeePage() {
   const evt = findEvent("spelling-bee");
   return (
     <>
-      <section className="event-hero">
+      <section className="event-hero theme-gold">
         <div className="wrap">
           <div className="event-hero-inner">
             <div className="event-hero-date hex">
@@ -41,10 +42,12 @@ export default function SpellingBeePage() {
               <small>{evt.saveTheDateLabel}</small>
             </div>
             <div>
-              <div className="section-eyebrow mark-hex" style={{ color: "var(--gold)" }}>
+              <div className="section-eyebrow mark-hex">
                 DEF Spelling Bee · 2026
               </div>
-              <h1>The most fun you can have spelling &ldquo;mnemonic&rdquo;.</h1>
+              <h1>
+                Dedham&apos;s best <em>3rd, 4th, and 5th graders</em>. Onstage.
+              </h1>
               <p className="lede">{evt.shortPitch}</p>
               <div style={{ display: "flex", gap: 12, flexWrap: "wrap" }}>
                 <a
@@ -53,7 +56,7 @@ export default function SpellingBeePage() {
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  Form a team
+                  School coordinator info
                 </a>
                 <Link href={evt.sponsorUrl} className="btn btn-secondary">
                   Sponsor a round
@@ -77,11 +80,43 @@ export default function SpellingBeePage() {
 
       <section className="about-section alt">
         <div className="wrap">
+          <div className="section-eyebrow mark-hex">The four schools</div>
+          <h2 className="section-heading">
+            Where the bee <em>starts</em>.
+          </h2>
+          <p style={{ marginTop: 16, color: "var(--ink-soft)", maxWidth: 640 }}>
+            Every Dedham elementary school runs its own bee. Talk to your
+            child&apos;s teacher about classroom-round timing, or visit your
+            school&apos;s site for school-wide details.
+          </p>
+          <div className="honeycomb" style={{ marginTop: 32 }}>
+            {elementarySchools.map((s) => (
+              <a
+                key={s.slug}
+                href={s.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hex-tile"
+              >
+                <div className="hex-year">{s.name.split(" ")[0]}</div>
+                <div className="hex-name">Elementary</div>
+                <div className="hex-grade">Visit school site →</div>
+              </a>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="about-section">
+        <div className="wrap">
           <div className="section-eyebrow mark-hex">How it works</div>
           <h2 className="section-heading">
-            Four things to know <em>before you team up</em>.
+            From classroom rounds to the <em>DMS stage</em>.
           </h2>
-          <div className="howit-grid" style={{ marginTop: 48, gridTemplateColumns: "repeat(2, 1fr)" }}>
+          <div
+            className="howit-grid"
+            style={{ marginTop: 48, gridTemplateColumns: "repeat(2, 1fr)" }}
+          >
             {howItWorks.map((row, i) => (
               <div key={row.title} className="step">
                 <div className="step-num">{i + 1}</div>
@@ -93,10 +128,10 @@ export default function SpellingBeePage() {
         </div>
       </section>
 
-      <section className="about-section">
+      <section className="about-section alt">
         <div className="wrap">
-          <div className="section-eyebrow mark-hex">Star spellers</div>
-          <h2 className="section-heading">Past winning teams.</h2>
+          <div className="section-eyebrow mark-hex">Past champions</div>
+          <h2 className="section-heading">Bee history.</h2>
           <div className="honeycomb">
             {evt.starSpellers?.map((s) => (
               <div key={`${s.year}-${s.name}`} className="hex-tile">
@@ -109,28 +144,26 @@ export default function SpellingBeePage() {
         </div>
       </section>
 
-      <section className="about-section alt">
+      <section className="about-section">
         <div className="wrap" style={{ textAlign: "center", maxWidth: 720, margin: "0 auto" }}>
           <h2 className="section-heading">
-            Ready to spell <em>&ldquo;cornflower&rdquo;</em>?
+            Want your school to sponsor a <em>round</em>?
           </h2>
-          <p style={{ color: "var(--ink-soft)", fontSize: 17, marginTop: 16, marginBottom: 24 }}>
-            Team registration opens in January. Audience tickets go on sale a
-            month later.
+          <p
+            style={{
+              color: "var(--ink-soft)",
+              fontSize: 17,
+              marginTop: 16,
+              marginBottom: 24,
+            }}
+          >
+            DEF runs the Bee, but it&apos;s funded by Dedham businesses,
+            families, and friends-of-school. Sponsorships range from $250
+            (round) to $2,500 (title sponsor).
           </p>
-          <div style={{ display: "flex", gap: 12, flexWrap: "wrap", justifyContent: "center" }}>
-            <a
-              href={evt.registerUrl}
-              className="btn btn-primary"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Form a team
-            </a>
-            <Link href={evt.sponsorUrl} className="btn btn-secondary">
-              Sponsor a round
-            </Link>
-          </div>
+          <Link href={evt.sponsorUrl} className="btn btn-primary">
+            Become a Bee sponsor
+          </Link>
         </div>
       </section>
     </>

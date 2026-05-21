@@ -37,7 +37,7 @@ const faqs = [
 export default function ReimbursementsPage() {
   return (
     <>
-      <section className="page-hero">
+      <section className="page-hero theme-crimson">
         <div className="wrap">
           <div className="section-eyebrow mark-square">For funded teachers</div>
           <h1>

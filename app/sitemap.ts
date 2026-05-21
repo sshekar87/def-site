@@ -4,6 +4,7 @@ import { siteConfig } from "@/lib/site";
 const ROUTES = [
   "/",
   "/mission",
+  "/get-involved",
   "/grants",
   "/grants/awarded",
   "/grants/reimbursements",

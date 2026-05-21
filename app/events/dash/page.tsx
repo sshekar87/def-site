@@ -13,7 +13,7 @@ export default function DashPage() {
   const evt = findEvent("dash");
   return (
     <>
-      <section className="event-hero">
+      <section className="event-hero theme-blue">
         <div className="wrap">
           <div className="event-hero-inner">
             <div className="event-hero-date circle">

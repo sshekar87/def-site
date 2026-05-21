@@ -58,7 +58,7 @@ const givingMethods = [
 export default function DonatePage() {
   return (
     <>
-      <section className="page-hero">
+      <section className="page-hero theme-green">
         <div className="wrap">
           <div className="section-eyebrow mark-triangle">Donate</div>
           <h1>

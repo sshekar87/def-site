@@ -25,4 +25,5 @@ export const navLinks = [
   { href: "/events/dash", label: "DEF Dash" },
   { href: "/grants", label: "Grants" },
   { href: "/mission", label: "Mission" },
+  { href: "/get-involved", label: "Get Involved" },
 ];

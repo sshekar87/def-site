@@ -17,7 +17,7 @@ const recipients = [
 export default function StecAwardPage() {
   return (
     <>
-      <section className="page-hero">
+      <section className="page-hero theme-crimson">
         <div className="wrap">
           <div className="section-eyebrow mark-square">A DEF award</div>
           <h1>
