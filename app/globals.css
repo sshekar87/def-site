@@ -2320,6 +2320,91 @@ button {
   color: var(--gold);
 }
 
+/* ========== MISSION TRIPLET ==========
+   Three cards on /mission that visualize the tagline:
+   Empowering teachers (green) · Enriching students (gold) · Enhancing schools (blue).
+*/
+.mission-triplet {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  margin-top: 40px;
+}
+.mission-triplet-card {
+  background: var(--cream);
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  padding: 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.mission-triplet-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 24px 40px -22px rgba(26, 20, 16, 0.18);
+}
+.mission-triplet-card.accent-green {
+  border-top: 5px solid var(--green);
+}
+.mission-triplet-card.accent-gold {
+  border-top: 5px solid var(--gold);
+}
+.mission-triplet-card.accent-blue {
+  border-top: 5px solid var(--blue);
+}
+.mission-triplet-num {
+  font-family: var(--serif);
+  font-weight: 500;
+  font-size: 14px;
+  letter-spacing: 0.18em;
+  color: var(--muted);
+}
+.mission-triplet-card h3 {
+  font-family: var(--serif);
+  font-weight: 500;
+  font-size: clamp(22px, 2.4vw, 28px);
+  letter-spacing: -0.015em;
+  line-height: 1.1;
+  color: var(--ink);
+}
+.mission-triplet-card.accent-green h3 { color: var(--green); }
+.mission-triplet-card.accent-gold h3 { color: #b86e0d; }
+.mission-triplet-card.accent-blue h3 { color: var(--blue); }
+.mission-triplet-card p {
+  font-size: 15px;
+  line-height: 1.6;
+  color: var(--ink-soft);
+}
+.mission-triplet-link {
+  margin-top: auto;
+  align-self: flex-start;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 13px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--crimson);
+  border-bottom: 1.5px solid currentColor;
+  padding-bottom: 3px;
+  transition: gap 0.2s;
+}
+.mission-triplet-card.accent-green .mission-triplet-link { color: var(--green); }
+.mission-triplet-card.accent-gold .mission-triplet-link { color: #b86e0d; }
+.mission-triplet-card.accent-blue .mission-triplet-link { color: var(--blue); }
+.mission-triplet-link:hover {
+  gap: 10px;
+}
+@media (max-width: 968px) {
+  .mission-triplet {
+    grid-template-columns: 1fr;
+  }
+}
+
 /* ========== GET INVOLVED CARDS ========== */
 .involve-grid {
   display: grid;

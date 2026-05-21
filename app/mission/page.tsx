@@ -32,12 +32,69 @@ export default function AboutPage() {
         <div className="wrap">
           <div className="section-eyebrow">Our mission</div>
           <h1>
-            Funded by Dedham. <em>For Dedham.</em>
+            Empowering our teachers.
+            <br />
+            <em>Enriching</em> our students.
+            <br />
+            Enhancing our schools.
           </h1>
           <p className="lede">
-            Thirty years of putting Dedham teachers&apos; best ideas into Dedham
-            classrooms, paid for by Dedham neighbors and Dedham businesses.
+            Dedicated to supporting, enhancing, and enriching the Dedham Public
+            Schools since 1995 — funded by Dedham, for Dedham.
           </p>
+        </div>
+      </section>
+
+      <section className="about-section alt">
+        <div className="wrap">
+          <div className="section-eyebrow">The mission in three parts</div>
+          <h2 className="section-heading">
+            What we <em>actually do</em>.
+          </h2>
+          <div className="mission-triplet">
+            <article className="mission-triplet-card accent-green">
+              <div className="mission-triplet-num">01</div>
+              <h3>Empowering our teachers.</h3>
+              <p>
+                Three grant cycles a year fund the classroom ideas DPS budgets
+                can&apos;t reach — author visits, robotics kits, hydroponic
+                gardens, Shakespeare for middle schoolers, sensory tools for
+                inclusion classrooms. Teachers apply directly to us. No
+                committee in Boston, no bureaucracy.
+              </p>
+              <a href="/grants" className="mission-triplet-link">
+                See how grants work →
+              </a>
+            </article>
+            <article className="mission-triplet-card accent-gold">
+              <div className="mission-triplet-num">02</div>
+              <h3>Enriching our students.</h3>
+              <p>
+                Around 3,200 Dedham students reach DEF-funded programs each
+                year, K–12. Every grant we award is judged on one question:
+                what changes for a kid in a Dedham classroom because of this?
+                The moments that turn into lifelong memories — those are the
+                ones we fund.
+              </p>
+              <a href="/grants/awarded" className="mission-triplet-link">
+                See what we&apos;ve funded →
+              </a>
+            </article>
+            <article className="mission-triplet-card accent-blue">
+              <div className="mission-triplet-num">03</div>
+              <h3>Enhancing our schools.</h3>
+              <p>
+                DEF supports all four elementary schools — Avery, Greenlodge,
+                Oakdale, Riverdale — plus Dedham Middle and Dedham High.
+                Through events like the Dash and the Spelling Bee, we also
+                celebrate the people who make these schools what they are,
+                from the Stec Award to sponsor partnerships across town.
+              </p>
+              <a href="/get-involved" className="mission-triplet-link">
+                Get involved →
+              </a>
+            </article>
+          </div>
         </div>
       </section>
 
