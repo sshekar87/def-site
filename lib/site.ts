@@ -5,9 +5,12 @@ export const siteConfig = {
   description:
     "For 30 years, DEF has funded teacher-led programs that public school budgets can't reach — from author visits to robotics to live theater.",
   url: "https://dedhameducationfoundation.org",
-  ein: "XX-XXXXXXX",
+  ein: "22-3135168",
   founded: 1995,
   paypalUrl: "https://www.paypal.com/paypalme/DedhamEdFoundation",
+  paypalHandle: "paypal.me/DedhamEdFoundation",
+  venmoUrl: "https://venmo.com/u/DedhamEducation-Foundation",
+  venmoHandle: "@DedhamEducation-Foundation",
   emails: {
     info: "info@dedhameducationfoundation.org",
     grants: "grants@dedhameducationfoundation.org",

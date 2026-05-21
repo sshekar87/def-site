@@ -24,7 +24,9 @@ export const cycles: Cycle[] = [
     opensOn: "2026-02-01",
     closesOn: "2026-03-15",
     maxAward: 5000,
-    applicationUrl: "https://forms.gle/innovation-spring-2026",
+    // Innovation applications use a Google Doc template that teachers copy + submit.
+    applicationUrl:
+      "https://docs.google.com/document/d/174qecwh87NncAOOEfmB4aWCDXW-56GiqHoXBiwMLL5U/copy",
     status: "open",
   },
   {
@@ -36,7 +38,8 @@ export const cycles: Cycle[] = [
     opensOn: "2026-09-01",
     closesOn: "2026-10-15",
     maxAward: 3000,
-    applicationUrl: "https://forms.gle/enrichment-fall-2026",
+    applicationUrl:
+      "https://docs.google.com/forms/d/e/1FAIpQLSdMjEX9ozFBystDTvTcbeWWPLrQmQCEO78Y7DYKf9ftxZo2wg/closedform",
     status: "upcoming",
   },
   {
@@ -48,6 +51,7 @@ export const cycles: Cycle[] = [
     opensOn: "2026-09-01",
     closesOn: "2026-10-15",
     maxAward: 2500,
+    // TODO: real Nancy Bradley application URL from board.
     applicationUrl: "https://forms.gle/nancy-bradley-fall-2026",
     status: "upcoming",
   },

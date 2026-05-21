@@ -28,13 +28,33 @@ const impactBands = [
   },
 ];
 
-const givingMethods = [
+type GivingMethod = {
+  primary: boolean;
+  title: string;
+  handle?: string;
+  body: string;
+  cta: string | null;
+  href: string | null;
+  external: boolean;
+};
+
+const givingMethods: GivingMethod[] = [
   {
     primary: true,
-    title: "One-time gift",
-    body: "Most common. Donate any amount via PayPal — they handle credit cards, Apple Pay, and PayPal balances.",
-    cta: "Donate via PayPal",
+    title: "PayPal",
+    handle: siteConfig.paypalHandle,
+    body: "Credit cards, Apple Pay, and PayPal balances. Picks up your saved payment method if you already use PayPal — the fastest path on most devices.",
+    cta: "Give via PayPal",
     href: siteConfig.paypalUrl,
+    external: true,
+  },
+  {
+    primary: true,
+    title: "Venmo",
+    handle: siteConfig.venmoHandle,
+    body: "Quick from your phone. Pay the foundation directly — open the app, search the handle, send the amount. No fees, no fuss.",
+    cta: "Give via Venmo",
+    href: siteConfig.venmoUrl,
     external: true,
   },
   {
@@ -75,7 +95,7 @@ export default function DonatePage() {
 
       <section className="about-section">
         <div className="wrap">
-          <div className="section-eyebrow mark-triangle">Three ways to give</div>
+          <div className="section-eyebrow mark-triangle">Four ways to give</div>
           <h2 className="section-heading">Pick what works for you.</h2>
           <div className="giving-methods">
             {givingMethods.map((m) => (
@@ -84,6 +104,7 @@ export default function DonatePage() {
                 className={`giving-card${m.primary ? " primary" : ""}`}
               >
                 <h3>{m.title}</h3>
+                {m.handle && <div className="giving-handle">{m.handle}</div>}
                 <p>{m.body}</p>
                 {m.title === "Monthly giving" ? (
                   <div id="monthly" style={{ marginTop: 12 }}>

@@ -1,8 +1,6 @@
 import type { Metadata } from "next";
 import { AwardedClient } from "./AwardedClient";
 import { awardedGrants } from "@/content/awarded-grants";
-import { formatCurrency } from "@/content/grants";
-import { siteConfig } from "@/lib/site";
 
 export const metadata: Metadata = {
   title: "Awarded grants",
@@ -11,7 +9,6 @@ export const metadata: Metadata = {
 };
 
 export default function AwardedGrantsPage() {
-  const total = awardedGrants.reduce((sum, g) => sum + g.amount, 0);
   const latestYear = Math.max(...awardedGrants.map((g) => g.year));
   const latestYearCount = awardedGrants.filter((g) => g.year === latestYear).length;
 
@@ -24,9 +21,8 @@ export default function AwardedGrantsPage() {
             Every grant. <em>Every classroom.</em>
           </h1>
           <p className="lede">
-            More than {siteConfig.founded < 2026 ? "$1M" : formatCurrency(total)} granted
-            to Dedham Public Schools since 1995. {latestYearCount} grants funded in {latestYear}{" "}
-            alone.
+            More than $500K granted to Dedham Public Schools since 1995.{" "}
+            {latestYearCount} grants funded in {latestYear} alone.
           </p>
         </div>
       </section>

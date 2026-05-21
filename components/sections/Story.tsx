@@ -24,9 +24,9 @@ export function Story() {
             kinds of things public school budgets struggled to support.
           </p>
           <p>
-            They started DEF as a way to fill that gap. Thirty years and over a
-            million dollars in grants later, we&apos;re still doing it the same
-            way: locally, transparently, with an all-volunteer board.
+            They started DEF as a way to fill that gap. Thirty years and over
+            half a million dollars in grants later, we&apos;re still doing it
+            the same way: locally, transparently, with an all-volunteer board.
           </p>
           <Link
             href="/mission"

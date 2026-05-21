@@ -1,6 +1,6 @@
-// TODO: verify with board — these numbers should reflect FY2024-25 actuals
+// TODO: verify exact teachersFunded + studentsReached with board for FY2024-25.
 export const impactStats = {
-  totalGranted: "$1M+",
+  totalGranted: "$500K+",
   teachersFunded: "120+",
   studentsReached: "3,200",
 };

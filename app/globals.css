@@ -3322,7 +3322,7 @@ button {
 /* ========== DONATE PAGE ========== */
 .giving-methods {
   display: grid;
-  grid-template-columns: 1.2fr 1fr 1fr;
+  grid-template-columns: 1fr 1fr;
   gap: 24px;
   margin: 40px 0;
 }
@@ -3334,6 +3334,14 @@ button {
   display: flex;
   flex-direction: column;
   gap: 14px;
+}
+.giving-handle {
+  font-family: "SF Mono", Menlo, monospace;
+  font-size: 13px;
+  letter-spacing: 0.04em;
+  color: var(--gold);
+  opacity: 0.9;
+  margin-top: -6px;
 }
 .giving-card.primary {
   background: var(--ink);
