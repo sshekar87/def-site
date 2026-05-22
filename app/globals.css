@@ -3911,18 +3911,22 @@ button {
   .hero-card-label { font-size: 10px; margin-bottom: 8px; }
 }
 
-/* Mobile hero deck — replace the overlapping offset stack (which collapsed
-   into tiny, clipped cards on phones) with a clean tappable deck. All three
-   cards fill the same box; rotation lets the back two peek at the corners.
-   Tapping any card flattens it to rotate(0) and lifts it to the front. */
-@media (max-width: 640px) {
+/* Mobile/stacked hero deck — replace the overlapping offset collage (a
+   two-column-layout flourish that collapsed into tiny clipped strips once
+   stacked) with a clean tappable deck. The visual gets an EXPLICIT width
+   so the absolutely-positioned cards have a real box to fill; all three
+   fill it, rotation lets the back two peek at the corners, and tapping any
+   card flattens it to rotate(0) and lifts it to the front. */
+@media (max-width: 968px) {
   .hero-inner {
-    gap: 28px;
+    gap: 32px;
   }
   .hero-visual {
+    width: min(100%, 340px);
+    max-width: none;
+    height: 360px;
+    margin: 0 auto;
     aspect-ratio: auto;
-    height: 340px;
-    max-width: 330px;
   }
   .hero-card-1,
   .hero-card-2,
