@@ -740,9 +740,12 @@ button {
   letter-spacing: -0.02em;
 }
 
+/* Circle (blue) drops to the lower spot — blue on the gold card reads fine.
+   Hex (gold) takes the clear top-right corner so it never lands on the
+   gold card and washes out. */
 .hero-sticker.circle {
-  top: -14px;
-  right: -10px;
+  top: 64px;
+  right: 34px;
   background: var(--blue);
   color: var(--cream);
   border-radius: 50%;
@@ -751,8 +754,8 @@ button {
 }
 
 .hero-sticker.hex {
-  top: 70px;
-  right: 38px;
+  top: -16px;
+  right: -12px;
   background: var(--gold);
   color: var(--ink);
   width: 92px;
@@ -3916,54 +3919,21 @@ button {
   .hero-card-label { font-size: 10px; margin-bottom: 8px; }
 }
 
-/* Mobile/stacked hero — the overlapping offset collage is a desktop
-   two-column flourish that never survived small screens. Once the layout
-   stacks (<=968px) the three cards drop into normal flow as a plain
-   vertical stack: all three fully visible, full-width, readable, and the
-   page scrolls past them naturally. The 5K + Bee stickers move into a flex
-   row above the cards, so the gold hex never lands on the gold card. */
+/* Mobile hero — keep the desktop collage exactly as-is. The ONLY thing
+   that ever broke it on small screens: .hero-visual had no definite width.
+   It's a grid item, but `margin: 0 auto` defeats grid stretch, and with
+   only absolutely-positioned children it then shrink-wraps to ~nothing —
+   so the percentage-sized cards collapsed into slivers. Give the visual an
+   explicit width and the entire desktop collage (percentage-positioned
+   cards, floating stickers, click-to-shuffle) resolves correctly. The
+   aspect-ratio: 4/5 from the base rule is kept, so height follows width. */
 @media (max-width: 968px) {
   .hero-inner {
     gap: 32px;
   }
   .hero-visual {
-    width: min(100%, 380px);
+    width: min(100%, 440px);
     max-width: none;
-    height: auto;
-    aspect-ratio: auto;
     margin: 0 auto;
-    display: flex;
-    flex-direction: column;
-    gap: 18px;
-    position: relative;
-  }
-  .hero-stickers {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    gap: 20px;
-    order: -1;
-    margin-bottom: 2px;
-  }
-  .hero-card-1,
-  .hero-card-2,
-  .hero-card-3 {
-    position: static;
-    inset: auto;
-    width: 100%;
-    height: auto;
-    min-height: 250px;
-    transform: none !important;
-    z-index: auto;
-    box-shadow: 0 16px 36px -18px rgba(26, 20, 16, 0.28);
-  }
-  .hero-card-button:hover,
-  .hero-card.active-front {
-    transform: none !important;
-    box-shadow: 0 16px 36px -18px rgba(26, 20, 16, 0.28);
-  }
-  .hero-sticker {
-    position: static;
   }
 }
