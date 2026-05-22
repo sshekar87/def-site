@@ -48,7 +48,7 @@ const eras: Record<
       { num: "3,200", label: "students reached each year, K–12" },
     ],
     explainer: [
-      "Three decades and more than half a million dollars in grants later, we're still doing it the same way: an all-volunteer board, three grant cycles a year, and every dollar we raise going back into Dedham Public Schools.",
+      "Three decades and more than half a million dollars in grants later, we're still doing it the same way: an all-volunteer board, two grant cycles a year, and every dollar we raise going back into Dedham Public Schools.",
       "We are not a school. We are not the PTO. We are a 501(c)(3) public charity whose only job is to fund the moments that move the needle for Dedham students, year after year.",
     ],
   },

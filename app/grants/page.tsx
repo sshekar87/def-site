@@ -15,7 +15,7 @@ import { siteConfig } from "@/lib/site";
 export const metadata: Metadata = {
   title: "Grants for DPS Teachers",
   description:
-    "Three grant categories, three cycles a year, one short application. DEF funds Dedham teachers' best classroom ideas.",
+    "Three grant categories, two cycles a year, one short application. DEF funds Dedham teachers' best classroom ideas.",
 };
 
 export default function GrantsPage() {

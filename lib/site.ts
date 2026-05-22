@@ -36,9 +36,9 @@ export const navLinks: NavLink[] = [
     href: "/grants",
     label: "Grants",
     children: [
+      // Apply + reimbursement live on one page now, so one nav link covers it.
       { href: "/grants", label: "How to apply" },
       { href: "/grants/awarded", label: "Awarded grants" },
-      { href: "/grants#reimbursements", label: "Get reimbursed" },
       { href: "/grants/stec-award", label: "Stec Educator Award" },
     ],
   },

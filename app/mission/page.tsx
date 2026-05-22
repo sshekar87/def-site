@@ -71,7 +71,7 @@ export default function AboutPage() {
               <div className="mission-triplet-num">02</div>
               <h3>Grant awards.</h3>
               <p>
-                Three grant cycles a year fund the classroom ideas DPS budgets
+                Two grant cycles a year fund the classroom ideas DPS budgets
                 can&apos;t reach — author visits, robotics kits, hydroponic
                 gardens, Shakespeare for middle schoolers, sensory tools for
                 inclusion classrooms. Plus our annual{" "}

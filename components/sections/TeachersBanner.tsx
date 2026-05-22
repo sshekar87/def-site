@@ -21,7 +21,7 @@ export function TeachersBanner() {
               We want to fund it.
             </h2>
             <p>
-              Three grant cycles a year. Applications take about 20 minutes
+              Two grant cycles a year. Applications take about 20 minutes
               and go to a Dedham board — there&apos;s no committee in Boston
               to wait on.
             </p>
