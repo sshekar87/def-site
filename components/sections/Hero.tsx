@@ -111,26 +111,29 @@ export function Hero() {
             </div>
           </button>
 
-          {/* Event shape stickers — clustered together, top-right.
-              Each reads as a "DEF — [event]" emblem split by a rule. */}
-          <Link
-            href="/events/dash"
-            className="hero-sticker circle"
-            aria-label="DEF Dash 5K"
-          >
-            <span className="sticker-pre">DEF</span>
-            <span className="sticker-rule" />
-            <span className="sticker-name">5K</span>
-          </Link>
-          <Link
-            href="/events/spelling-bee"
-            className="hero-sticker hex"
-            aria-label="DEF Spelling Bee"
-          >
-            <span className="sticker-pre">DEF</span>
-            <span className="sticker-rule" />
-            <span className="sticker-name">Bee</span>
-          </Link>
+          {/* Event shape stickers. Desktop: the wrapper is display:contents
+              so each floats absolutely over the card stack. Mobile: the
+              wrapper becomes a flex row pinned above the cards. */}
+          <div className="hero-stickers">
+            <Link
+              href="/events/dash"
+              className="hero-sticker circle"
+              aria-label="DEF Dash 5K"
+            >
+              <span className="sticker-pre">DEF</span>
+              <span className="sticker-rule" />
+              <span className="sticker-name">5K</span>
+            </Link>
+            <Link
+              href="/events/spelling-bee"
+              className="hero-sticker hex"
+              aria-label="DEF Spelling Bee"
+            >
+              <span className="sticker-pre">DEF</span>
+              <span className="sticker-rule" />
+              <span className="sticker-name">Bee</span>
+            </Link>
+          </div>
         </div>
       </div>
     </section>

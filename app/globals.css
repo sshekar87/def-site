@@ -690,7 +690,12 @@ button {
 
 /* Event shape stickers — small floating "shape-coded" event marks.
    Circle = DEF Dash 5K (blue). Hex = DEF Spelling Bee (gold).
-   Each clickable, links to its event page. Subtle wobble keeps them alive. */
+   Each clickable, links to its event page. Subtle wobble keeps them alive.
+   The wrapper is display:contents on desktop so the stickers float freely;
+   mobile turns it into a real flex row above the cards. */
+.hero-stickers {
+  display: contents;
+}
 .hero-sticker {
   position: absolute;
   width: 92px;
@@ -3911,56 +3916,54 @@ button {
   .hero-card-label { font-size: 10px; margin-bottom: 8px; }
 }
 
-/* Mobile/stacked hero deck — replace the overlapping offset collage (a
-   two-column-layout flourish that collapsed into tiny clipped strips once
-   stacked) with a clean tappable deck. The visual gets an EXPLICIT width
-   so the absolutely-positioned cards have a real box to fill; all three
-   fill it, rotation lets the back two peek at the corners, and tapping any
-   card flattens it to rotate(0) and lifts it to the front. */
+/* Mobile/stacked hero — the overlapping offset collage is a desktop
+   two-column flourish that never survived small screens. Once the layout
+   stacks (<=968px) the three cards drop into normal flow as a plain
+   vertical stack: all three fully visible, full-width, readable, and the
+   page scrolls past them naturally. The 5K + Bee stickers move into a flex
+   row above the cards, so the gold hex never lands on the gold card. */
 @media (max-width: 968px) {
   .hero-inner {
     gap: 32px;
   }
   .hero-visual {
-    width: min(100%, 340px);
+    width: min(100%, 380px);
     max-width: none;
-    height: 360px;
-    margin: 0 auto;
+    height: auto;
     aspect-ratio: auto;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+    position: relative;
+  }
+  .hero-stickers {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    order: -1;
+    margin-bottom: 2px;
   }
   .hero-card-1,
   .hero-card-2,
   .hero-card-3 {
-    top: 0;
-    left: 0;
-    right: auto;
-    bottom: auto;
+    position: static;
+    inset: auto;
     width: 100%;
-    height: 100%;
-    z-index: 2;
+    height: auto;
+    min-height: 250px;
+    transform: none !important;
+    z-index: auto;
+    box-shadow: 0 16px 36px -18px rgba(26, 20, 16, 0.28);
   }
-  .hero-card-1 {
-    transform: rotate(-3deg);
+  .hero-card-button:hover,
+  .hero-card.active-front {
+    transform: none !important;
+    box-shadow: 0 16px 36px -18px rgba(26, 20, 16, 0.28);
   }
-  .hero-card-2 {
-    transform: rotate(3.5deg);
-  }
-  .hero-card-3 {
-    transform: rotate(-1.5deg);
-  }
-  .hero-card-1.hero-card-button.active-front,
-  .hero-card-2.hero-card-button.active-front,
-  .hero-card-3.hero-card-button.active-front {
-    transform: rotate(0deg) !important;
-    z-index: 20;
-  }
-  .hero-card-1.hero-card-button:hover {
-    transform: rotate(-3deg);
-  }
-  .hero-card-2.hero-card-button:hover {
-    transform: rotate(3.5deg);
-  }
-  .hero-card-3.hero-card-button:hover {
-    transform: rotate(-1.5deg);
+  .hero-sticker {
+    position: static;
   }
 }
