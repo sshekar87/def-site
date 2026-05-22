@@ -3927,9 +3927,12 @@ button {
   .hero-card-1,
   .hero-card-2,
   .hero-card-3 {
-    inset: 0;
-    width: auto;
-    height: auto;
+    top: 0;
+    left: 0;
+    right: auto;
+    bottom: auto;
+    width: 100%;
+    height: 100%;
     z-index: 2;
   }
   .hero-card-1 {
