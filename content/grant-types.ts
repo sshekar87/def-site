@@ -17,7 +17,7 @@ export const grantTypes: GrantType[] = [
     name: "Enrichment Grants",
     shortPitch: "Supplement existing curriculum with experiences students remember.",
     description:
-      "Enrichment grants fund the kinds of programs that complement what's already happening in a Dedham classroom — author visits, live performances, museum visits, guest scientists, hands-on workshops. If it deepens an existing unit or brings the subject alive in a new way, this is the grant.",
+      "Enrichment grants bring an existing lesson to life — author visits, live performances, museum trips, guest scientists. If it deepens a unit students are already studying, this is the grant.",
     examples: [
       "An author visit tied to a 5th grade reading unit",
       "Commonwealth Shakespeare bringing Romeo & Juliet to DMS",
@@ -33,7 +33,7 @@ export const grantTypes: GrantType[] = [
     shortPitch:
       "New pilot programs that try something Dedham classrooms haven't done before.",
     description:
-      "Innovation grants are for teachers piloting a new program, technology, or curriculum approach — something not yet part of the district's established practice but aligned with the strategic plan. Innovation grants tend to be larger and tied to a multi-month classroom commitment.",
+      "Innovation grants pilot something new — a technology, program, or curriculum approach Dedham classrooms haven't tried before. Usually a multi-month commitment aligned with the district strategic plan.",
     examples: [
       "A working hydroponic garden in a 3rd grade classroom",
       "A robotics curriculum pilot for after-school engineering club",
@@ -49,7 +49,7 @@ export const grantTypes: GrantType[] = [
     shortPitch:
       "Funds world languages and cultures programming. Named for a beloved Dedham educator.",
     description:
-      "The Nancy Bradley Memorial Fund honors a longtime Dedham educator who championed world-languages and cross-cultural learning. Grants from this fund support language programs, cultural exchanges, and any teacher-led work that opens Dedham students' eyes to the world beyond Dedham.",
+      "The Nancy Bradley Memorial Fund supports world languages and cultures — language programs, cultural exchanges, anything that opens students' eyes to the world. Named for a beloved Dedham educator.",
     examples: [
       "A French film festival and cultural exchange at DHS",
       "Chhandika Indian classical dance for the elementary schools",
@@ -67,7 +67,11 @@ export const grantsHeroCopy = {
   sub: "K–12 across Dedham Public Schools — elementary, middle, and high school. Three grant categories, three cycles a year, one short application. We're a Dedham board funding Dedham teachers — no bureaucracy, no committee in Boston to wait on.",
 };
 
-export const eligibilityFaq = [
+// One combined FAQ for the whole /grants page — ordered by the applicant's
+// journey: applying first, then reimbursement. The standalone "Reimbursement
+// FAQ" and the "How do I get reimbursed?" entry were dropped: the on-page
+// reimbursement steps section already answers that in full.
+export const faq = [
   {
     q: "Who can apply?",
     a: "Any educator employed by Dedham Public Schools — at any of the four elementary schools (Avery, Greenlodge, Oakdale, Riverdale), Dedham Middle School, or Dedham High School. Classroom teachers, specialists, librarians, counselors, and administrators are all eligible. Parent-led PTO requests should go through your school's PTO, not DEF.",
@@ -85,12 +89,24 @@ export const eligibilityFaq = [
     a: "Every application is reviewed by at least three board members against published criteria: alignment with district strategic plan, student impact, feasibility, and fit with the grant type. We notify applicants within 4–6 weeks of the deadline.",
   },
   {
-    q: "How do I get reimbursed?",
-    a: "Save your receipts and submit the reimbursement form within 30 days of completing the program. See the reimbursements page for details.",
+    q: "What counts as a complete receipt?",
+    a: "An itemized receipt or invoice showing vendor name, date, and the items purchased. Credit card statements alone don't count.",
   },
   {
-    q: "Can DEF pay vendors directly?",
-    a: "Yes, in some cases. If a vendor requires a deposit or payment in advance, contact our treasurer before the program — we'll arrange a direct payment.",
+    q: "What if I lost a receipt?",
+    a: "Email our treasurer with what you remember (vendor, date, approximate amount). Most vendors can email a duplicate; we can usually work it out as long as the gap is small.",
+  },
+  {
+    q: "Can DEF pay a vendor directly?",
+    a: "Yes — for deposits or invoices that require advance payment, contact the treasurer before the program. We can issue a check directly to the vendor as long as it matches the funded budget.",
+  },
+  {
+    q: "How long does reimbursement take?",
+    a: "Two to three weeks from the date we receive a complete reimbursement packet (receipts + signed form). Direct vendor payments are faster.",
+  },
+  {
+    q: "What if I go over budget?",
+    a: "We reimburse up to the funded amount. Anything beyond that is the teacher's or PTO's to cover. If you think you'll need more, reach out before going over — we can sometimes amend.",
   },
 ];
 
@@ -113,29 +129,6 @@ export const reimbursementSteps = [
   {
     title: "Watch for your reimbursement check",
     body: "Two to three weeks from a complete packet. Direct deposit available on request.",
-  },
-];
-
-export const reimbursementFaq = [
-  {
-    q: "What if I lost a receipt?",
-    a: "Email our treasurer with what you remember (vendor, date, approximate amount). Most vendors can email a duplicate; we can usually work it out as long as the gap is small.",
-  },
-  {
-    q: "Can DEF pay vendors directly?",
-    a: "Yes — for deposits or invoices that require advance payment, contact the treasurer before the program. We can issue a check directly to the vendor as long as it matches the funded budget.",
-  },
-  {
-    q: "How long does reimbursement take?",
-    a: "Two to three weeks from the date we receive a complete reimbursement packet (receipts + signed form). Direct vendor payments are faster.",
-  },
-  {
-    q: "What counts as a complete receipt?",
-    a: "Itemized receipt or invoice showing vendor name, date, and the items purchased. Credit card statements alone don't count.",
-  },
-  {
-    q: "I went over budget — what now?",
-    a: "We reimburse up to the funded amount. Anything beyond that is the teacher's or PTO's to cover. Reach out before going over budget if you think you'll need more — we can sometimes amend.",
   },
 ];
 

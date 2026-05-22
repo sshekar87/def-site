@@ -5,10 +5,9 @@ import { formatCurrency } from "@/content/grants";
 import {
   grantTypes,
   grantsHeroCopy,
-  eligibilityFaq,
+  faq,
   reviewTimeline,
   reimbursementSteps,
-  reimbursementFaq,
   REIMBURSEMENT_FORM_URL,
 } from "@/content/grant-types";
 import { siteConfig } from "@/lib/site";
@@ -119,22 +118,7 @@ export default function GrantsPage() {
         </div>
       </section>
 
-      <section className="about-section">
-        <div className="wrap">
-          <div className="section-eyebrow mark-square">Eligibility & FAQ</div>
-          <h2 className="section-heading">Quick answers.</h2>
-          <div className="faq-list">
-            {eligibilityFaq.map((item) => (
-              <details key={item.q} className="faq-item">
-                <summary>{item.q}</summary>
-                <div className="faq-answer">{item.a}</div>
-              </details>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <section className="about-section alt" id="reimbursements">
+      <section className="about-section" id="reimbursements">
         <div className="wrap">
           <div className="section-eyebrow mark-square">For funded teachers</div>
           <h2 className="section-heading">
@@ -218,16 +202,22 @@ export default function GrantsPage() {
             </p>
           </div>
 
-          <div style={{ marginTop: 48 }}>
-            <div className="section-eyebrow mark-square">Reimbursement FAQ</div>
-            <div className="faq-list" style={{ marginTop: 24 }}>
-              {reimbursementFaq.map((item) => (
-                <details key={item.q} className="faq-item">
-                  <summary>{item.q}</summary>
-                  <div className="faq-answer">{item.a}</div>
-                </details>
-              ))}
-            </div>
+        </div>
+      </section>
+
+      <section className="about-section alt">
+        <div className="wrap">
+          <div className="section-eyebrow mark-square">FAQ</div>
+          <h2 className="section-heading">
+            Applying &amp; reimbursement, <em>answered</em>.
+          </h2>
+          <div className="faq-list">
+            {faq.map((item) => (
+              <details key={item.q} className="faq-item">
+                <summary>{item.q}</summary>
+                <div className="faq-answer">{item.a}</div>
+              </details>
+            ))}
           </div>
         </div>
       </section>
