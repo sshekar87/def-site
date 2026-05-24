@@ -1,13 +1,14 @@
-# v1.1 Roadmap — Donations, drips, and the sharing layer
+# v1.1 Roadmap — Donations, drips, sharing, and grant intake
 
 This is the planning doc for **after** v1 launches and the board is happy. Don't start any of this until v1 is in production.
 
 ## v1.1 scope
 
-Three pillars:
+Four pillars:
 1. **Real donation processing** via Givebutter
 2. **Email drip campaigns** via Resend
 3. **Frictionless sharing** across the site
+4. **Grant intake + management** via Airtable (optionally with Tally)
 
 ## Pillar 1: Donations (Givebutter)
 
@@ -167,6 +168,63 @@ On every event page:
 
 Implementation: `<AddToCalendar>` component using the `add-to-calendar-button` npm package or hand-rolled .ics generation.
 
+## Pillar 4: Grant intake + management (Airtable)
+
+Replaces the current Google Forms / Google Docs / scattered-inbox workflow for grant applications, Stec nominations, reimbursement submissions, and sponsor inquiries. The board ends up with one place to review and triage every inbound request, with multi-board-member collaboration built in.
+
+### Recommended setup
+
+One Airtable base, multiple tables:
+- Innovation Grant applications
+- Enrichment Grant applications
+- Nancy Bradley applications
+- Stec Educator Award nominations
+- Reimbursement submissions
+- Sponsor inquiries
+
+**Forms:** use Airtable's built-in form view per table. Free, native to Airtable, submissions land directly in the relevant table — no integration to build or maintain. Embed each form on the corresponding DEF site page via iframe (or link out).
+
+**Reviewing:** each table gets multiple views — a "Pipeline" kanban (submitted → reviewed → awarded → reimbursed), grid for spreadsheet-style sorting, filtered views per school / cycle / year. Board members invited as Airtable collaborators can score, tag, comment, and change status — no developer in the loop.
+
+**Automations (Airtable native, free tier):** auto-confirm to applicant on submission, notify board when a new application lands, status-change emails ("Your grant has been awarded").
+
+### Why Airtable over Google Sheets
+
+Sheets stores data; Airtable runs a workflow. Real field types (file attachments for receipts, dropdowns for status, multi-select for tags), multiple views on the same data, native automations, and a board-friendly UI all out of the box.
+
+### Optional: Tally for nicer-looking forms
+
+Airtable's form view is functional but visibly an Airtable form. If form design matters (especially for public-facing grant applications), use **Tally** as the form layer instead — clean design, custom branding, embeds seamlessly on the DEF site, posts directly to Airtable. Free tier covers DEF's volume.
+
+**Verdict:** start with Airtable forms only — one tool, zero friction. Add Tally later if/when the board wants more designed forms.
+
+### Skip
+
+A custom Next.js form + Supabase + admin UI. Building a board-facing admin dashboard is its own project; Airtable IS that dashboard, prebuilt.
+
+### Pilot path
+
+1. Set up one Airtable base + one form for the next cycle's Enrichment application (an afternoon's work).
+2. Run that cycle end-to-end through Airtable — applications come in, board reviews in-app, status flips, applicants get auto-confirmations.
+3. Once the workflow is confirmed, convert the remaining intake points (other grant types, Stec nomination, reimbursement, sponsor inquiries) one at a time.
+
+### Migration off Google Forms / Docs
+
+| Currently | Becomes |
+|---|---|
+| Innovation Grant Google Doc template | Airtable form, same fields |
+| Enrichment Grant Google Form | Airtable form |
+| Nancy Bradley application | New Airtable form |
+| Stec Educator Award nomination | New Airtable form |
+| Reimbursement Google Doc | Airtable form with file-attachment fields for receipts |
+| Sponsor inquiries (`/contact?inquiry=sponsor-*`) | Dedicated Airtable form embedded on `/get-involved` |
+
+### Open questions for board
+
+- Are board members willing to log into Airtable to review applications, or do we want emailed digests?
+- Should we keep old Google Forms accessible for one transitional cycle, or hard-cut?
+- Who on the board owns the Airtable base (admin / billing if we ever outgrow free)?
+
 ## Sequencing
 
 Suggested order for v1.1 (each ~1 week of focused work):
@@ -187,8 +245,12 @@ Suggested order for v1.1 (each ~1 week of focused work):
 | Resend | Pro | $20 |
 | Beehiiv | Launch (free up to 2,500 subs) | $0 |
 | Givebutter | Free + transaction fees | $0 base |
+| Airtable | Free (1,000 records, 5 editors) | $0 |
+| Tally (optional) | Free | $0 |
 | Domain | (existing) | — |
 | **Total** | | **~$20/month** |
+
+Airtable Team plan ($10/seat/month) only kicks in if DEF outgrows the free tier — based on current volume (~50–100 applications + nominations + inquiries per year), that's likely a year or two out.
 
 Transaction fees on Givebutter: ~3% + 30¢ per donation, optionally passed to donor.
 
